@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.bak
+*.before_*
+
+# SQLite Database & Production Data (Do NOT commit real user data)
+data/*
+!data/.gitkeep
+user_sessions/*
+!user_sessions/.gitkeep
+chrome_profile/
+novels/
+*.db
+*.sqlite
+
+# Environment Variables & Secrets
+.env
+.env.local
+config.json
+
+# Logs & Temporary debug files
+*.log
+chrome_err.log
+
+# Playwright & Screenshots
+test_*.png
+*.png
+*.jpg
+*.jpeg
+*.webp
+!web_saas_stitch/**
+
+# Python Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

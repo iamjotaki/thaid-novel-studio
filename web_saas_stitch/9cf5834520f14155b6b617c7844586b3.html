@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+
+<html class="light" lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ReadAWrite Pro Studio &amp; SaaS Cloud</title>
+<!-- Google Fonts: Plus Jakarta Sans, Sarabun for Authentic Thai Prose, JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#c54f27",
+            "on-secondary": "#ffffff",
+            "tertiary-container": "#976d00",
+            "surface-container-high": "#dee8ff",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#005049",
+            "secondary": "#006a61",
+            "on-surface-variant": "#58423b",
+            "inverse-surface": "#273141",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#6df8e7",
+            "on-primary-fixed-variant": "#842500",
+            "background": "#f9f9ff",
+            "on-secondary-fixed": "#00201d",
+            "surface-variant": "#d9e3f9",
+            "surface-container": "#e7eeff",
+            "surface-container-highest": "#d9e3f9",
+            "on-secondary-container": "#006f66",
+            "on-error": "#ffffff",
+            "outline-variant": "#dfc0b7",
+            "primary-fixed-dim": "#ffb59e",
+            "surface-dim": "#d0daf0",
+            "surface-bright": "#f9f9ff",
+            "outline": "#8b7169",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#4bdbcb",
+            "tertiary": "#785600",
+            "on-primary": "#ffffff",
+            "on-background": "#121c2c",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed": "#271900",
+            "inverse-primary": "#ffb59e",
+            "on-tertiary-container": "#fffbff",
+            "inverse-on-surface": "#ebf1ff",
+            "primary": "#a4370f",
+            "secondary-container": "#6af5e5",
+            "on-error-container": "#93000a",
+            "on-primary-fixed": "#3a0b00",
+            "tertiary-fixed-dim": "#ffbb0f",
+            "surface-container-low": "#f0f3ff",
+            "on-surface": "#121c2c",
+            "tertiary-fixed": "#ffdea5",
+            "primary-fixed": "#ffdbd0",
+            "surface": "#f9f9ff",
+            "on-primary-container": "#fffbff",
+            "on-tertiary-fixed-variant": "#5d4200",
+            "surface-tint": "#a73a12"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "3rem",
+            "gutter": "1.5rem",
+            "gutter-lg": "2rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "code-md": ["JetBrains Mono", "monospace"],
+            "display-hero-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "title-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "display-hero": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "thai-novel": ["Sarabun", "sans-serif"]
+          },
+          "fontSize": {
+            "label-md": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "fontWeight": "600" }],
+            "code-md": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "30px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f0f3ff;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #dfc0b7;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-[#fbfaf8] text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TOP NOTICE BANNER (SaaS Trial & Cloud Sync Status) -->
+<aside aria-label="SaaS Announcement" class="bg-gradient-to-r from-primary-fixed/70 via-surface-container-low to-secondary-container/40 border-b border-outline-variant/30 px-space-md py-space-xs text-on-surface">
+<div class="max-w-[1520px] mx-auto flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm text-body-sm font-body-sm">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span class="font-semibold text-primary">🎉 สิทธิ์ Pro Trial 7 วันเต็ม!</span>
+<span class="hidden sm:inline text-on-surface-variant">เชื่อมต่อบัญชี ReadAWrite.com สำเร็จ (สถานะ: คลาวด์พร้อมซิงค์แบบเรียลไทม์)</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="bg-primary text-on-primary hover:bg-primary-container px-space-sm py-1 rounded-lg text-label-sm font-label-sm font-semibold transition-all active:scale-[0.98] shadow-sm flex items-center gap-1" onclick="document.getElementById('pricingModal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[15px]">diamond</span>
+          อัปเกรดเป็น Pro รายเดือน/ตลอดชีพ (ลด 20%)
+        </button>
+<button class="text-on-surface-variant hover:text-primary text-label-sm font-label-sm underline decoration-outline-variant underline-offset-2 flex items-center gap-0.5">
+<span>ดูประวัติการซิงค์ ReadAWrite</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- 1. TOP NAVIGATION BAR (Exact Shared Component adherence) -->
+<header class="bg-surface-container-lowest text-primary shadow-sm border-b border-outline-variant/30 flex justify-between items-center w-full px-space-lg h-16 sticky top-0 z-50">
+<!-- Left: Brand Logo & Search Bar -->
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-space-xs cursor-pointer">
+<div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">stylus_note</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">ReadAWrite</span>
+<span class="bg-gradient-to-r from-primary to-secondary text-white text-[10px] font-bold px-1.5 py-0.5 rounded tracking-wider uppercase">PRO STUDIO</span>
+</div>
+</div>
+</div>
+<!-- Search on Left (from Shared Components JSON search_bar: "on_left") -->
+<div class="hidden lg:flex items-center relative">
+<span class="material-symbols-outlined text-outline text-[18px] absolute left-3 pointer-events-none">search</span>
+<input class="bg-surface-container-low hover:bg-surface-container/60 focus:bg-surface-container-lowest border border-outline-variant/40 focus:border-primary text-body-sm font-body-sm text-on-surface rounded-lg pl-9 pr-9 py-1.5 w-64 xl:w-80 transition-all outline-none" placeholder="ค้นหาตอน, โน้ตย่อ, หรือคำศัพท์... ⌘K" type="text"/>
+<kbd class="absolute right-2.5 bg-surface-container-lowest text-outline text-[10px] font-mono px-1.5 py-0.5 rounded border border-outline-variant/40">⌘K</kbd>
+</div>
+</div>
+<!-- Center Navigation Links (Exact Shared Component Array: ["หน้าแรก", "จัดการงานเขียน", "ตลาดพล็อต AI", "ตั้งเวลาเผยแพร่", "ราคา & แพ็กเกจ"]) -->
+<nav class="hidden md:flex items-center gap-space-md">
+<a class="text-on-surface-variant hover:text-on-surface text-label-md font-label-md px-1 py-1 transition-colors duration-150" href="#">หน้าแรก</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-md font-label-md px-1" href="#">จัดการงานเขียน</a>
+<a class="text-on-surface-variant hover:text-on-surface text-label-md font-label-md px-1 py-1 transition-colors duration-150 flex items-center gap-1" href="#">
+<span>ตลาดพล็อต AI</span>
+<span class="bg-secondary-container text-secondary text-[9px] font-bold px-1 rounded-full">ใหม่</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface text-label-md font-label-md px-1 py-1 transition-colors duration-150" href="#">ตั้งเวลาเผยแพร่</a>
+<a class="text-on-surface-variant hover:text-on-surface text-label-md font-label-md px-1 py-1 transition-colors duration-150" href="#" onclick="document.getElementById('pricingModal').classList.remove('hidden')">ราคา &amp; แพ็กเกจ</a>
+</nav>
+<!-- Right Trailing Actions -->
+<div class="flex items-center gap-space-sm">
+<!-- 7-Day Free Trial Pill -->
+<div class="hidden xl:flex items-center gap-1.5 bg-primary-fixed/80 text-on-primary-fixed border border-primary-fixed-dim px-space-sm py-1 rounded-full text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">timer</span>
+<span>ทดลองใช้ฟรีเหลือ 6 วัน</span>
+</div>
+<!-- Quota Chip -->
+<div class="hidden sm:flex items-center gap-1.5 bg-secondary-container/40 text-on-secondary-container border border-secondary-fixed/50 px-space-sm py-1 rounded-full text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">bolt</span>
+<span>โควตา 245,000 คำ</span>
+</div>
+<!-- Quick Action: แต่งตอนใหม่ -->
+<button class="bg-primary hover:bg-primary-container text-on-primary text-label-md font-label-md font-semibold px-space-md py-1.5 rounded-lg active:scale-[0.98] transition-transform duration-150 flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add_box</span>
+<span class="hidden sm:inline">+ แต่งตอนใหม่</span>
+</button>
+<!-- Trailing Icon Actions: notifications, help -->
+<div class="flex items-center">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors duration-150 relative">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors duration-150">
+<span class="material-symbols-outlined text-[20px]">help</span>
+</button>
+</div>
+<!-- User Profile Avatar -->
+<div class="flex items-center gap-2 pl-space-xs border-l border-outline-variant/30">
+<div class="relative cursor-pointer">
+<img class="w-9 h-9 rounded-full object-cover border border-outline-variant/40" data-alt="Close up photographic avatar of a creative young Thai female author named D-nee wearing glasses, smiling warm expression, modern pastel studio background with warm persimmon ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5JIIDjVm5RJHqLt5zzKhzieb6_NGwVVHh-mDhri5gy_Xbw6sSFARJRnyaInAbeaayCXjWKfrClfP9mEVtMm9wLw1nY5LHO2SjuOCvHAnNWDygGOzJ-Me9nIaAOj9xHtL1jSbs5YwGaR8gGqWnznD-PW4r7xs5CH8Q9-FHtkFLqaz0cz3L4GbHPBRgMg64le8gyu9d0n5JM--XzN74bcb_yAVXy3kUL4i-e9N4zWbFTl89G0-xdnVX28CAH9-NqQudErnP1JRlYj0"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-secondary border-2 border-surface-container-lowest rounded-full"></span>
+</div>
+<div class="hidden 2xl:flex flex-col text-left">
+<span class="text-label-md font-label-md leading-none text-on-surface">D-nee (นักเขียน Pro)</span>
+<span class="text-label-sm font-label-sm text-outline">Author Level 4</span>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN WORKSPACE CONTAINER -->
+<div class="flex h-[calc(100vh-6.5rem)] overflow-hidden">
+<!-- 2. LEFT SIDEBAR (Novel Outline & Chapter Drawer - docked 320px) -->
+<aside class="w-[320px] flex-shrink-0 bg-surface-container-lowest border-r border-outline-variant/30 flex flex-col justify-between overflow-y-auto custom-scrollbar">
+<div class="p-space-md">
+<!-- Story Header Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md border border-outline-variant/30 mb-space-md relative overflow-hidden">
+<div class="flex gap-3">
+<div class="w-16 h-22 flex-shrink-0 rounded-lg overflow-hidden shadow-sm border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="Thai serial romance novel watercolor cover featuring an elegant billionaire CEO in tailored charcoal suit sitting at a luxury rooftop cafe balcony next to an alluring poised woman with sunset city skyline background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk-VKDtqEne4VbaV5ELkdM8jmMajp3IH5K45an3Nq5QULbddUQ1cm-yvWBQBJA2Wee9ju2SXWYvt00eh4FBqf56Ux1RN6qeeBNmIkVQgUwr24hJmt43DVgxUOFnSwGAwI79C3msnxkXKPy5Mlgs5k2LuRVYiyitkOt4NFI_rr36BNcTSfoLUqzPTHtyFUGXQtnJen50yGKtw2w6hGgPJWwE1g6Uf8RAtSWCOuoqrUmC-MQ5-1VIPyD0GaDolZVVSlRyM9QNMk9e8E"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1 text-[11px] font-semibold text-secondary mb-0.5">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+<span>#RAW-89210-BO</span>
+</div>
+<h2 class="text-title-md font-title-md text-on-surface font-bold leading-tight line-clamp-2">
+                หย่าแล้วอย่ามาอ้อนวอน
+              </h2>
+<p class="text-label-sm font-label-sm text-primary font-medium mt-0.5">
+                คุณประธานถึงคราวโบ้
+              </p>
+<div class="mt-2 flex flex-wrap gap-1">
+<span class="bg-secondary-fixed/50 text-on-secondary-fixed-variant text-[10px] px-1.5 py-0.5 rounded font-semibold flex items-center gap-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  เผยแพร่แล้ว
+                </span>
+<span class="bg-surface-container text-on-surface-variant text-[10px] px-1.5 py-0.5 rounded font-medium">
+                  ❤️ 12.4k
+                </span>
+<span class="bg-surface-container text-on-surface-variant text-[10px] px-1.5 py-0.5 rounded font-medium">
+                  👁️ 148.9k
+                </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Chapter Navigation List -->
+<div class="mb-space-sm flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">สารบัญบทเรียน &amp; ตอน (5 ตอน)</span>
+<span class="text-label-sm font-label-sm text-outline">รวม 11,035 คำ</span>
+</div>
+<!-- Chapters List -->
+<div class="space-y-1.5 mb-space-md">
+<!-- Chapter 1 (Published) -->
+<button class="w-full text-left p-2.5 rounded-lg border border-transparent hover:bg-surface-container-low transition-colors duration-150 flex items-start justify-between group">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-secondary mt-0.5 flex-shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="truncate">
+<p class="text-label-md font-label-md text-on-surface group-hover:text-primary truncate">บทที่ 1: วันที่ใบหย่าวางลงบนโต๊ะอาหาร</p>
+<p class="text-body-sm font-body-sm text-outline">2,840 คำ • เผยแพร่แล้ว 🟢</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline opacity-0 group-hover:opacity-100">more_vert</span>
+</button>
+<!-- Chapter 2 (Active Editing) -->
+<div class="w-full text-left p-2.5 rounded-lg bg-primary-fixed/60 border-l-4 border-primary text-on-primary-fixed shadow-xs flex items-start justify-between">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-primary mt-0.5 flex-shrink-0 animate-pulse">edit_note</span>
+<div class="truncate">
+<p class="text-label-md font-label-md font-bold text-on-surface truncate">บทที่ 2: สี่ปีแห่งการเริ่มต้นใหม่</p>
+<p class="text-label-sm font-label-sm text-primary font-semibold">2,625 คำ • ซิงค์แล้ว ⚡ (กำลังแก้ไข)</p>
+</div>
+</div>
+<span class="bg-primary text-white text-[10px] px-1.5 py-0.5 rounded font-bold">Active</span>
+</div>
+<!-- Chapter 3 (Scheduled) -->
+<button class="w-full text-left p-2.5 rounded-lg border border-transparent hover:bg-surface-container-low transition-colors duration-150 flex items-start justify-between group">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-tertiary mt-0.5 flex-shrink-0">schedule</span>
+<div class="truncate">
+<p class="text-label-md font-label-md text-on-surface group-hover:text-primary truncate">บทที่ 3: งานเลี้ยงต้อนรับกับสายตาที่คาดไม่ถึง</p>
+<p class="text-body-sm font-body-sm text-outline">3,120 คำ • ตั้งเวลา 18:00น. ⏰</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline opacity-0 group-hover:opacity-100">more_vert</span>
+</button>
+<!-- Chapter 4 (Draft) -->
+<button class="w-full text-left p-2.5 rounded-lg border border-transparent hover:bg-surface-container-low transition-colors duration-150 flex items-start justify-between group">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-outline mt-0.5 flex-shrink-0">draft</span>
+<div class="truncate">
+<p class="text-label-md font-label-md text-on-surface group-hover:text-primary truncate">บทที่ 4: ความลับใต้ร่มเงาที่ไม่อาจเปิดเผย</p>
+<p class="text-body-sm font-body-sm text-outline">2,450 คำ • แบบร่าง 📝</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline opacity-0 group-hover:opacity-100">more_vert</span>
+</button>
+<!-- Chapter 5 (Draft AI Pending) -->
+<button class="w-full text-left p-2.5 rounded-lg border border-dashed border-outline-variant/60 hover:bg-surface-container-low transition-colors duration-150 flex items-start justify-between group">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-outline mt-0.5 flex-shrink-0">smart_toy</span>
+<div class="truncate">
+<p class="text-label-md font-label-md text-on-surface-variant truncate">บทที่ 5: เผชิญหน้าในลิฟต์ผู้บริหาร</p>
+<p class="text-body-sm font-body-sm text-outline">รอดำเนินการ AI • แบบร่าง 📝</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline opacity-0 group-hover:opacity-100">add</span>
+</button>
+</div>
+<!-- Add Chapter & Word Import -->
+<button class="w-full py-2 px-3 border border-dashed border-outline hover:border-primary text-primary hover:bg-primary-fixed/20 rounded-lg text-label-md font-label-md font-semibold flex items-center justify-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[18px]">post_add</span>
+<span>+ เพิ่มบทใหม่ / นำเข้าไฟล์ Word (.docx)</span>
+</button>
+<!-- Quick Story Stats Widget -->
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg border border-outline-variant/30 text-body-sm font-body-sm text-on-surface-variant space-y-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span>สต็อกต้นฉบับ:</span>
+<span class="font-bold text-on-surface">28 ตอนในสต็อก</span>
+</div>
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 42%;"></div>
+</div>
+<p class="text-[11px] text-outline pt-1">เฉลี่ย 2,750 คำต่อตอน • พร้อมส่งสำนักพิมพ์/อีบุ๊ก</p>
+</div>
+</div>
+<!-- Footer Action Links (from SideNavBar: "คลาวด์ซิงค์", "ตั้งค่าเวิร์กสเปซ") -->
+<div class="p-space-md border-t border-outline-variant/30 bg-surface-container-lowest flex items-center justify-between text-on-surface-variant">
+<button class="flex items-center gap-1 text-label-sm font-label-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]">cloud_sync</span>
+<span>คลาวด์ซิงค์: ปกติ</span>
+</button>
+<button class="flex items-center gap-1 text-label-sm font-label-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]">settings</span>
+<span>ตั้งค่าเวิร์กสเปซ</span>
+</button>
+</div>
+</aside>
+<!-- 3. CENTER & RIGHT WORKSPACE (Toolbar + Manuscript Canvas + Co-Pilot) -->
+<main class="flex-1 flex flex-col overflow-hidden bg-background">
+<!-- CENTER STUDIO TOOLBAR & AI CONTROLLER -->
+<section class="bg-surface-container-lowest border-b border-outline-variant/30 p-space-md shadow-xs">
+<div class="max-w-[1300px] mx-auto space-y-3">
+<!-- Top Controls Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+<!-- AI Model Selector -->
+<div class="md:col-span-3">
+<label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wide mb-1">
+                โมเดลเร่งความเร็วต้นฉบับ
+              </label>
+<div class="relative">
+<select class="w-full bg-surface-container-low hover:bg-surface-container border border-outline-variant/40 rounded-lg text-label-md font-label-md text-on-surface py-2 pl-3 pr-8 focus:border-primary outline-none cursor-pointer">
+<option selected="">⚡ Gemini 3.5 Flash Lite (เร็ว 15s)</option>
+<option>🔥 Claude 3.7 Sonnet (เน้นอารมณ์ดราม่า)</option>
+<option>🧠 GPT-4o Thai Literature (บทบรรยายขั้นสูง)</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-outline absolute right-2.5 top-2.5 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Target Word Count Slider & Input -->
+<div class="md:col-span-3">
+<div class="flex justify-between items-center mb-1">
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wide">เป้าหมายจำนวนคำ</span>
+<span class="text-label-sm font-label-sm font-bold text-primary">3,500 คำ</span>
+</div>
+<div class="flex items-center gap-2">
+<input class="w-full accent-primary h-1.5 bg-surface-variant rounded-lg cursor-pointer" max="5000" min="1500" step="250" type="range" value="3500"/>
+<span class="text-label-sm font-label-sm text-outline flex-shrink-0">1.5k-5k</span>
+</div>
+</div>
+<!-- Negative Words / Tone Avoidance -->
+<div class="md:col-span-3">
+<label class="block text-[11px] font-bold text-on-surface-variant uppercase tracking-wide mb-1">
+                🚫 คำห้าม / สไตล์ที่ไม่ต้องการ
+              </label>
+<input class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg text-body-sm font-body-sm text-on-surface px-2.5 py-1.5 focus:border-primary outline-none truncate" type="text" value="คำเชื่อมซ้ำซ้อน, ยืดเยื้อ, หวือหวาเกินจริง"/>
+</div>
+<!-- Tone & POV Chips -->
+<div class="md:col-span-3 flex flex-wrap gap-1.5 items-end justify-start md:justify-end pt-2 md:pt-0">
+<span class="bg-surface-container text-on-surface-variant px-2 py-1 rounded text-label-sm font-label-sm font-semibold border border-outline-variant/20">
+                POV บุรุษที่ 3
+              </span>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-2 py-1 rounded text-label-sm font-label-sm font-semibold border border-primary-fixed-dim">
+                ผัวโบ้ตามง้อ
+              </span>
+<span class="bg-secondary-fixed/50 text-on-secondary-fixed-variant px-2 py-1 rounded text-label-sm font-label-sm font-semibold border border-secondary-fixed-dim">
+                จังหวะกระชับ
+              </span>
+</div>
+</div>
+<!-- Bottom Action Buttons Command Bar -->
+<div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-outline-variant/20">
+<div class="flex flex-wrap items-center gap-2">
+<!-- Primary Generation Button -->
+<button class="bg-primary hover:bg-primary-container text-on-primary px-space-md py-2 rounded-lg text-label-md font-label-md font-bold shadow-md hover:shadow transition-all active:scale-[0.98] flex items-center gap-2">
+<span class="material-symbols-outlined text-[19px]" style="font-variation-settings: 'FILL' 1;">auto_fix_high</span>
+<span>✨ แต่งบทนี้ทันที</span>
+</button>
+<!-- Batch Write Action -->
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-space-md py-2 rounded-lg text-label-md font-label-md font-semibold transition-all active:scale-[0.98] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">playlist_play</span>
+<span>🚀 แต่งแบบรวดเดียว (Batch 3 ตอน)</span>
+</button>
+<!-- ProofAI Critic Pass -->
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-space-md py-2 rounded-lg text-label-md font-label-md font-semibold transition-all active:scale-[0.98] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary">spellcheck</span>
+<span>🔍 เกลาสำนวน &amp; ตรวจคำผิด (ProofAI)</span>
+</button>
+</div>
+<!-- Sync to ReadAWrite CTA -->
+<div class="flex items-center gap-2">
+<button class="bg-secondary hover:bg-on-secondary-fixed-variant text-white px-space-md py-2 rounded-lg text-label-md font-label-md font-bold shadow-sm transition-all active:scale-[0.98] flex items-center gap-2">
+<span class="material-symbols-outlined text-[19px]">sync</span>
+<span>⚡ ซิงค์ขึ้น ReadAWrite ทันที</span>
+</button>
+<button class="p-2 border border-outline-variant/40 hover:bg-surface-container rounded-lg text-on-surface" title="ตัวเลือกการเผยแพร่">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- MANUSCRIPT CANVAS & READAWRITE PREVIEW CONTAINER (Scrollable) -->
+<section class="flex-1 overflow-y-auto custom-scrollbar p-space-md lg:p-space-lg flex justify-center">
+<!-- Bounded Reading Canvas (Max width 760px to maintain 65-75 character line length) -->
+<article class="w-full max-w-[760px] bg-[#fcfbf7] rounded-2xl shadow-sm border border-[#e8e4dc] p-space-lg lg:p-space-xl flex flex-col justify-between my-auto">
+<div>
+<!-- Breadcrumbs & Meta -->
+<header class="border-b border-[#ece6da] pb-space-md mb-space-lg">
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline mb-2">
+<nav class="flex items-center gap-1.5 text-label-sm font-label-sm text-outline">
+<span>หน้าหลัก</span>
+<span>/</span>
+<span class="text-on-surface-variant font-medium">หย่าแล้วอย่ามาอ้อนวอน</span>
+<span>/</span>
+<span class="text-primary font-bold">บทที่ 2</span>
+</nav>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 text-[11px] bg-secondary-fixed/50 text-on-secondary-fixed-variant px-2 py-0.5 rounded-full font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    พร้อมซิงค์ RAW
+                  </span>
+</div>
+</div>
+<h1 class="text-headline-md font-headline-md text-[#1a202c] font-bold tracking-tight">
+                บทที่ 2: สี่ปีแห่งการเริ่มต้นใหม่ และการกลับมาที่ไม่มีวันเหมือนเดิม
+              </h1>
+<div class="flex flex-wrap items-center gap-3 text-label-sm font-label-sm text-outline mt-2">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+                  เผยแพร่เมื่อ 24 พ.ค. 2025
+                </span>
+<span>•</span>
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[14px]">neurology</span>
+                  แก้ไขล่าสุด 3 นาทีที่แล้วโดย AI Co-Pilot
+                </span>
+</div>
+</header>
+<!-- Authentic Thai Serial Novel Prose (Font Sarabun, Line Height 1.85, Rich indent) -->
+<div class="font-thai-novel text-[#2d3748] text-[17px] leading-[1.85] space-y-5 text-justify">
+<p class="indent-8">
+                เสียงรองเท้าส้นสูงกระทบกับพื้นหินอ่อนขัดมันของตึกระฟ้าใจกลางเมืองหลวงดังกังวานเป็นจังหวะมั่นคง สี่ปีในต่างแดนหล่อหลอมให้ <strong class="font-semibold text-primary">‘รมิดา’</strong> ไม่ใช่ผู้หญิงขี้ขลาดที่ยอมก้มหน้ารับเศษเสี้ยวความเมตตาจากใครอีกต่อไป
+              </p>
+<p class="indent-8">
+                ในมือของเธอคือแฟ้มสัญญาโปรเจกต์ร่วมทุนมูลค่าแปดร้อยล้านบาท... และอีกไม่กี่นาทีข้างหน้า เธอจะต้องเผชิญหน้ากับ <strong class="font-semibold text-[#1a202c]">‘ธาวิน’</strong> อดีตสามีผู้เคยผลักไสเธอออกจากชีวิตด้วยถ้อยคำเย็นชาว่า <em>‘น่ารำคาญ’</em>
+</p>
+<p class="indent-8 bg-[#faf4ea] p-3 rounded-lg border-l-2 border-primary/60 italic text-[#4a3f35]">
+                “คุณรมิดาคะ ท่านประธานธาวินกำลังรออยู่ในห้องประชุมใหญ่ค่ะ”
+              </p>
+<p class="indent-8">
+                เลขาสาวกล่าวด้วยน้ำเสียงนอบน้อม ดวงตามองหญิงสาวตรงหน้าด้วยความชื่นชมระคนหวาดหวั่น ไม่มีเค้าโครงของอดีตภรรยาขี้แยไร้ปากเสียงคนเดิมหลงเหลืออยู่อีกแล้ว
+              </p>
+<p class="indent-8">
+                ริมฝีปากอิ่มเคลือบลิปสติกสีไวน์แดงยกยิ้มขึ้นบางเบา รอยยิ้มที่ไม่ได้มีความอ่อนหวานเหมือนในอดีต หากแต่เป็นรอยยิ้มของพญาหงส์ที่พร้อมจะเหยียบย่ำทุกความทรงจำอันเจ็บปวด
+              </p>
+<p class="indent-8 font-medium text-primary">
+                “บอกท่านประธานของคุณด้วยนะคะ... ว่าดิฉันไม่ชอบคนมาสายแม้แต่วินาทีเดียว”
+              </p>
+</div>
+<!-- ProofAI Critic Highlight Box -->
+<div class="mt-space-lg p-space-md bg-surface-container-low rounded-xl border border-secondary/30 flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed-variant flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h4 class="text-label-md font-label-md font-bold text-on-surface">
+                    💡 ProofAI แนะนำ (สไตล์ผัวโบ้เข้มข้น):
+                  </h4>
+<span class="text-[11px] font-semibold text-secondary">คะแนนความอิน 98%</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                  ประโยคนี้สื่ออารมณ์ผัวโบ้และความเด็ดเดี่ยวของนางเอกได้เฉียบคมมาก แนะนำให้คงจังหวะตัดบทกระชับนี้ไว้สำหรับเปิดฉากในห้องประชุม เพื่อสร้างแรงปะทะทางอารมณ์ (Dramatic Friction) ระหว่างตัวเอกกับพระเอกให้สูงสุด
+                </p>
+<div class="mt-2 flex gap-2">
+<button class="bg-secondary text-white hover:bg-on-secondary-fixed-variant text-[11px] font-semibold px-2 py-1 rounded">
+                    บันทึกคำแนะนำนี้
+                  </button>
+<button class="text-outline hover:text-on-surface text-[11px] font-semibold px-2 py-1">
+                    ข้าม
+                  </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Floating Stats Bar (Inside Canvas) -->
+<footer class="mt-space-xl pt-space-md border-t border-[#ece6da] flex flex-wrap items-center justify-between text-label-sm font-label-sm text-outline gap-2">
+<div class="flex items-center gap-3">
+<span class="font-bold text-on-surface">📊 2,625 คำ</span>
+<span>(11,364 ตัวอักษร)</span>
+<span>•</span>
+<span>⏱️ ~10 นาทีอ่าน</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 text-secondary font-semibold">
+<span class="material-symbols-outlined text-[15px]">cloud_done</span>
+                ซิงค์อัตโนมัติคลาวด์: สมบูรณ์ (Cloud Safe)
+              </span>
+</div>
+</footer>
+</article>
+</section>
+</main>
+</div>
+<!-- 4. PRICING MODAL & MEMBERSHIP DRAWER (Interactive Popover) -->
+<div class="hidden fixed inset-0 z-50 overflow-y-auto bg-inverse-surface/40 backdrop-blur-sm flex items-center justify-center p-4" id="pricingModal">
+<div class="bg-surface-container-lowest max-w-4xl w-full rounded-2xl shadow-2xl border border-outline-variant/40 overflow-hidden transform transition-all">
+<!-- Modal Header -->
+<div class="bg-gradient-to-r from-primary-fixed/50 to-surface-container-low p-space-lg flex justify-between items-center border-b border-outline-variant/30">
+<div>
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wider uppercase">แพ็กเกจนักเขียนมืออาชีพ</span>
+<h3 class="text-headline-sm font-headline-sm font-bold text-on-surface mt-1">อัปเกรด ReadAWrite Pro Studio</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">ปลดล็อกโควตา AI แต่งนิยายไม่จำกัด พร้อมซิงค์ขึ้น ReadAWrite อัตโนมัติ</p>
+</div>
+<button class="p-2 text-outline hover:text-on-surface hover:bg-surface-container rounded-lg" onclick="document.getElementById('pricingModal').classList.add('hidden')">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+</div>
+<!-- Pricing Plans Grid (Bento Style) -->
+<div class="p-space-lg grid grid-cols-1 md:grid-cols-3 gap-space-md bg-background">
+<!-- Plan 1: Free Trial -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant/40 flex flex-col justify-between">
+<div>
+<span class="text-label-sm font-label-sm font-bold text-outline uppercase">เริ่มต้นทดลอง</span>
+<h4 class="text-title-md font-title-md font-bold text-on-surface mt-1">7-Day Pro Trial</h4>
+<div class="mt-2 text-headline-sm font-headline-sm font-bold text-on-surface">
+              ฟรี <span class="text-label-sm font-label-sm font-normal text-outline">/ 7 วัน</span>
+</div>
+<p class="text-label-sm font-label-sm text-secondary font-semibold mt-1">กำลังใช้งาน (เหลือ 6 วัน)</p>
+<ul class="mt-4 space-y-2 text-body-sm font-body-sm text-on-surface-variant">
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check</span>
+                โควตา AI 300,000 คำ
+              </li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check</span>
+                ซิงค์ ReadAWrite อัตโนมัติ
+              </li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check</span>
+                ผู้ช่วยพล็อต Gemini Flash
+              </li>
+</ul>
+</div>
+<button class="w-full mt-6 py-2 bg-surface-container text-outline rounded-lg text-label-md font-label-md font-semibold cursor-not-allowed" disabled="">
+            แผนปัจจุบันของคุณ
+          </button>
+</div>
+<!-- Plan 2: Pro Annual (Featured/Best Value) -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl border-2 border-primary relative flex flex-col justify-between shadow-md">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-[11px] font-bold px-3 py-0.5 rounded-full shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">star</span>
+            แนะนำคุ้มค่าที่สุด (ประหยัด 2 เดือน)
+          </div>
+<div>
+<span class="text-label-sm font-label-sm font-bold text-primary uppercase">รายปี Pro Unlimited</span>
+<h4 class="text-title-md font-title-md font-bold text-on-surface mt-1">Pro Annual</h4>
+<div class="mt-2 text-headline-sm font-headline-sm font-bold text-primary">
+              ฿3,900 <span class="text-label-sm font-label-sm font-normal text-outline">/ ปี (฿325/ด.)</span>
+</div>
+<p class="text-label-sm font-label-sm text-primary font-semibold mt-1">ประหยัดทันที 20%</p>
+<ul class="mt-4 space-y-2 text-body-sm font-body-sm text-on-surface-variant">
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+                โควตา AI 6,000,000 คำต่อปี
+              </li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+                โมเดล Claude 3.7 + Gemini 3.5
+              </li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+                ฟีเจอร์ AI Plot Generator พิเศษ
+              </li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+                ตรวจสำนวนคำผิด ProofAI ไม่จำกัด
+              </li>
+</ul>
+</div>
+<button class="w-full mt-6 py-2.5 bg-primary hover:bg-primary-container text-white rounded-lg text-label-md font-label-md font-bold transition-all shadow-sm">
+            เลือกแพ็กเกจรายปีนี้
+          </button>
+</div>
+<!-- Plan 3: Lifetime VIP -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl border border-outline-variant/40 flex flex-col justify-between">
+<div>
+<span class="text-label-sm font-label-sm font-bold text-tertiary uppercase">ซื้อครั้งเดียวตลอดชีพ</span>
+<h4 class="text-title-md font-title-md font-bold text-on-surface mt-1">Lifetime VIP</h4>
+<div class="mt-2 text-headline-sm font-headline-sm font-bold text-on-surface">
+              ฿6,900 <span class="text-label-sm font-label-sm font-normal text-outline">/ ครั้งเดียว</span>
+</div>
+<p class="text-label-sm font-label-sm text-tertiary font-semibold mt-1">เข้ากลุ่มนักเขียนเบสต์เซลเลอร์</p>
+<ul class="mt-4 space-y-2 text-body-sm font-body-sm text-on-surface-variant">
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check</span>
+                ใช้งานฟีเจอร์ทุกอย่างตลอดชีพ
+              </li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check</span>
+                ซัปพอร์ตส่วนตัวแบบ VIP 24 ชม.
+              </li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check</span>
+                คอร์สปั้นนิยายติดท็อป RAW ฟรี
+              </li>
+</ul>
+</div>
+<button class="w-full mt-6 py-2 bg-inverse-surface hover:bg-black text-white rounded-lg text-label-md font-label-md font-semibold transition-all">
+            สมัคร Lifetime VIP
+          </button>
+</div>
+</div>
+<!-- Trust Badges Footer -->
+<div class="bg-surface-container-low px-space-lg py-space-sm border-t border-outline-variant/30 flex flex-wrap items-center justify-between text-label-sm font-label-sm text-outline">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">security</span>
+            ชำระเงินปลอดภัยด้วย SSL 256-bit
+          </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">published_with_changes</span>
+            ยกเลิกเมื่อไหร่ก็ได้ ไม่มีผูกมัด
+          </span>
+</div>
+<span>รองรับ PromptPay, บัตรเครดิต, และ TrueMoney</span>
+</div>
+</div>
+</div>
+</body></html>
