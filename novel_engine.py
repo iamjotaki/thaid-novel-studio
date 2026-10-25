@@ -1357,11 +1357,207 @@ def clean_chapter_subtitle(subtitle: str, chapter_num: int = None, book_title: s
 
     return s
 
+# ========================================================
+# SAVE THE CAT! WRITES A NOVEL (15-BEAT SHEET ENGINE)
+# ========================================================
+SAVE_THE_CAT_15_BEATS = [
+    {
+        "id": 1,
+        "name": "Opening Image (ภาพเปิดตัวโลกเดิม)",
+        "act": "Act 1",
+        "act_num": 1,
+        "pct_range": (0.0, 1.5),
+        "target_pct": 1.0,
+        "goal": "ภาพสะท้อนชีวิตและสภาวะเดิมของตัวเอกก่อนเกิดความเปลี่ยนแปลง แสดงให้เห็นช่องว่างหรือความไม่สมบูรณ์ในชีวิต",
+        "tension": 3
+    },
+    {
+        "id": 2,
+        "name": "Theme Stated (แก่นเรื่องที่ซ่อนอยู่)",
+        "act": "Act 1",
+        "act_num": 1,
+        "pct_range": (1.5, 5.0),
+        "target_pct": 5.0,
+        "goal": "การบอกใบ้แก่นเรื่องหรือบทเรียนชีวิตที่ตัวเอกต้องเผชิญและเรียนรู้ผ่านบทสนทนาหรือเหตุการณ์เชิงสัญลักษณ์",
+        "tension": 4
+    },
+    {
+        "id": 3,
+        "name": "Setup (ปูพื้นชีวิตและรอยร้าว)",
+        "act": "Act 1",
+        "act_num": 1,
+        "pct_range": (5.0, 10.0),
+        "target_pct": 10.0,
+        "goal": "สำรวจโลกเดิม ข้อบกพร่อง (Flaw) ความกดดันรอบตัว และเหตุผลที่ชีวิตเดิมไม่อาจคงอยู่ต่อไปได้",
+        "tension": 5
+    },
+    {
+        "id": 4,
+        "name": "Catalyst (ชนวนเหตุพลิกชะตา)",
+        "act": "Act 1",
+        "act_num": 1,
+        "pct_range": (10.0, 12.5),
+        "target_pct": 12.0,
+        "goal": "เหตุการณ์ช็อกโลกที่ทำลายสถานะเดิมอย่างสิ้นเชิง (เช่น การหย่าร้าง, ถูกทรยศ, ทะลุมิติ, สัญญาหนี้, การตาย)",
+        "tension": 8
+    },
+    {
+        "id": 5,
+        "name": "Debate (ความสับสนและการเตรียมใจ)",
+        "act": "Act 1",
+        "act_num": 1,
+        "pct_range": (12.5, 20.0),
+        "target_pct": 20.0,
+        "goal": "ตัวเอกเกิดความลังเล กลัวการเปลี่ยนแปลง หรือวางแผนเอาตัวรอด 'จะยอมแพ้หรือจะลุกขึ้นสู้?'",
+        "tension": 6
+    },
+    {
+        "id": 6,
+        "name": "Break into Act Two (ก้าวเข้าสู่โลกใหม่)",
+        "act": "Act 2A",
+        "act_num": 2,
+        "pct_range": (20.0, 25.0),
+        "target_pct": 25.0,
+        "goal": "ตัวเอกตัดสินใจเด็ดขาดก้าวออกจากโลกเดิม เข้าสู่สมรภูมิใหม่หรือสถานะใหม่โดยไม่มีทางหันหลังกลับ",
+        "tension": 7
+    },
+    {
+        "id": 7,
+        "name": "B Story (สายสัมพันธ์แกนรอง)",
+        "act": "Act 2A",
+        "act_num": 2,
+        "pct_range": (25.0, 28.0),
+        "target_pct": 28.0,
+        "goal": "เปิดตัวหรือเน้นย้ำความสัมพันธ์หลัก (พระเอก-นางเอก, คู่ปรับ, หรือเด็กที่ต้องปกป้อง) ที่จะหล่อหลอมหัวใจตัวเอก",
+        "tension": 6
+    },
+    {
+        "id": 8,
+        "name": "Fun and Games (ปล่อยของตามสัญญา - Premise Promise)",
+        "act": "Act 2A",
+        "act_num": 2,
+        "pct_range": (28.0, 50.0),
+        "target_pct": 50.0,
+        "goal": "ช่วงเวลาแห่งการ 'ปล่อยของ' ตามจุดขายของนิยาย: โชว์ความสามารถ, การค้าขาย, การประลอง, การปะทะคารมฟาดฟันอย่างสะใจ",
+        "tension": 7
+    },
+    {
+        "id": 9,
+        "name": "Midpoint (จุดพลิกผันครึ่งทาง)",
+        "act": "Act 2B",
+        "act_num": 3,
+        "pct_range": (50.0, 53.0),
+        "target_pct": 50.0,
+        "goal": "จุดเปลี่ยนกลางเรื่องครั้งสำคัญ: ชัยชนะชั่วคราว (False Victory) หรือความล้มเหลวหลอกตา (False Defeat) เดิมพันชีวิตสูงขึ้นทวีคูณ",
+        "tension": 9
+    },
+    {
+        "id": 10,
+        "name": "Bad Guys Close In (คลื่นใต้น้ำและศัตรูปิดล้อม)",
+        "act": "Act 2B",
+        "act_num": 3,
+        "pct_range": (53.0, 75.0),
+        "target_pct": 75.0,
+        "goal": "ศัตรูรวมหัววางแผนร้าย คลื่นใต้น้ำบีบคั้น ความลับที่ซ่อนไว้เกือบแตก และความสงสัยในใจเริ่มสั่นคลอน",
+        "tension": 8
+    },
+    {
+        "id": 11,
+        "name": "All Hope Is Lost (จุดสิ้นหวังขั้นสุด - Whiff of Death)",
+        "act": "Act 2B",
+        "act_num": 4,
+        "pct_range": (75.0, 78.0),
+        "target_pct": 75.0,
+        "goal": "ช่วงตกต่ำที่สุดของตัวเอก: สูญเสียสิ่งสำคัญ แผนการพังทลาย ดูเหมือนทุกอย่างจะจบสิ้นและไม่มีทางชนะ",
+        "tension": 10
+    },
+    {
+        "id": 12,
+        "name": "Dark Night of the Soul (ค่ำคืนมืดมิดก่อนรุ่งสาง)",
+        "act": "Act 3",
+        "act_num": 4,
+        "pct_range": (78.0, 82.0),
+        "target_pct": 80.0,
+        "goal": "การเผชิญหน้ากับความเจ็บปวด ค้นพบความจริงในใจ (Epiphany) สลัดจุดอ่อนเก่าทิ้งเพื่อเตรียมสู้ครั้งสุดท้าย",
+        "tension": 7
+    },
+    {
+        "id": 13,
+        "name": "Break into Act Three (จุดประกายแผนการครั้งใหม่)",
+        "act": "Act 3",
+        "act_num": 5,
+        "pct_range": (82.0, 85.0),
+        "target_pct": 85.0,
+        "goal": "ตัวเอกคิดค้นแผนการใหม่ที่เหนือความคาดหมาย พร้อมเดินหน้าเข้าสู่การเผชิญหน้าขั้นแตกหัก",
+        "tension": 8
+    },
+    {
+        "id": 14,
+        "name": "Finale (เผด็จศึกและชำระแค้น)",
+        "act": "Act 3",
+        "act_num": 5,
+        "pct_range": (85.0, 98.0),
+        "target_pct": 95.0,
+        "goal": "การลงมือตามแผนครั้งยิ่งใหญ่ เผชิญหน้าตัวร้าย กระชากหน้ากาก ปลดล็อกความเข้าใจผิด และทวงคืนความยุติธรรม",
+        "tension": 10
+    },
+    {
+        "id": 15,
+        "name": "Final Image (ภาพสะท้อนชีวิตใหม่)",
+        "act": "Act 3",
+        "act_num": 5,
+        "pct_range": (98.0, 100.0),
+        "target_pct": 100.0,
+        "goal": "ภาพชีวิตใหม่ที่มั่งคั่งและสมบูรณ์แบบ ตรงกันข้ามกับตอนเริ่มต้นอย่างสิ้นเชิง พิสูจน์การเติบโตของตัวเอก",
+        "tension": 4
+    }
+]
+
+def get_save_the_cat_beat(chapter_num, total_chapters):
+    """
+    คำนวณตำแหน่งจังหวะเล่าเรื่องตามสูตร Save the Cat! 15-Beat Sheet
+    สำหรับนิยายจำนวน N ตอน โดยอ้างอิงตำแหน่งเปอร์เซ็นต์ของตอน
+    """
+    total = max(1, int(total_chapters))
+    ch = max(1, min(int(chapter_num), total))
+
+    if total == 1:
+        b = SAVE_THE_CAT_15_BEATS[7] # Fun and Games
+        return {
+            "beat_id": b["id"],
+            "beat_name": b["name"],
+            "act": b["act"],
+            "act_num": b["act_num"],
+            "goal": b["goal"],
+            "tension": b["tension"],
+            "pct": 50.0
+        }
+
+    pct = ((ch - 0.5) / total) * 100.0
+
+    matched = SAVE_THE_CAT_15_BEATS[0]
+    for b in SAVE_THE_CAT_15_BEATS:
+        if b["pct_range"][0] <= pct <= b["pct_range"][1]:
+            matched = b
+            break
+        elif pct > b["pct_range"][1]:
+            matched = b
+
+    return {
+        "beat_id": matched["id"],
+        "beat_name": matched["name"],
+        "act": matched["act"],
+        "act_num": matched["act_num"],
+        "goal": matched["goal"],
+        "tension": matched["tension"],
+        "pct": round(pct, 1)
+    }
+
 def generate_dynamic_chapter_outlines(story_title, genre, synopsis="", target_chapters=20, category=""):
     """
-    สร้างชื่อตอนและโครงเรื่องประจำตอนสดใหม่ 100% สไตล์ Web Novel Clickbait (ReadAWrite / Dek-D)
-    เน้นบทสนทนาฟาดฟันและเหตุการณ์ปะทะดุเดือด ไม่ใช้ชื่อ AI สำเร็จรูป เช่น ปฐมบท หรือ ปัจฉิมบท
-    และไม่ใส่คำว่า '(ตอนที่ xx)' ต่อท้ายชื่อตอนเด็ดขาด
+    สร้างชื่อตอนและโครงเรื่องประจำตอนสดใหม่ 100% ขับเคลื่อนด้วย Save the Cat! 15-Beat Sheet
+    สไตล์ Web Novel Clickbait (ReadAWrite / Dek-D) เน้นบทสนทนาฟาดฟันและเหตุการณ์ปะทะดุเดือด
+    ไม่ใช้ชื่อ AI สำเร็จรูป เช่น ปฐมบท หรือ ปัจฉิมบท และไม่ใส่คำว่า '(ตอนที่ xx)' ต่อท้ายชื่อตอนเด็ดขาด
     """
     target_chapters = max(1, int(target_chapters))
     clean_title = sanitize_thai_text(re.sub(r"[\(\)\[\]\{\}\<\>\"\'\#]", "", story_title).strip())
@@ -1582,13 +1778,8 @@ def generate_dynamic_chapter_outlines(story_title, genre, synopsis="", target_ch
             ]
         }
 
-    # Distribute chapters proportionally across the 5 acts
+    # Distribute chapters proportionally across the 5 acts using Save the Cat! 15-Beat Sheet
     outlines = []
-    p1_end = max(1, round(target_chapters * 0.20))
-    p2_end = max(p1_end + 1, round(target_chapters * 0.45))
-    p3_end = max(p2_end + 1, round(target_chapters * 0.65))
-    p4_end = max(p3_end + 1, round(target_chapters * 0.85))
-
     shuffled_banks = {k: list(v) for k, v in phase_banks.items()}
     for k in shuffled_banks:
         random.shuffle(shuffled_banks[k])
@@ -1613,21 +1804,8 @@ def generate_dynamic_chapter_outlines(story_title, genre, synopsis="", target_ch
         ]
 
     for ch_num in range(1, target_chapters + 1):
-        if ch_num <= p1_end:
-            act_num = 1
-            focus = "จุดเริ่มต้นสุดช็อก ปมขัดแย้ง และการเผชิญหน้าดุเดือด"
-        elif ch_num <= p2_end:
-            act_num = 2
-            focus = "ความใกล้ชิดที่ทวีความตึงเครียด หึงหวง และกับดักใหม่"
-        elif ch_num <= p3_end:
-            act_num = 3
-            focus = "จุดพลิกผันครั้งใหญ่ ความลับแตก กระชากหน้ากาก แตกหัก"
-        elif ch_num <= p4_end:
-            act_num = 4
-            focus = "วิกฤตการณ์สูงสุด เดิมพันชีวิต คุกเข่าอ้อนวอน สะสางแค้น"
-        else:
-            act_num = 5
-            focus = "คลี่คลายปมอย่างสะใจ ปิดบัญชีแค้น และบทสรุปความสัมพันธ์"
+        beat_info = get_save_the_cat_beat(ch_num, target_chapters)
+        act_num = beat_info["act_num"]
 
         bank = shuffled_banks[act_num]
         if bank:
@@ -1643,10 +1821,17 @@ def generate_dynamic_chapter_outlines(story_title, genre, synopsis="", target_ch
                 sub = f"{base_beat} {mod}"
 
         clean_sub = clean_chapter_subtitle(sub, ch_num, story_title)
+        focus_str = f"[{beat_info['act']} | {beat_info['beat_name']}] {beat_info['goal']}"
         outlines.append({
             "chapter": ch_num,
             "subtitle": clean_sub,
-            "focus": focus
+            "focus": focus_str,
+            "beat_id": beat_info["beat_id"],
+            "beat_name": beat_info["beat_name"],
+            "beat_act": beat_info["act"],
+            "beat_goal": beat_info["goal"],
+            "tension_level": beat_info["tension"],
+            "story_percentage": beat_info["pct"]
         })
 
     return outlines
@@ -2099,11 +2284,17 @@ class NovelEngine:
             lines.append(char_str)
         return "\n".join(lines)
 
-    def generate_scene_beats(self, story_title, chapter_num, chapter_subtitle, genre, context_memory=None, sliding_context="", tone="", category=""):
+    def generate_scene_beats(self, story_title, chapter_num, chapter_subtitle, genre, context_memory=None, sliding_context="", tone="", category="", target_chapters=20):
         """
         Agent 1: The Architect (คนวางโครงฉาก - Scene Beat Generator)
-        แตกพล็อตหลักเป็น 4-5 เหตุการณ์ย่อย (Beats) ต่อ 1 ตอน
-        ตามกฎวรรณกรรม: The 3-Chapter Rule, Micro-Pacing, Conflict & Stakes, และ Cliffhanger
+        แตกพล็อตหลักเป็น 5 เหตุการณ์ย่อย (Beats) ประจำตอน
+        ตามกฎ Story Grid: The 5 Commandments of Storytelling:
+        1. Inciting Incident (ชนวนเหตุเปิดฉาก & Sensory Opening)
+        2. Progressive Complication (อุปสรรคทวีคูณ สู่ Turning Point)
+        3. Crisis (ทางแยกวิกฤต - The Dilemma: Best Bad Choice / Irreconcilable Goods)
+        4. Climax (การระเบิดอารมณ์และลงมือทำขั้นแตกหัก)
+        5. Resolution & Value Shift (การพลิกขั้วคุณค่า + Hard Cut Cliffhanger)
+        พร้อมเชื่อมโยงกับหมุดหมาย Save the Cat! 15-Beat Sheet ของทั้งเรื่อง
         """
         char_desc = self._format_3d_character_sheet(context_memory)
         genre_type = classify_story_genre(genre=genre, title=story_title, category=category)
@@ -2111,8 +2302,10 @@ class NovelEngine:
         if genre_type == "chinese":
             chinese_rule = """\n5. [กฎเหล็กนิยายจีนโบราณ/กำลังภายใน]: ฉาก บรรยากาศ วัตถุ และสถานที่ต้องเป็นยุคจีนโบราณแท้ 100% (จวนอ๋อง, พระราชวังหลวง, โรงเตี๊ยม, ร้านโอสถ, เทียบยา, หน่วยเงินตำลึง, รถม้า, เสื้อผ้าแพรพรรณ) ห้ามมีเทคโนโลยี วัตถุ หรือสิ่งของยุคปัจจุบัน (เช่น รถยนต์, โทรศัพท์, ลิฟต์, ซีอีโอ, ห้องประชุมบริษัท) เด็ดขาด"""
 
+        stc_beat = get_save_the_cat_beat(chapter_num, target_chapters)
+
         prompt = f"""คุณคือ Agent 1: The Architect (คนวางโครงฉาก - Scene Beat Generator)
-หน้าที่ของคุณคือรับข้อมูลพล็อตและวาง "ลำดับเหตุการณ์ย่อย (Scene Beats)" 4-5 Beats ในบทนี้ เพื่อควบคุมจังหวะการเล่าเรื่อง (Pacing) ไม่ให้รีบสรุปหรือย่ำอยู่กับที่
+หน้าที่ของคุณคือรับข้อมูลพล็อตและวาง "5 Commandments of Storytelling (กฎเหล็ก 5 ประการแห่งการเล่าเรื่องของ Story Grid)" สำหรับบทนี้ เพื่อให้ทุกฉากมีพลังขับเคลื่อนอารมณ์ (Value Shift) ไม่ยืดยาด และหยุดอ่านไม่ได้
 
 ข้อมูลนิยาย:
 ชื่อเรื่อง: "{story_title}"
@@ -2121,22 +2314,29 @@ class NovelEngine:
 บทที่: {chapter_num}
 ชื่อตอน: {chapter_subtitle}
 
+[หมุดหมายโครงเรื่องระดับภาพรวม (Save the Cat! 15-Beat Framework)]:
+- องก์ (Act): {stc_beat['act']}
+- จังหวะเรื่องประจำตอน (Macro Beat): {stc_beat['beat_name']} (ความคืบหน้าเรื่องราว ~{stc_beat['pct']}%)
+- เป้าหมายของบทนี้: {stc_beat['goal']}
+- ระดับความตึงเครียดเป้าหมาย: {stc_beat['tension']}/10
+
 {char_desc}
 {sliding_context}
 
-กฎโครงสร้างนิยายมืออาชีพ:
-1. The 3-Chapter Rule: หากเป็นบทที่ 1-3 ต้องเปิดตัวเร็ว แนะนำตัวเอก ปมขัดแย้ง และจุดขายของเรื่องให้ชัดเจนทันที
-2. Micro-Pacing: ในตอนนี้ต้องมีจุดเปลี่ยนย่อย (Turning Point) อย่างน้อย 1 จุด (เช่น ได้ข้อมูลใหม่, ความสัมพันธ์พลิกผัน, หรือความลับเกือบแตก)
-3. Conflict & Stakes: ต้องมีทั้งความขัดแย้งภายนอก (อุปสรรคตรงหน้า) และความขัดแย้งภายใน (ความสับสนในใจ) พร้อมเดิมพันที่ต้องสูญเสียหากล้มเหลว
-4. Cliffhanger (Hard Cut): วางฉากจบตอน (Beat สุดท้าย) ให้ตัดจบห้วนๆ ที่บทพูดหรือ Action สุดท้าย ชวนให้อยากอ่านตอนต่อไปทันที ห้ามมีคำบรรยายชี้นำอนาคตอย่าง 'โดยไม่มีใครล่วงรู้เลยว่า' เด็ดขาด{chinese_rule}
+กฎเหล็ก 5 Commandments of Storytelling (Story Grid Framework):
+1. Beat 1 - Inciting Incident (ชนวนเหตุเปิดฉาก): เหตุการณ์ไม่คาดฝันที่เข้ามารบกวนสมดุลเดิมของตัวละคร บีบให้ต้องตั้งเป้าหมายเฉพาะหน้า ผสาน Sensory Opening (สัมผัสทั้ง 5: กลิ่น เสียง แสง อุณหภูมิ)
+2. Beat 2 - Progressive Complication (อุปสรรคทวีคูณ สู่ Turning Point): ความขัดแย้งที่เริ่มบานปลาย อุปสรรคซ้อนอุปสรรค บทสนทนาที่มีนัยยะแฝง (Subtext) จนถึงจุดพลิกผัน (Turning Point) ที่ทำให้แผนเดิมใช้ไม่ได้ผล
+3. Beat 3 - Crisis (ทางแยกวิกฤต): จุดบีบคั้นที่ตัวเอกต้องเลือกทางสองแพร่ง (Best Bad Choice หรือ Irreconcilable Goods) เป็นการตัดสินใจที่เจ็บปวดและกลืนไม่เข้าคายไม่ออก
+4. Beat 4 - Climax (การระเบิดอารมณ์และลงมือทำขั้นแตกหัก): การลงมือทำจริงตามการตัดสินใจ เผชิญหน้า ปะทะอารมณ์หรือใช้ไหวพริบอย่างเด็ดขาด เผยธาตุแท้ของตัวละคร
+5. Beat 5 - Resolution & Value Shift (การพลิกขั้วคุณค่า + Hard Cut Cliffhanger): ผลสะท้อนกลับที่ทำให้สถานการณ์หรืออารมณ์เกิด Value Shift ชัดเจน (เช่น จาก ปลอดภัย -> เผชิญอันตราย, เสียเปรียบ -> ได้เปรียบ, ไว้ใจ -> แตกหัก) พร้อมตัดจบแบบ Hard Cut ห้วนๆ ที่บทพูดหรือ Action สุดท้าย ห้ามมีคำบรรยายชี้นำอนาคตอย่าง 'โดยไม่มีใครล่วงรู้เลยว่า' เด็ดขาด{chinese_rule}
 
-ตอบกลับเป็น JSON Array 4-5 Beats เท่านั้น:
+ตอบกลับเป็น JSON Array 5 Beats เท่านั้น:
 [
-  {{"beat": 1, "type": "Sensory Opening", "goal": "เปิดฉากด้วยบรรยากาศและประสาทสัมผัส ดึงคนอ่านเข้าสู่สถานการณ์", "action": "..."}},
-  {{"beat": 2, "type": "Rising Action", "goal": "เกิดอุปสรรคหรือความขัดแย้งระหว่างตัวละคร", "action": "..."}},
-  {{"beat": 3, "type": "Micro-Turning Point", "goal": "จุดเปลี่ยนสำคัญของตอนนี้ ที่ทำให้สถานการณ์ไม่เหมือนเดิม", "action": "..."}},
-  {{"beat": 4, "type": "Subtext & Emotional Tension", "goal": "บทสนทนาที่มีนัยยะแฝง ปากพูดอย่างใจคิดอีกอย่าง", "action": "..."}},
-  {{"beat": 5, "type": "Cliffhanger", "goal": "จุดตัดฉากค้างคาใจ (Hard Cut): ตัดจบห้วนๆ ที่บทพูดหรือ Action สุดท้าย ห้ามมีประโยคชี้นำอนาคต", "action": "..."}}
+  {{"beat": 1, "commandment": "Inciting Incident", "type": "Sensory Opening & Inciting Incident", "goal": "เปิดฉากด้วยประสาทสัมผัสและเหตุการณ์ที่ทำลายสมดุลเดิม", "action": "...", "value_shift": "+ ไปสู่ -"}},
+  {{"beat": 2, "commandment": "Progressive Complication", "type": "Escalation & Turning Point", "goal": "ความขัดแย้งที่บานปลายและจุดพลิกผันที่แผนเดิมใช้ไม่ได้", "action": "...", "value_shift": "..."}},
+  {{"beat": 3, "commandment": "Crisis", "type": "Crisis Dilemma (Best Bad Choice)", "goal": "ทางสองแพร่งที่บีบคั้นให้ต้องเลือก", "action": "...", "value_shift": "..."}},
+  {{"beat": 4, "commandment": "Climax", "type": "Climax Action & Confrontation", "goal": "การตัดสินใจลงมือทำและปะทะแตกหัก เผยธาตุแท้", "action": "...", "value_shift": "..."}},
+  {{"beat": 5, "commandment": "Resolution & Value Shift", "type": "Resolution & Hard Cut Cliffhanger", "goal": "ผลลัพธ์ที่เปลี่ยนสถานะขั้วอารมณ์ และตัดจบฉับพลันที่บทพูด/การกระทำสุดท้าย", "action": "...", "value_shift": "... ไปสู่ ..."}}
 ]"""
         resp_text = self._call_gemini_sdk(prompt, max_tokens=1500, temperature=0.6)
         if resp_text:
@@ -2152,19 +2352,54 @@ class NovelEngine:
             except Exception as e:
                 print(f"[NovelEngine] Parse beats JSON error: {e}")
 
-        # Fallback Beats
+        # Fallback Beats (Aligned with Story Grid 5 Commandments)
         return [
-            {"beat": 1, "type": "Sensory Opening", "goal": "เปิดฉากสัมผัสบรรยากาศ", "action": f"เปิดฉากด้วยบรรยากาศแวดล้อมและสภาวะอารมณ์ของตัวละครในตอน '{chapter_subtitle}'"},
-            {"beat": 2, "type": "Rising Action", "goal": "ความขัดแย้งเริ่มปะทุ", "action": "ตัวละครเผชิญหน้ากับสถานการณ์กดดันหรือคู่กรณี"},
-            {"beat": 3, "type": "Micro-Turning Point", "goal": "จุดเปลี่ยนย่อยประจำตอน", "action": "การตัดสินใจหรือข้อมูลใหม่ที่ทำให้เรื่องพลิกผัน"},
-            {"beat": 4, "type": "Subtext & Emotion", "goal": "อารมณ์บีบคั้นและความนัย", "action": "การปะทะอารมณ์หรือคำพูดที่ซ่อนความรู้สึกลึกซึ้ง"},
-            {"beat": 5, "type": "Cliffhanger", "goal": "ทิ้งปมค้างคา", "action": "ตัดฉากที่การกระทำที่ชวนสงสัยหรือประโยคสุดท้ายที่บีบหัวใจ"}
+            {
+                "beat": 1,
+                "commandment": "Inciting Incident",
+                "type": "Sensory Opening & Inciting Incident",
+                "goal": "เปิดฉากด้วยบรรยากาศและชนวนเหตุการณ์ที่รบกวนสมดุลเดิม",
+                "action": f"เปิดฉากด้วยประสาทสัมผัสและสภาวะอารมณ์ของตัวละครในตอน '{chapter_subtitle}' พร้อมเหตุการณ์ที่กระตุ้นให้เกิดความตึงเครียด",
+                "value_shift": "ปกติ สู่ ไม่สงบ"
+            },
+            {
+                "beat": 2,
+                "commandment": "Progressive Complication",
+                "type": "Escalation & Turning Point",
+                "goal": "ความขัดแย้งและอุปสรรคที่บานปลายจนถึงจุดเลี้ยว",
+                "action": "ตัวละครเผชิญหน้ากับแรงต้าน ความกดดัน หรือข้อมูลใหม่ที่ทำให้แผนเดิมเริ่มสะดุดและควบคุมไม่ได้",
+                "value_shift": "รับมือได้ สู่ ตึงเครียด"
+            },
+            {
+                "beat": 3,
+                "commandment": "Crisis",
+                "type": "Crisis Dilemma (The Best Bad Choice)",
+                "goal": "ทางสองแพร่งที่บีบบังคับให้ต้องเลือก",
+                "action": "สถานการณ์บีบคั้นให้ตัวเอกต้องตัดสินใจระหว่างสิ่งที่ยากลำบากสองทาง โดยไม่มีทางเลือกที่ง่ายเลย",
+                "value_shift": "ลังเล สู่ บีบคั้นขีดสุด"
+            },
+            {
+                "beat": 4,
+                "commandment": "Climax",
+                "type": "Climax Action & Confrontation",
+                "goal": "การตัดสินใจลงมือทำและการเผชิญหน้าแตกหัก",
+                "action": "ตัวเอกลงมือทำตามการตัดสินใจ ปะทะคารมหรือใช้ไหวพริบตอบโต้ศัตรูอย่างเด็ดเดี่ยว เผยธาตุแท้",
+                "value_shift": "ตกเป็นเบี้ยล่าง สู่ สวนกลับ"
+            },
+            {
+                "beat": 5,
+                "commandment": "Resolution & Value Shift",
+                "type": "Resolution & Hard Cut Cliffhanger",
+                "goal": "ผลลัพธ์ที่เปลี่ยนขั้วคุณค่าถาวร และตัดจบฉับพลัน",
+                "action": "ผลสะท้อนจากการกระทำที่เปลี่ยนสถานการณ์ไปตลอดกาล ตัดจบห้วนๆ ที่บทพูดสุดท้ายหรือแอ็กชันสุดท้าย",
+                "value_shift": "ไม่แน่นอน สู่ จุดเปลี่ยนเด็ดขาด"
+            }
         ]
 
     def draft_scene_beats(self, story_title, chapter_num, chapter_subtitle, genre, beats, context_memory=None, sliding_context="", target_words=2500, tone="", forbidden_words="", category=""):
         """
         Agent 2: The Drafter (คนเขียนร่างแรก - Sensory & Action Writer)
-        เขียนเนื้อหาตาม Beats โดยแบ่งเป็นองค์ (Acts/Scenes) อย่างต่อเนื่อง
+        เขียนเนื้อหาตาม Beats โดยแบ่งเป็นองค์ (Acts/Scenes) อย่างต่อเนื่องตามหลัก Story Grid
         เพื่อรับประกันว่าความยาวเนื้อหาตรงตามเป้าหมาย (target_words) โดยไม่เกิดปัญหาโมเดลสรุปรวบรัด
         """
         char_desc = self._format_3d_character_sheet(context_memory)
@@ -2183,19 +2418,44 @@ class NovelEngine:
         total_beats = len(beats) if beats else 0
         if target_words >= 1500 and total_beats >= 4:
             scene_groups = [
-                {"act": 1, "name": "ฉากเปิดและชนวนเหตุการณ์ (Setup & Inciting Incident)", "beats": beats[:2], "word_ratio": 0.35},
-                {"act": 2, "name": "ฉากปะทะและจุดพลิกผัน (Escalation & Turning Point)", "beats": beats[2:4], "word_ratio": 0.40},
-                {"act": 3, "name": "ฉากไคลแมกซ์และทิ้งปมค้างคา (Climax & Hard Cut Cliffhanger)", "beats": beats[4:], "word_ratio": 0.25}
+                {
+                    "act": 1,
+                    "name": "ฉากที่ 1: ชนวนเหตุและอุปสรรคแรกเริ่ม (Inciting Incident & Progressive Complications)",
+                    "beats": beats[:2],
+                    "word_ratio": 0.35
+                },
+                {
+                    "act": 2,
+                    "name": "ฉากที่ 2: จุดพลิกผันและทางแยกวิกฤต (Turning Point & Crisis: The Best Bad Choice)",
+                    "beats": beats[2:4] if len(beats) >= 4 else beats[1:3],
+                    "word_ratio": 0.40
+                },
+                {
+                    "act": 3,
+                    "name": "ฉากที่ 3: ระเบิดอารมณ์ พลิกขั้วคุณค่า และตัดฉากค้างคา (Climax & Value Shift with Hard Cut Cliffhanger)",
+                    "beats": beats[4:] if len(beats) >= 5 else beats[3:],
+                    "word_ratio": 0.25
+                }
             ]
         elif target_words >= 1000 and total_beats >= 3:
             mid = max(1, total_beats // 2)
             scene_groups = [
-                {"act": 1, "name": "ฉากเปิดและการเริ่มความขัดแย้ง", "beats": beats[:mid], "word_ratio": 0.50},
-                {"act": 2, "name": "ฉากจุดเปลี่ยนและการตัดจบ", "beats": beats[mid:], "word_ratio": 0.50}
+                {
+                    "act": 1,
+                    "name": "ฉากที่ 1: ชนวนเหตุและอุปสรรค (Inciting Incident & Complications)",
+                    "beats": beats[:mid],
+                    "word_ratio": 0.50
+                },
+                {
+                    "act": 2,
+                    "name": "ฉากที่ 2: ทางแยกวิกฤต ไคลแมกซ์ และการพลิกขั้วคุณค่า (Crisis, Climax & Value Shift)",
+                    "beats": beats[mid:],
+                    "word_ratio": 0.50
+                }
             ]
         else:
             scene_groups = [
-                {"act": 1, "name": "เนื้อหาทั้งหมดประจำตอน", "beats": beats, "word_ratio": 1.0}
+                {"act": 1, "name": "เนื้อหาทั้งหมดประจำตอน (5 Commandments Complete)", "beats": beats, "word_ratio": 1.0}
             ]
 
         draft_parts = []
@@ -2242,7 +2502,8 @@ class NovelEngine:
 5. Subtext: ปากพูดอย่าง ใจคิดอีกอย่าง แสดงผ่านภาษากายและการกระทำ ไม่ใช่การบรรยายตรงๆ ว่า 'เธอซ่อนความรู้สึก'
 6. ละประธานตามธรรมชาติภาษาไทย: ไม่ต้องใส่ 'เขา' หรือ 'เธอ' ทุกประโยค
 7. คำต้องหลีกเลี่ยงโดยเด็ดขาด: {forbidden_words if forbidden_words else 'ประกายบางอย่าง, ราวกับเวลาหยุดหมุน, ก้นบึ้งของหัวใจ, ความรู้สึกบางอย่างที่อธิบายไม่ได้, แววตาที่ยากจะคาดเดา, รอยยิ้มมุมปากที่อ่านไม่ออก, ท่วมท้นด้วย, เปี่ยมล้นด้วย'}
-8. เป้าหมายความยาวเฉพาะองค์นี้: แต่งเนื้อหาอย่างประณีต เต็มอิ่ม ไม่ต่ำกว่า {act_target} คำภาษาไทย โดยเขียนเฉพาะเนื้อหานิยายเท่านั้น ห้ามมีคำทักทายหรือสรุปหัวข้อ"""
+8. เป้าหมายความยาวเฉพาะองค์นี้: แต่งเนื้อหาอย่างประณีต เต็มอิ่ม ไม่ต่ำกว่า {act_target} คำภาษาไทย โดยเขียนเฉพาะเนื้อหานิยายเท่านั้น ห้ามมีคำทักทายหรือสรุปหัวข้อ
+9. Story Grid 5 Commandments & Value Shift: ดำเนินเรื่องตามลำดับฉากอย่างเคร่งครัด ในฉากวิกฤต (Crisis) ตัวละครต้องเผชิญหน้ากับความกดดันและการตัดสินใจที่เจ็บปวด (Best Bad Choice) และในตอนท้ายต้องเกิดการเปลี่ยนขั้วอารมณ์หรือสถานะ (Value Shift จากบวกเป็นลบ หรือลบเป็นบวก) อย่างเด่นชัด พร้อมตัดจบฉากสุดท้ายแบบ Hard Cut บนคำพูดหรือการกระทำสุดท้าย"""
 
             resp_act = self._call_gemini_sdk(prompt, max_tokens=8192, temperature=0.82)
             if resp_act and len(resp_act.strip()) > 150:
@@ -2404,10 +2665,10 @@ class NovelEngine:
                 return resp_clean.strip()
         return text
 
-    def generate_chapter_agentic(self, story_title, chapter_num, chapter_subtitle, genre, context_memory=None, sliding_context="", target_words=2500, tone="", forbidden_words="", category=""):
+    def generate_chapter_agentic(self, story_title, chapter_num, chapter_subtitle, genre, context_memory=None, sliding_context="", target_words=2500, tone="", forbidden_words="", category="", target_chapters=20):
         """
         Full 4-Agent Multi-Agent Human-Grade Pipeline:
-        Agent 1: The Architect (Scene Beats)
+        Agent 1: The Architect (Story Grid 5 Commandments + Save the Cat! 15-Beat Sheet)
         Agent 2: The Drafter (Progressive Multi-Act Sensory Writer)
         Agent 3: The Dialogue Specialist (Human Speech & Chunk-Preserving Subtext)
         Agent 4: The Ruthless Editor (De-AI-ify & Cliffhanger Enforcement)
@@ -2417,11 +2678,11 @@ class NovelEngine:
         steps = []
         t_start = time.time()
 
-        # Step 1: The Architect
+        # Step 1: The Architect (5 Commandments of Storytelling)
         t0 = time.time()
-        beats = self.generate_scene_beats(story_title, chapter_num, chapter_subtitle, genre, context_memory, sliding_context, tone, category=category)
+        beats = self.generate_scene_beats(story_title, chapter_num, chapter_subtitle, genre, context_memory, sliding_context, tone, category=category, target_chapters=target_chapters)
         self.last_beats = beats
-        steps.append({"agent": "Agent 1: The Architect (Scene Beats)", "duration_sec": round(time.time() - t0, 2), "status": "completed"})
+        steps.append({"agent": "Agent 1: The Architect (Story Grid 5 Commandments)", "duration_sec": round(time.time() - t0, 2), "status": "completed"})
         time.sleep(0.5)
 
         # Step 2: The Drafter (Progressive Multi-Act Drafting)
@@ -2509,10 +2770,10 @@ class NovelEngine:
             return sanitize_thai_text(res_text)
         return self._generate_fallback_chapter(story_title, chapter_num, chapter_subtitle, genre, target_words, category=category)
 
-    def generate_chapter(self, story_title, chapter_num, chapter_subtitle, genre, context_memory=None, sliding_context="", target_words=2500, tone="", forbidden_words="", mode="agentic", category=""):
+    def generate_chapter(self, story_title, chapter_num, chapter_subtitle, genre, context_memory=None, sliding_context="", target_words=2500, tone="", forbidden_words="", mode="agentic", category="", target_chapters=20):
         """
         แต่งเนื้อหาประจำตอน:
-        - mode='agentic' (ค่าเริ่มต้น): ทำงานผ่านสถาปัตยกรรม Multi-Agent Pipeline (4 Agents + De-AI Linter) ได้ผลงานเสมือนมนุษย์เขียนจริง 100%
+        - mode='agentic' (ค่าเริ่มต้น): ทำงานผ่านสถาปัตยกรรม Multi-Agent Pipeline (4 Agents: Story Grid 5 Commandments + Save the Cat! 15-Beat Sheet + De-AI Linter) ได้ผลงานเสมือนมนุษย์เขียนจริง 100%
         - mode='turbo': รัน Single-shot รวดเร็วพร้อม Linter Post-Processing
         """
         clean_sub = clean_chapter_subtitle(chapter_subtitle, chapter_num, story_title)
@@ -2528,7 +2789,8 @@ class NovelEngine:
                     target_words=target_words,
                     tone=tone,
                     forbidden_words=forbidden_words,
-                    category=category
+                    category=category,
+                    target_chapters=target_chapters
                 )
                 return sanitize_thai_text(res)
             except Exception as e:

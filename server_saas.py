@@ -217,7 +217,8 @@ class BackgroundBatchManager:
                             sliding_context=sliding,
                             target_words=target_words,
                             mode=mode,
-                            category=novel.get("category", "")
+                            category=novel.get("category", ""),
+                            target_chapters=novel.get("target_chapters", 20)
                         )
 
                         # Clean & sanitize
@@ -887,10 +888,12 @@ class SaaSHttpHandler(http.server.SimpleHTTPRequestHandler):
             novel_chars = database.get_novel_characters(novel_id, user["id"]) if novel_id else []
             sliding_context = database.get_sliding_context_for_chapter(novel_id, chapter_num) if novel_id else ""
             category = ""
+            target_chapters = 20
             if novel_id:
                 novel_obj = database.get_novel_details(novel_id, user["id"])
                 if novel_obj:
                     category = novel_obj.get("category", "")
+                    target_chapters = novel_obj.get("target_chapters", 20)
 
             text = engine.generate_chapter(
                 story_title=title,
@@ -902,7 +905,8 @@ class SaaSHttpHandler(http.server.SimpleHTTPRequestHandler):
                 target_words=target_words,
                 forbidden_words=forbidden,
                 mode=mode,
-                category=category
+                category=category,
+                target_chapters=target_chapters
             )
 
             actual_words = count_thai_words(text)
@@ -1080,7 +1084,8 @@ class SaaSHttpHandler(http.server.SimpleHTTPRequestHandler):
                     sliding_context=sliding,
                     target_words=target_words,
                     mode=mode,
-                    category=novel.get("category", "")
+                    category=novel.get("category", ""),
+                    target_chapters=novel.get("target_chapters", 20)
                 )
                 ch_words = count_thai_words(ch_text)
                 total_words_generated += ch_words
@@ -1545,7 +1550,22 @@ class SaaSHttpHandler(http.server.SimpleHTTPRequestHandler):
                 self.send_json({"success": False, "error": "ข้อมูลไม่ครบถ้วน"}, 400)
                 return
             database.update_novel_cover(novel_id, user["id"], cover_url)
-            self.send_json({"success": True, "message": "อัปเดตภาพปกนิยายเรียบร้อยแล้ว!", "cover_url": cover_url})
+
+            # Auto-sync cover to ReadAWrite in background if novel is already on ReadAWrite
+            novel = database.get_novel_details(novel_id, user["id"])
+            if novel and novel.get("article_id"):
+                art_id = novel["article_id"]
+                u_id = user["id"]
+                c_url = cover_url
+                def _bg_sync_update():
+                    try:
+                        uploader = ReadAWriteUploader(user_id=u_id)
+                        uploader.update_story_cover(art_id, c_url, is_ai_cover=True)
+                    except Exception as err:
+                        print(f"[CoverSync] Auto-sync error: {err}")
+                threading.Thread(target=_bg_sync_update, daemon=True).start()
+
+            self.send_json({"success": True, "message": "อัปเดตภาพปกนิยายและกำลังซิงค์ขึ้น ReadAWrite อัตโนมัติ!", "cover_url": cover_url})
             return
 
         elif path == "/api/novels/upload_cover_file":
@@ -1578,10 +1598,25 @@ class SaaSHttpHandler(http.server.SimpleHTTPRequestHandler):
                 
                 cover_url = f"/covers/{filename}"
                 database.update_novel_cover(novel_id, user["id"], cover_url)
+
+                # Auto-sync cover to ReadAWrite in background if novel is already on ReadAWrite
+                novel = database.get_novel_details(novel_id, user["id"])
+                if novel and novel.get("article_id"):
+                    art_id = novel["article_id"]
+                    u_id = user["id"]
+                    c_url = cover_url
+                    def _bg_sync_upload():
+                        try:
+                            uploader = ReadAWriteUploader(user_id=u_id)
+                            uploader.update_story_cover(art_id, c_url, is_ai_cover=True)
+                        except Exception as err:
+                            print(f"[CoverSync] Auto-sync error: {err}")
+                    threading.Thread(target=_bg_sync_upload, daemon=True).start()
+
                 self.send_json({
                     "success": True,
                     "cover_url": cover_url,
-                    "message": "อัปโหลดภาพปกจากเครื่องสำเร็จเรียบร้อยแล้ว!"
+                    "message": "อัปโหลดภาพปกจากเครื่องและซิงค์ขึ้น ReadAWrite อัตโนมัติแล้ว!"
                 })
             except Exception as e:
                 self.send_json({"success": False, "error": f"อัปโหลดไฟล์ไม่สำเร็จ: {e}"}, 500)

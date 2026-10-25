@@ -177,6 +177,30 @@ class ReadAWriteUploader:
             self.log(f"ดาวน์โหลดหรือแปลงภาพปกไม่สำเร็จ ({e})")
         return None
 
+    def _prepare_cover_base64(self, cover_file):
+        """แปลงภาพปกเป็น Base64 Data URL แบบเต็มรูป 1:1 ไม่ผ่านการตัด Crop ใดๆ"""
+        if not cover_file or not os.path.exists(cover_file):
+            return None
+        try:
+            from PIL import Image
+            import io
+            import base64
+            im = Image.open(cover_file)
+            if im.mode in ("RGBA", "P"):
+                im = im.convert("RGB")
+            w, h = im.size
+            # หากภาพมีขนาดใหญ่เกิน 1200px ให้ย่อลงอย่างพอดีเพื่อขนาดที่เหมาะสมกับ CDN ของ ReadAWrite
+            if w > 1200 or h > 1200:
+                ratio = min(1200 / w, 1200 / h)
+                new_size = (int(w * ratio), int(h * ratio))
+                im = im.resize(new_size, Image.Resampling.LANCZOS)
+            buf = io.BytesIO()
+            im.save(buf, format="JPEG", quality=92)
+            return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode("utf-8")
+        except Exception as e:
+            self.log(f"แปลงภาพปกเป็น Base64 ไม่สำเร็จ ({e})")
+            return None
+
     def create_story(self, title, synopsis, category_id="13", rating="1", is_ai_cover=True, cover_url=None):
         """สร้างนิยายเรื่องใหม่บน ReadAWrite ในบัญชีของผู้ใช้นี้ พร้อมอัปโหลดภาพปก AI (ถ้ามี)"""
         self.log(f"กำลังสร้างนิยายเรื่องใหม่: {title}")
@@ -195,53 +219,32 @@ class ReadAWriteUploader:
                 page.locator("#article_name").fill(title)
                 page.locator("#article_synopsis").fill(synopsis)
 
-                # 2. อัปโหลดภาพปก AI (ถ้ามี)
+                # 2. อัปโหลดภาพปก AI (ถ้ามี) แบบ 1:1 เต็มรูป ไม่ผ่านการ Crop
                 if cover_url:
                     cover_file = self._prepare_cover_file(cover_url)
                     if cover_file and os.path.exists(cover_file):
-                        self.log(f"กำลังอัปโหลดไฟล์ภาพปก AI ไปยัง ReadAWrite: {os.path.basename(cover_file)}")
-                        try:
-                            file_input = page.locator("#article_cover, input[type='file'][name='article_cover']")
-                            if file_input.count() > 0:
-                                file_input.first.set_input_files(cover_file)
-                                time.sleep(2)
-
-                                # จัดการยืนยันหน้าต่าง Cropper modal ของ ReadAWrite
-                                crop_btn = page.locator('#modal button:has-text("ครอปรูป"), #modal button[onclick*="cropToImg"], #modal .btn:has-text("ครอปรูป")')
-                                if crop_btn.count() > 0:
-                                    try:
-                                        crop_btn.first.click()
-                                        time.sleep(2)
-                                        self.log("กดปุ่มยืนยันครอปภาพปกบน ReadAWrite สำเร็จ")
-                                    except Exception as cbe:
-                                        self.log(f"กดปุ่มครอปภาพไม่สำเร็จ ({cbe}) พยายามสั่ง article.cropToImg()...")
-                                        page.evaluate("""() => {
-                                            if (typeof article !== 'undefined' && typeof article.cropToImg === 'function') {
-                                                article.cropToImg();
-                                            }
-                                        }""")
-                                        time.sleep(1)
-                                else:
-                                    page.evaluate("""() => {
-                                        if (typeof article !== 'undefined' && typeof article.cropToImg === 'function') {
-                                            article.cropToImg();
-                                        }
-                                    }""")
-                                    time.sleep(1)
-
-                                # ให้แน่ใจว่า modal ปิดสนิทและไม่ขวางการคลิก
-                                page.evaluate("""() => {
-                                    const backdrop = document.querySelector('.modal-backdrop');
-                                    if (backdrop) backdrop.remove();
-                                    const m = document.querySelector('#modal');
-                                    if (m) {
-                                        m.classList.remove('in');
-                                        m.style.display = 'none';
-                                    }
-                                }""")
-                                self.log("อัปโหลดไฟล์ภาพปกสำเร็จเรียบร้อยแล้ว")
-                        except Exception as ce:
-                            self.log(f"อัปโหลดไฟล์ปกไม่สำเร็จ ({ce})")
+                        self.log(f"กำลังนำภาพปก 1:1 เต็มรูปเข้าสู่ ReadAWrite: {os.path.basename(cover_file)}")
+                        cover_b64 = self._prepare_cover_base64(cover_file)
+                        if cover_b64:
+                            page.evaluate("""(b64) => {
+                                const inp = document.querySelector('#imgBase64');
+                                if (inp) inp.value = b64;
+                                const inpCover = document.querySelector('#imgCoverBase64');
+                                if (inpCover) inpCover.value = '';
+                                const preview = document.querySelector('#img_uploaded, #preview_thumbnail, #preview_cover_article, #img_cover_uploaded');
+                                if (preview) {
+                                    preview.src = b64;
+                                    if (preview.hasAttribute('srcset')) preview.setAttribute('srcset', b64);
+                                }
+                                const m = document.querySelector('#modal');
+                                if (m) {
+                                    m.classList.remove('in');
+                                    m.style.display = 'none';
+                                }
+                                document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+                            }""", cover_b64)
+                            time.sleep(1)
+                            self.log("ตั้งค่าภาพปก 1:1 เต็มรูป (ไม่ผ่านการ Crop) เรียบร้อยแล้ว")
 
                 # 3. กำหนดสถานะปก AI (ทำเครื่องหมาย 'ภาพปกสร้างด้วย AI (AI-generated)')
                 rad_id = "#is_ai_cover1" if is_ai_cover else "#chk_is_ai_cover0"
@@ -320,7 +323,7 @@ class ReadAWriteUploader:
     def update_story_cover(self, article_id, cover_url, is_ai_cover=True):
         """อัปโหลดหรือแก้ไขภาพปกนิยายที่มีอยู่แล้วบน ReadAWrite"""
         self.log(f"กำลังอัปเดตภาพปกนิยาย Article ID: {article_id}")
-        url = f"https://www.readawrite.com/?action=manage_article&article_id={article_id}"
+        url = f"https://www.readawrite.com/?action=manage_article&article_id={article_id}&tab=articleSetting"
         
         cover_file = self._prepare_cover_file(cover_url)
         if not cover_file or not os.path.exists(cover_file):
@@ -336,46 +339,39 @@ class ReadAWriteUploader:
                 time.sleep(2)
                 page.keyboard.press("Escape")
 
-                # ส่งไฟล์ภาพเข้า input#article_cover
-                file_input = page.locator("#article_cover, input[type='file'][name='article_cover']")
-                if file_input.count() > 0:
-                    self.log(f"กำลังส่งไฟล์ภาพปก {os.path.basename(cover_file)} ไปยัง ReadAWrite...")
-                    file_input.first.set_input_files(cover_file)
-                    time.sleep(2)
+                # ให้แน่ใจว่าแท็บ articleSetting แสดงผลสมบูรณ์
+                page.evaluate("""() => {
+                    const pane = document.querySelector('#articleSetting');
+                    if (pane) {
+                        pane.classList.add('active', 'in');
+                        pane.style.display = 'block';
+                    }
+                }""")
+                time.sleep(1)
 
-                    # จัดการยืนยันหน้าต่าง Cropper modal ของ ReadAWrite
-                    crop_btn = page.locator('#modal button:has-text("ครอปรูป"), #modal button[onclick*="cropToImg"], #modal .btn:has-text("ครอปรูป")')
-                    if crop_btn.count() > 0:
-                        try:
-                            crop_btn.first.click()
-                            time.sleep(2)
-                            self.log("กดปุ่มยืนยันครอปภาพปกบน ReadAWrite สำเร็จ")
-                        except Exception as cbe:
-                            self.log(f"กดปุ่มครอปภาพไม่สำเร็จ ({cbe}) พยายามสั่ง article.cropToImg()...")
-                            page.evaluate("""() => {
-                                if (typeof article !== 'undefined' && typeof article.cropToImg === 'function') {
-                                    article.cropToImg();
-                                }
-                            }""")
-                            time.sleep(1)
-                    else:
-                        page.evaluate("""() => {
-                            if (typeof article !== 'undefined' && typeof article.cropToImg === 'function') {
-                                article.cropToImg();
-                            }
-                        }""")
-                        time.sleep(1)
-
-                    # ให้แน่ใจว่า modal ปิดสนิทและไม่ขวางการคลิก
-                    page.evaluate("""() => {
-                        const backdrop = document.querySelector('.modal-backdrop');
-                        if (backdrop) backdrop.remove();
+                # ส่งภาพปก 1:1 เต็มรูปเข้าสู่ ReadAWrite โดยตรง (ไม่ผ่านการ Crop และไม่ถูกตัดหัว)
+                cover_b64 = self._prepare_cover_base64(cover_file)
+                if cover_b64:
+                    self.log(f"กำลังอัปโหลดภาพปก 1:1 เต็มรูป {os.path.basename(cover_file)} ไปยัง ReadAWrite...")
+                    page.evaluate("""(b64) => {
+                        const inp = document.querySelector('#imgBase64');
+                        if (inp) inp.value = b64;
+                        const inpCover = document.querySelector('#imgCoverBase64');
+                        if (inpCover) inpCover.value = '';
+                        const preview = document.querySelector('#img_uploaded, #preview_thumbnail, #preview_cover_article, #img_cover_uploaded');
+                        if (preview) {
+                            preview.src = b64;
+                            if (preview.hasAttribute('srcset')) preview.setAttribute('srcset', b64);
+                        }
                         const m = document.querySelector('#modal');
                         if (m) {
                             m.classList.remove('in');
                             m.style.display = 'none';
                         }
-                    }""")
+                        document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+                    }""", cover_b64)
+                    time.sleep(1)
+                    self.log("ตั้งค่าภาพปก 1:1 เต็มรูปเรียบร้อยแล้ว")
 
                 # ติ๊กสถานะภาพปกสร้างด้วย AI
                 rad_id = "#is_ai_cover1" if is_ai_cover else "#chk_is_ai_cover0"
@@ -389,10 +385,11 @@ class ReadAWriteUploader:
 
                 # บันทึก
                 self.log("กำลังกดปุ่มบันทึกการแก้ไขนิยาย...")
-                try:
-                    page.locator("#btnSaveArticle").click(timeout=8000)
-                except Exception as bse:
-                    self.log(f"คลิกปกติไม่ผ่าน ({bse}) กำลังสั่งบันทึกตรงผ่าน JavaScript...")
+                save_btn = page.locator("#btnSaveArticle")
+                if save_btn.count() > 0 and save_btn.first.is_visible():
+                    save_btn.first.click()
+                else:
+                    self.log("คลิกปกติไม่ผ่าน กำลังสั่งบันทึกตรงผ่าน JavaScript...")
                     page.evaluate("""() => {
                         const backdrop = document.querySelector('.modal-backdrop');
                         if (backdrop) backdrop.remove();
@@ -403,13 +400,13 @@ class ReadAWriteUploader:
                         }
                         const btn = document.querySelector('#btnSaveArticle');
                         if (btn) btn.click();
-                        else if (typeof article !== 'undefined' && typeof article.saveArticle === 'function') {
-                            article.saveArticle();
+                        else if (typeof article !== 'undefined' && typeof article.saveMeta === 'function') {
+                            article.saveMeta();
                         }
                     }""")
                 time.sleep(3)
 
-                swal = page.locator("button.swal2-confirm, button:has-text('OK')")
+                swal = page.locator("button.swal2-confirm, button:has-text('OK'), .confirm")
                 if swal.count() > 0:
                     try:
                         swal.first.click()
