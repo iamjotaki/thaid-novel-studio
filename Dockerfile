@@ -7,10 +7,12 @@ WORKDIR /app
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
     PORT=8080 \
+    TZ=Asia/Bangkok \
     DEBIAN_FRONTEND=noninteractive
 
-# Install additional fonts for Thai language rendering in headless Chromium
+# Install additional fonts for Thai language rendering and timezone data
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    tzdata \
     fonts-thai-tlwg \
     fonts-noto-cjk \
     curl \
