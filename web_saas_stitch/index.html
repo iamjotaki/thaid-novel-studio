@@ -141,22 +141,14 @@
         <!-- Rendered dynamically by JS: Guest Links vs Authenticated Author Links -->
       </nav>
 
-      <!-- Right Actions: Dynamic (Guest vs Authenticated Author) + Apple Dark Mode Toggle -->
+      <!-- Right Actions: Standardized Sequence across ThaiD Ecosystem -->
       <div class="flex items-center gap-2 flex-shrink-0">
-        <a href="https://thaid.online" class="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-apple-titanium dark:text-stone-400 hover:text-apple-coral transition-colors rounded-lg hover:bg-black/5 dark:hover:bg-white/10" title="ศูนย์รวม ThaiD Hub">
-          <span class="material-symbols-outlined text-[15px]">hub</span>
-          <span>ThaiD Hub</span>
-        </a>
-        <a href="https://social.thaid.online" class="hidden md:inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-apple-titanium dark:text-stone-400 hover:text-apple-coral transition-colors rounded-lg hover:bg-black/5 dark:hover:bg-white/10" title="ไปที่ Social Auto-Poster">
-          <span class="material-symbols-outlined text-[15px]">campaign</span>
-          <span>Social Poster</span>
-        </a>
-        <div id="navAuthArea" class="flex items-center gap-2">
-          <!-- Rendered dynamically by JS -->
-        </div>
         <button type="button" onclick="toggleDarkMode()" class="p-1.5 rounded-lg text-stone-500 hover:text-apple-space dark:text-stone-400 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-white/10 transition-colors" title="สลับโหมดมืด / สว่าง (Dark Mode)">
           <span class="material-symbols-outlined text-[19px]" id="themeIcon">dark_mode</span>
         </button>
+        <div id="navAuthArea" class="flex items-center gap-2">
+          <!-- Rendered dynamically by JS -->
+        </div>
       </div>
 
     </div>
@@ -2785,13 +2777,24 @@
       const nav = document.getElementById('mainNav');
       const authArea = document.getElementById('navAuthArea');
 
-      // Guest Navigation Links
+      // Guest Navigation Links (Unified 4-Pill Ecosystem Standard)
       nav.innerHTML = `
-        <a href="https://thaid.online" class="whitespace-nowrap px-2.5 py-1.5 rounded-lg font-medium text-stone-600 dark:text-stone-400 hover:text-apple-coral transition-all flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">hub</span>ThaiD Hub</a>
-        <a href="#hero" id="navBtn-home" onclick="navigate('home')" class="whitespace-nowrap px-3 py-1.5 rounded-lg font-bold text-apple-coral bg-white dark:bg-[#202024] shadow-2xs transition-all">หน้าแรก</a>
-        <a href="#features" class="whitespace-nowrap px-3 py-1.5 rounded-lg font-medium text-stone-600 dark:text-stone-400 hover:text-apple-space dark:hover:text-white transition-all">ฟีเจอร์เด่น</a>
-        <a href="#pricing" class="whitespace-nowrap px-3 py-1.5 rounded-lg font-medium text-stone-600 dark:text-stone-400 hover:text-apple-space dark:hover:text-white transition-all">ราคา &amp; สมาชิก</a>
-        <a href="#faq" class="whitespace-nowrap px-3 py-1.5 rounded-lg font-medium text-stone-600 dark:text-stone-400 hover:text-apple-space dark:hover:text-white transition-all">คำถามที่พบบ่อย</a>
+        <a href="https://thaid.online" class="whitespace-nowrap px-3 py-1 rounded-lg text-[#86868b] hover:text-[#1d1d1f] dark:text-stone-400 dark:hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[14px]">hub</span>
+          <span>ThaiD Hub</span>
+        </a>
+        <a href="#hero" id="navBtn-home" onclick="navigate('home')" class="whitespace-nowrap px-3 py-1 rounded-lg text-[#1d1d1f] dark:text-white bg-white dark:bg-white/10 shadow-xs font-semibold flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[14px]">edit_note</span>
+          <span>นิยาย AI</span>
+        </a>
+        <a href="https://social.thaid.online" class="whitespace-nowrap px-3 py-1 rounded-lg text-[#86868b] hover:text-[#1d1d1f] dark:text-stone-400 dark:hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[14px]">campaign</span>
+          <span>โพสต์ Facebook</span>
+        </a>
+        <a href="https://sticker.thaid.online" class="whitespace-nowrap px-3 py-1 rounded-lg text-[#86868b] hover:text-[#1d1d1f] dark:text-stone-400 dark:hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[14px]">sentiment_satisfied</span>
+          <span>สติกเกอร์ไลน์</span>
+        </a>
       `;
 
       // Guest Actions
