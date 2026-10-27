@@ -2836,7 +2836,7 @@
       const authArea = document.getElementById('navAuthArea');
 
       // Guest Navigation Links (Unified 4-Pill Ecosystem Standard)
-      nav.innerHTML = `
+      if (nav) nav.innerHTML = `
         <a href="https://thaid.online" class="whitespace-nowrap px-3 py-1 rounded-lg text-[#86868b] hover:text-[#1d1d1f] dark:text-[#737373] dark:hover:text-white transition-colors flex items-center gap-1.5">
           <span class="material-symbols-outlined text-[14px]">hub</span>
           <span>ThaiD Hub</span>
