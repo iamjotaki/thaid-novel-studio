@@ -177,7 +177,16 @@
           <span class="text-[#0569ff] font-bold">✦</span>
           <span>หน้าหลัก ThaiD</span>
         </a>
-        <div id="navAuthArea" class="flex items-center gap-2"></div>
+        <div id="navAuthArea" class="flex items-center gap-2">
+          <button onclick="quickLogin('writer@readawrite.pro', '123456')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0569ff]/10 hover:bg-[#0569ff]/20 text-[#0569ff] text-xs font-semibold transition-colors">
+            <span class="material-symbols-outlined text-[14px]">bolt</span>
+            <span>เข้าใช้งาน Demo</span>
+          </button>
+          <button onclick="openAuthModal('login')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#171717] hover:bg-black text-white text-xs font-semibold shadow-2xs transition-all hover:scale-[1.02] active:scale-[0.98]">
+            <span class="material-symbols-outlined text-[14px]">login</span>
+            <span>เข้าสู่ระบบ</span>
+          </button>
+        </div>
       </div>
 
     </div>
@@ -211,15 +220,19 @@
         </p>
 
         <!-- CTA Row (ThaiD Standard Pill Buttons) -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-          <button onclick="handleStartWritingClick()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#171717] hover:bg-black text-white rounded-full px-8 py-3.5 text-sm font-semibold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98]">
-            <span>เริ่มแต่งนิยาย (Get started)</span>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+          <button onclick="quickLogin('writer@readawrite.pro', '123456')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#171717] hover:bg-black text-white rounded-full px-8 py-3.5 text-sm font-semibold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98]">
+            <span class="material-symbols-outlined text-[18px]">bolt</span>
+            <span>เข้าสู่ห้องแต่งนิยายทันที (Demo Workspace)</span>
             <span class="text-base leading-none">→</span>
           </button>
-          <a href="#features" class="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-full border border-black/[0.08] hover:bg-stone-50 text-[#2b313b] text-sm font-semibold transition-colors">
-            <span>ดูการทำงานของ AI</span>
-            <span class="material-symbols-outlined text-[18px]">chevron_right</span>
-          </a>
+          <button onclick="openAuthModal('login')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-black/[0.08] hover:bg-stone-50 text-[#2b313b] text-sm font-semibold transition-colors">
+            <span class="material-symbols-outlined text-[18px]">login</span>
+            <span>เข้าสู่ระบบ</span>
+          </button>
+          <button onclick="openAuthModal('register')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-black/[0.08] hover:bg-stone-50 text-[#5e6675] text-sm font-semibold transition-colors">
+            <span>สมัครสมาชิกใหม่ (ฟรี 7 วัน)</span>
+          </button>
         </div>
       </div>
 
@@ -2892,7 +2905,7 @@
         `;
       }
 
-      nav.innerHTML = `
+      if (nav) nav.innerHTML = `
         <button id="navBtn-home" onclick="navigate('home')" class="nav-segment-btn whitespace-nowrap px-3 py-1.5 rounded-lg font-medium text-stone-600 dark:text-[#737373] hover:text-apple-space dark:hover:text-white transition-all flex items-center gap-1.5">
           <span class="material-symbols-outlined text-[15px]">home</span>
           <span>หน้าแรก</span>
@@ -6375,10 +6388,11 @@
       }
     }
 
-    // --- Apple Cupertino Dark Mode Logic ---
-    // ThaiD Studio Theme Locked
-document.documentElement.classList.add("dark");
-localStorage.setItem("raw_theme", "dark");
+    // --- Theme & Initialization Logic ---
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("raw_theme", "light");
+
+    document.addEventListener('DOMContentLoaded', () => {
       const slider = document.getElementById('targetWordsSlider');
       if (slider) {
         slider.addEventListener('input', (e) => {
