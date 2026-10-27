@@ -3017,7 +3017,7 @@
       `;
 
       // Guest Actions
-      authArea.innerHTML = `
+      if (authArea) authArea.innerHTML = `
         <button onclick="openAuthModal('login')" class="whitespace-nowrap text-xs font-bold text-stone-600 hover:text-apple-space dark:text-[#737373] dark:hover:text-white px-3 py-1.5 transition-colors">
           เข้าสู่ระบบ
         </button>
@@ -3088,7 +3088,7 @@
 
       // Authenticated Right Actions: Consolidated, Clean, Apple Minimalist
       const isRawConnected = user.raw_session_status === 'connected';
-      authArea.innerHTML = `
+      if (authArea) authArea.innerHTML = `
         <!-- ReadAWrite Cloud Session -->
         <button onclick="openReadAWriteConnectModal()" id="rawNavConnectBtn" class="whitespace-nowrap flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-medium ${isRawConnected ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800' : 'bg-stone-100/90 dark:bg-white/[0.06] text-stone-600 dark:text-[#737373] border border-stone-200/60 dark:border-black/[0.08]'} hover:opacity-90 transition-all" title="จัดการเซสชัน ReadAWrite">
           <span class="w-2 h-2 rounded-full ${isRawConnected ? 'bg-emerald-500 animate-pulse' : 'bg-stone-400'}"></span>
