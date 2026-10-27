@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth dark bg-[#131922]" lang="th">
+<html lang="th" class="scroll-smooth bg-white text-[#171717]">
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -8,7 +8,7 @@
   <!-- Apple Cupertino Fonts & Thai Typography (Prompt & Sarabun) -->
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Google+Sans:wght@400;500;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <!-- Material Symbols Outlined -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
   <!-- Tailwind CSS -->
@@ -117,12 +117,12 @@
     }
   </style>
 </head>
-<body class="bg-[#f5f5f7] text-apple-space antialiased selection:bg-apple-coral-light selection:text-apple-coral font-sans">
+<body class="min-h-screen bg-white text-[#171717] font-sans antialiased selection:bg-[#1f242d]/15 selection:text-[#0569ff]">
 
   <!-- ======================================================== -->
   <!-- 1. TRANSLUCENT GLOBAL HEADER (APPLE.COM FROSTED NAVBAR)   -->
   <!-- ======================================================== -->
-  <header class="sticky top-0 z-50 h-[52px] bg-white/80 dark:bg-[#161618]/80 backdrop-blur-xl border-b border-apple-border dark:border-[#2b313b] shadow-xs">
+  <header class="sticky top-0 z-50 border-b border-black/[0.08] bg-white/80 backdrop-blur-xl">
     <div class="max-w-[1600px] w-full mx-auto px-4 sm:px-6 h-full flex items-center justify-between gap-4">
       
       <!-- Left: Apple-Style Brand Logo -->
@@ -132,18 +132,18 @@
         </div>
         <div class="flex items-center gap-1.5">
           <span class="text-sm sm:text-base font-bold tracking-tight text-apple-space dark:text-white">ReadAWrite Pro</span>
-          <span class="hidden sm:inline-block bg-black/5 dark:bg-white/10 text-apple-titanium dark:text-stone-400 text-[9px] font-bold px-1.5 py-0.5 rounded tracking-wider uppercase">STUDIO</span>
+          <span class="hidden sm:inline-block bg-black/5 dark:bg-white/10 text-apple-titanium dark:text-[#737373] text-[9px] font-bold px-1.5 py-0.5 rounded tracking-wider uppercase">STUDIO</span>
         </div>
       </div>
 
       <!-- Center: Contextual Segmented Navigation Links -->
-      <nav id="mainNav" class="hidden md:flex items-center gap-1 bg-stone-100/90 dark:bg-white/[0.06] p-1 rounded-xl border border-black/[0.04] dark:border-[#2b313b] text-xs">
+      <nav id="mainNav" class="hidden md:flex items-center gap-1 bg-stone-100/90 dark:bg-white/[0.06] p-1 rounded-xl border border-black/[0.04] dark:border-black/[0.08] text-xs">
         <!-- Rendered dynamically by JS: Guest Links vs Authenticated Author Links -->
       </nav>
 
       <!-- Right Actions: Standardized Sequence across ThaiD Ecosystem -->
       <div class="flex items-center gap-2 flex-shrink-0">
-        <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.04] border border-[#2b313b] text-[11px] text-stone-400"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span><span>Fastwork Studio</span></div>
+        <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.04] border border-black/[0.08] text-[11px] text-[#737373]"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span><span>Fastwork Studio</span></div>
         <div id="navAuthArea" class="flex items-center gap-2">
           <!-- Rendered dynamically by JS -->
         </div>
@@ -528,11 +528,11 @@
                 <h3 class="text-xl font-bold text-white mt-1">Lifetime VIP</h3>
                 <div class="mt-4 flex items-baseline gap-1">
                   <span class="text-3xl font-black text-amber-400">฿6,900</span>
-                  <span class="text-xs font-medium text-stone-400">/ ตลอดชีพ</span>
+                  <span class="text-xs font-medium text-[#737373]">/ ตลอดชีพ</span>
                 </div>
-                <p class="text-xs text-stone-400 mt-2 font-thai">ไม่ต้องจ่ายรายเดือนอีกต่อไป เข้าถึงโมเดลใหม่ตลอดชีพ</p>
+                <p class="text-xs text-[#737373] mt-2 font-thai">ไม่ต้องจ่ายรายเดือนอีกต่อไป เข้าถึงโมเดลใหม่ตลอดชีพ</p>
               </div>
-              <div class="pt-4 border-t border-[#2b313b] space-y-3 text-xs font-thai">
+              <div class="pt-4 border-t border-black/[0.08] space-y-3 text-xs font-thai">
                 <div class="flex items-center gap-2 text-white font-medium">
                   <span class="material-symbols-outlined text-[16px] text-amber-400">verified</span>
                   <span>แต่งนิยาย AI ไม่จำกัดคำ (ตลอดชีพ)</span>
@@ -633,19 +633,19 @@
       </div>
 
       <div class="flex items-center gap-1 sm:gap-1.5">
-        <button onclick="switchStudioSidebarTab('chapters')" class="px-2.5 sm:px-3 py-1 rounded-full text-xs font-semibold text-apple-space dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-white/10 flex items-center gap-1 transition-colors">
+        <button onclick="switchStudioSidebarTab('chapters')" class="px-2.5 sm:px-3 py-1 rounded-full text-xs font-semibold text-apple-space dark:text-stone-700 hover:bg-stone-100 dark:hover:bg-white/10 flex items-center gap-1 transition-colors">
           <span class="material-symbols-outlined text-[15px] text-apple-coral">edit_note</span>
           <span class="hidden sm:inline">ห้องเขียน (S)</span>
         </button>
-        <button onclick="openContextMemoryModal()" class="px-2.5 sm:px-3 py-1 rounded-full text-xs font-semibold text-apple-space dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-white/10 flex items-center gap-1 transition-colors" title="ดูบริบทและบันทึกความจำที่ส่งให้ AI">
+        <button onclick="openContextMemoryModal()" class="px-2.5 sm:px-3 py-1 rounded-full text-xs font-semibold text-apple-space dark:text-stone-700 hover:bg-stone-100 dark:hover:bg-white/10 flex items-center gap-1 transition-colors" title="ดูบริบทและบันทึกความจำที่ส่งให้ AI">
           <span class="material-symbols-outlined text-[15px] text-blue-600">psychology</span>
           <span>จดจำบริบทเดิม (Context Memory)</span>
         </button>
-        <button onclick="switchStudioSidebarTab('characters')" class="px-2.5 sm:px-3 py-1 rounded-full text-xs font-semibold text-apple-space dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-white/10 flex items-center gap-1 transition-colors">
+        <button onclick="switchStudioSidebarTab('characters')" class="px-2.5 sm:px-3 py-1 rounded-full text-xs font-semibold text-apple-space dark:text-stone-700 hover:bg-stone-100 dark:hover:bg-white/10 flex items-center gap-1 transition-colors">
           <span class="material-symbols-outlined text-[15px] text-pink-600">group</span>
           <span class="hidden sm:inline">พัฒนาการตัวละคร (Arc)</span>
         </button>
-        <button onclick="openTensionArcModal()" class="px-2.5 sm:px-3 py-1 rounded-full text-xs font-semibold text-apple-space dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-white/10 flex items-center gap-1 transition-colors">
+        <button onclick="openTensionArcModal()" class="px-2.5 sm:px-3 py-1 rounded-full text-xs font-semibold text-apple-space dark:text-stone-700 hover:bg-stone-100 dark:hover:bg-white/10 flex items-center gap-1 transition-colors">
           <span class="material-symbols-outlined text-[15px] text-amber-600">insights</span>
           <span class="hidden md:inline">กราฟความตึงเครียด (Tension Arc)</span>
         </button>
@@ -657,7 +657,7 @@
             <span>ส่งออกรูปเล่ม</span>
             <span class="material-symbols-outlined text-[13px]">expand_more</span>
           </button>
-          <div class="absolute right-0 top-full mt-1 w-56 bg-white dark:bg-[#2c2c2e] rounded-2xl shadow-xl border border-black/[0.08] dark:border-[#2b313b] py-1.5 hidden group-hover:block z-30 font-thai">
+          <div class="absolute right-0 top-full mt-1 w-56 bg-white dark:bg-[#2c2c2e] rounded-2xl shadow-xl border border-black/[0.08] dark:border-black/[0.08] py-1.5 hidden group-hover:block z-30 font-thai">
             <button onclick="exportNovel('docx')" class="w-full px-3.5 py-2 text-left text-xs font-semibold hover:bg-apple-subtle dark:hover:bg-white/5 flex items-center gap-2">
               <span class="material-symbols-outlined text-blue-600 text-[18px]">description</span>
               <div>
@@ -682,14 +682,14 @@
       <!-- Left Sidebar: Chapter List (280px) -->
       <aside class="w-[280px] flex-shrink-0 bg-white border-r border-apple-border flex flex-col justify-between overflow-y-auto custom-scrollbar p-4">
       <div>
-        <div class="bg-apple-subtle dark:bg-white/[0.04] rounded-2xl p-3 border border-black/[0.04] dark:border-[#2b313b] mb-3">
+        <div class="bg-apple-subtle dark:bg-white/[0.04] rounded-2xl p-3 border border-black/[0.04] dark:border-black/[0.08] mb-3">
           <div class="flex items-center justify-between mb-1">
             <span class="text-[10px] font-bold text-apple-coral bg-orange-50 dark:bg-orange-950/40 px-2 py-0.5 rounded-full uppercase" id="studioNovelGenre">ผัวโบ้ / กลับมาเจอกัน</span>
             <div class="flex items-center gap-2">
-              <button onclick="openCoverStudioModal(state.activeNovel?.id)" class="text-[10px] font-bold text-apple-titanium dark:text-stone-400 hover:text-apple-coral flex items-center gap-0.5 cursor-pointer" title="ออกแบบปก AI">
+              <button onclick="openCoverStudioModal(state.activeNovel?.id)" class="text-[10px] font-bold text-apple-titanium dark:text-[#737373] hover:text-apple-coral flex items-center gap-0.5 cursor-pointer" title="ออกแบบปก AI">
                 <span class="material-symbols-outlined text-[13px]">palette</span> ปก AI
               </button>
-              <button onclick="confirmDeleteNovel(state.activeNovel?.id, state.activeNovel?.title)" class="text-[10px] font-bold text-stone-400 hover:text-rose-600 dark:hover:text-rose-400 flex items-center gap-0.5 cursor-pointer" title="ลบนิยายเรื่องนี้">
+              <button onclick="confirmDeleteNovel(state.activeNovel?.id, state.activeNovel?.title)" class="text-[10px] font-bold text-[#737373] hover:text-rose-600 dark:hover:text-rose-400 flex items-center gap-0.5 cursor-pointer" title="ลบนิยายเรื่องนี้">
                 <span class="material-symbols-outlined text-[13px]">delete</span> ลบ
               </button>
             </div>
@@ -793,7 +793,7 @@
                 <span class="material-symbols-outlined text-[16px] text-purple-600">account_tree</span>
                 <span>โครงสร้างฉากประจำบท (Scene Beats วางโดย Agent 1: The Architect)</span>
               </span>
-              <button type="button" onclick="toggleBeatsDrawer()" class="text-stone-400 hover:text-stone-600 text-xs font-normal">✕ ย่อเก็บ</button>
+              <button type="button" onclick="toggleBeatsDrawer()" class="text-[#737373] hover:text-stone-600 text-xs font-normal">✕ ย่อเก็บ</button>
             </div>
             <div id="sceneBeatsList" class="space-y-2">
               <!-- Populated by JS -->
@@ -841,7 +841,7 @@
             <button type="button" id="btnModeAgentic" onclick="setAiMode('agentic')" class="py-2 px-2.5 rounded-lg bg-white dark:bg-stone-700 text-apple-coral shadow-xs transition-all flex items-center justify-center gap-1">
               <span>🌟 4-Agents Pro</span>
             </button>
-            <button type="button" id="btnModeTurbo" onclick="setAiMode('turbo')" class="py-2 px-2.5 rounded-lg text-stone-600 dark:text-stone-300 hover:text-stone-900 transition-all flex items-center justify-center gap-1">
+            <button type="button" id="btnModeTurbo" onclick="setAiMode('turbo')" class="py-2 px-2.5 rounded-lg text-stone-600 dark:text-stone-700 hover:text-stone-900 transition-all flex items-center justify-center gap-1">
               <span>⚡ Turbo Fast</span>
             </button>
           </div>
@@ -887,12 +887,12 @@
               <span class="material-symbols-outlined text-[16px]">bolt</span>
               <span>⚡ แต่งต่อเนื่อง (Auto)</span>
             </button>
-            <button id="btnExpand" onclick="triggerExpandChapter()" class="py-2.5 bg-white dark:bg-[#2c2c2e] hover:bg-stone-100 dark:hover:bg-[#3c3c3e] text-apple-space dark:text-stone-200 font-bold text-xs rounded-full border border-black/[0.08] dark:border-[#2b313b] transition-all flex items-center justify-center gap-1" title="ขยายฉากและเพิ่มรายละเอียด +500 คำ">
+            <button id="btnExpand" onclick="triggerExpandChapter()" class="py-2.5 bg-white dark:bg-[#2c2c2e] hover:bg-stone-100 dark:hover:bg-[#3c3c3e] text-apple-space dark:text-stone-200 font-bold text-xs rounded-full border border-black/[0.08] dark:border-black/[0.08] transition-all flex items-center justify-center gap-1" title="ขยายฉากและเพิ่มรายละเอียด +500 คำ">
               <span class="material-symbols-outlined text-[16px] text-teal-700">zoom_in_map</span>
               <span>➕ ขยายเนื้อหา</span>
             </button>
           </div>
-          <button id="btnCritic" onclick="triggerCriticPass()" class="w-full py-2.5 bg-white dark:bg-[#2c2c2e] hover:bg-stone-100 dark:hover:bg-[#3c3c3e] text-apple-space dark:text-stone-200 font-bold text-xs rounded-full border border-black/[0.08] dark:border-[#2b313b] transition-all flex items-center justify-center gap-1.5">
+          <button id="btnCritic" onclick="triggerCriticPass()" class="w-full py-2.5 bg-white dark:bg-[#2c2c2e] hover:bg-stone-100 dark:hover:bg-[#3c3c3e] text-apple-space dark:text-stone-200 font-bold text-xs rounded-full border border-black/[0.08] dark:border-black/[0.08] transition-all flex items-center justify-center gap-1.5">
             <span class="material-symbols-outlined text-[16px]">spellcheck</span>
             <span>🔍 เกลาสำนวน ProofAI</span>
           </button>
@@ -908,7 +908,7 @@
       </div>
 
       <!-- Unlimited Plan & Remaining Days Status Widget -->
-      <div id="studioPlanWidget" class="bg-stone-50 dark:bg-white/[0.04] p-3 rounded-2xl border border-stone-200/80 dark:border-[#2b313b] text-xs">
+      <div id="studioPlanWidget" class="bg-stone-50 dark:bg-white/[0.04] p-3 rounded-2xl border border-stone-200/80 dark:border-black/[0.08] text-xs">
         <div class="flex justify-between items-center font-bold text-apple-space dark:text-white">
           <span class="flex items-center gap-1.5">
             <span class="material-symbols-outlined text-[16px] text-amber-500" style="font-variation-settings: 'FILL' 1;">all_inclusive</span>
@@ -916,7 +916,7 @@
           </span>
           <span id="studioPlanDaysDisplay" class="bg-apple-coral/10 dark:bg-orange-500/20 text-apple-coral dark:text-orange-300 px-2 py-0.5 rounded-full text-[10px] font-bold">เหลือ 7 วัน</span>
         </div>
-        <div class="text-[11px] text-stone-500 dark:text-stone-400 mt-1.5 flex items-center justify-between">
+        <div class="text-[11px] text-stone-500 dark:text-[#737373] mt-1.5 flex items-center justify-between">
           <span>แต่งได้เต็มที่ทุกตอน ไร้กังวลเรื่องเครดิตคำ</span>
           <button type="button" onclick="openCheckoutModal('monthly')" class="text-apple-coral dark:text-orange-400 hover:underline font-bold text-[11px]">ต่ออายุ / ขยายเวลา</button>
         </div>
@@ -1083,10 +1083,10 @@
   <!-- MODAL: CREATE NOVEL BLUEPRINT (THAI NOVEL STUDIO PRO)    -->
   <!-- ======================================================== -->
   <div id="createNovelModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-[#1c1c1e] max-w-2xl w-full rounded-3xl shadow-2xl border border-black/[0.08] dark:border-[#2b313b] overflow-hidden my-8">
+    <div class="bg-white dark:bg-[#1c1c1e] max-w-2xl w-full rounded-3xl shadow-2xl border border-black/[0.08] dark:border-black/[0.08] overflow-hidden my-8">
       
       <!-- Modal Header -->
-      <div class="p-5 border-b border-black/[0.06] dark:border-[#2b313b] flex items-center justify-between bg-apple-subtle dark:bg-[#2c2c2e]">
+      <div class="p-5 border-b border-black/[0.06] dark:border-black/[0.08] flex items-center justify-between bg-apple-subtle dark:bg-[#2c2c2e]">
         <div class="flex items-center gap-2.5">
           <div class="w-9 h-9 rounded-2xl bg-apple-coral text-white flex items-center justify-center shadow-xs">
             <span class="material-symbols-outlined text-[20px]">architecture</span>
@@ -1273,31 +1273,31 @@
             <button type="button" onclick="toggleTonePill(this, 'หวานซึ้ง อบอุ่นหัวใจ')" class="tone-pill px-3 py-1.5 rounded-full border-2 border-apple-coral bg-orange-50 dark:bg-orange-950/40 text-apple-coral font-bold text-xs transition-all">
               🌸 หวานซึ้ง อบอุ่นหัวใจ
             </button>
-            <button type="button" onclick="toggleTonePill(this, 'ดราม่าหน่วงตับ เชือดเฉือน')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-[#2b313b] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-300 font-semibold text-xs transition-all">
+            <button type="button" onclick="toggleTonePill(this, 'ดราม่าหน่วงตับ เชือดเฉือน')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-black/[0.08] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-700 font-semibold text-xs transition-all">
               💔 ดราม่าหน่วงตับ เชือดเฉือน
             </button>
             <button type="button" onclick="toggleTonePill(this, 'ผัวโบ้ สำนึกผิด คลั่งรัก')" class="tone-pill px-3 py-1.5 rounded-full border-2 border-apple-coral bg-orange-50 dark:bg-orange-950/40 text-apple-coral font-bold text-xs transition-all">
               🐕 ผัวโบ้ คลั่งรัก
             </button>
-            <button type="button" onclick="toggleTonePill(this, 'คอมเมดี้ โบ๊ะบ๊ะ ขายขำ')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-[#2b313b] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-300 font-semibold text-xs transition-all">
+            <button type="button" onclick="toggleTonePill(this, 'คอมเมดี้ โบ๊ะบ๊ะ ขายขำ')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-black/[0.08] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-700 font-semibold text-xs transition-all">
               🤣 คอมเมดี้ โบ๊ะบ๊ะ ขายขำ
             </button>
-            <button type="button" onclick="toggleTonePill(this, 'แก้แค้น เอาคืน ฟาดฟัน')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-[#2b313b] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-300 font-semibold text-xs transition-all">
+            <button type="button" onclick="toggleTonePill(this, 'แก้แค้น เอาคืน ฟาดฟัน')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-black/[0.08] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-700 font-semibold text-xs transition-all">
               🔥 แก้แค้น เอาคืน ฟาดฟัน
             </button>
-            <button type="button" onclick="toggleTonePill(this, 'สืบสวน ซ่อนเงื่อน ชวนค้นหา')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-[#2b313b] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-300 font-semibold text-xs transition-all">
+            <button type="button" onclick="toggleTonePill(this, 'สืบสวน ซ่อนเงื่อน ชวนค้นหา')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-black/[0.08] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-700 font-semibold text-xs transition-all">
               🔍 สืบสวน ซ่อนเงื่อน
             </button>
-            <button type="button" onclick="toggleTonePill(this, 'แอ็กชัน ระทึก ดุเดือด')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-[#2b313b] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-300 font-semibold text-xs transition-all">
+            <button type="button" onclick="toggleTonePill(this, 'แอ็กชัน ระทึก ดุเดือด')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-black/[0.08] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-700 font-semibold text-xs transition-all">
               ⚡ แอ็กชัน ระทึก ดุเดือด
             </button>
-            <button type="button" onclick="toggleTonePill(this, 'สโลว์ไลฟ์ ทำมาหากิน ชิลๆ')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-[#2b313b] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-300 font-semibold text-xs transition-all">
+            <button type="button" onclick="toggleTonePill(this, 'สโลว์ไลฟ์ ทำมาหากิน ชิลๆ')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-black/[0.08] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-700 font-semibold text-xs transition-all">
               🍲 สโลว์ไลฟ์ ทำมาหากิน
             </button>
-            <button type="button" onclick="toggleTonePill(this, 'กวีนิพนธ์ สละสลวย ประณีต')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-[#2b313b] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-300 font-semibold text-xs transition-all">
+            <button type="button" onclick="toggleTonePill(this, 'กวีนิพนธ์ สละสลวย ประณีต')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-black/[0.08] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-700 font-semibold text-xs transition-all">
               📜 กวีนิพนธ์ สละสลวย
             </button>
-            <button type="button" onclick="toggleTonePill(this, 'เร่าร้อน หน่วงอารมณ์ ดาร์กโรมานซ์')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-[#2b313b] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-300 font-semibold text-xs transition-all">
+            <button type="button" onclick="toggleTonePill(this, 'เร่าร้อน หน่วงอารมณ์ ดาร์กโรมานซ์')" class="tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-black/[0.08] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-700 font-semibold text-xs transition-all">
               🔞 เร่าร้อน ดาร์กโรมานซ์
             </button>
           </div>
@@ -1311,7 +1311,7 @@
               <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
               <div>
                 <span class="block">เครื่องมือคิดพล็อตสดใหม่ด้วย REA (Reverse-Engineer Analytics)</span>
-                <span class="text-[10px] text-stone-500 dark:text-stone-400 font-normal">วิเคราะห์สูตรชื่อเรื่อง ปมขัดแย้ง และตัวละครจากชาร์ตท็อป ReadAWrite จริง</span>
+                <span class="text-[10px] text-stone-500 dark:text-[#737373] font-normal">วิเคราะห์สูตรชื่อเรื่อง ปมขัดแย้ง และตัวละครจากชาร์ตท็อป ReadAWrite จริง</span>
               </div>
             </div>
             <button type="button" id="btnGenerateAiPitch" onclick="handleGenerateAiPitch()" class="px-3.5 py-2 bg-gradient-to-r from-apple-coral to-amber-600 hover:opacity-95 text-white font-bold rounded-full text-xs shadow-md flex items-center justify-center gap-1.5 transition-all">
@@ -1326,7 +1326,7 @@
               <span class="material-symbols-outlined text-[16px]">insights</span>
               <span>บทวิเคราะห์เทรนด์ชาร์ต ReadAWrite (REA Insights):</span>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-stone-700 dark:text-stone-300">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-stone-700 dark:text-stone-700">
               <div class="p-2 rounded-xl bg-orange-50/60 dark:bg-stone-800/60">
                 <span class="text-[10px] font-bold text-stone-500 block mb-0.5">🏆 สูตรการตั้งชื่อ (Formula)</span>
                 <span id="reaFormulaText" class="font-semibold text-apple-coral dark:text-orange-300">Formula A (บทสนทนาฟาดฟัน) + Formula C</span>
@@ -1345,27 +1345,27 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
             <div>
               <label class="block font-bold text-apple-space dark:text-stone-200 mb-1">ชื่อเรื่องนิยาย * (คลิกเบตสดใหม่ ปลอดคำน้ำเน่า)</label>
-              <input id="novelTitle" type="text" placeholder="เช่น ว่าไงคะ คุณแฟนเก่า หรือ เกิดใหม่ครั้งนี้ไม่ขอคืนดีกับพ่อของลูก" class="w-full px-3 py-2 bg-white dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-[#2b313b] rounded-xl outline-none focus:border-apple-coral text-xs" required />
+              <input id="novelTitle" type="text" placeholder="เช่น ว่าไงคะ คุณแฟนเก่า หรือ เกิดใหม่ครั้งนี้ไม่ขอคืนดีกับพ่อของลูก" class="w-full px-3 py-2 bg-white dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-black/[0.08] rounded-xl outline-none focus:border-apple-coral text-xs" required />
             </div>
             <div>
               <label class="block font-bold text-apple-space dark:text-stone-200 mb-1">สไตล์พล็อตย่อย (Genre &amp; Tropes)</label>
-              <input id="novelGenre" type="text" value="ผัวโบ้คลั่งรัก / แก้แค้นเอาคืน / ซีอีโอกับเลขา" class="w-full px-3 py-2 bg-white dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-[#2b313b] rounded-xl outline-none focus:border-apple-coral text-xs" />
+              <input id="novelGenre" type="text" value="ผัวโบ้คลั่งรัก / แก้แค้นเอาคืน / ซีอีโอกับเลขา" class="w-full px-3 py-2 bg-white dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-black/[0.08] rounded-xl outline-none focus:border-apple-coral text-xs" />
             </div>
           </div>
 
           <div>
             <label class="block font-bold text-apple-space dark:text-stone-200 mb-1">แท็กนิยาย (Tags - เรียกยอดวิว)</label>
-            <input id="novelTags" type="text" placeholder="#ผัวโบ้ #แฟนเก่า #คลั่งรัก #แก้แค้น #เกิดใหม่" class="w-full px-3 py-2 bg-white dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-[#2b313b] rounded-xl outline-none focus:border-apple-coral text-xs" />
+            <input id="novelTags" type="text" placeholder="#ผัวโบ้ #แฟนเก่า #คลั่งรัก #แก้แค้น #เกิดใหม่" class="w-full px-3 py-2 bg-white dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-black/[0.08] rounded-xl outline-none focus:border-apple-coral text-xs" />
           </div>
 
           <div>
             <label class="block font-bold text-apple-space dark:text-stone-200 mb-1">เรื่องย่อ (Synopsis &amp; Core Hook)</label>
-            <textarea id="novelSynopsis" rows="2" placeholder="เรื่องย่อสำหรับจูงใจผู้อ่านและให้ AI จดจำโครงสร้างเรื่อง..." class="w-full px-3 py-2 bg-white dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-[#2b313b] rounded-xl outline-none focus:border-apple-coral text-xs font-thai"></textarea>
+            <textarea id="novelSynopsis" rows="2" placeholder="เรื่องย่อสำหรับจูงใจผู้อ่านและให้ AI จดจำโครงสร้างเรื่อง..." class="w-full px-3 py-2 bg-white dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-black/[0.08] rounded-xl outline-none focus:border-apple-coral text-xs font-thai"></textarea>
           </div>
 
           <div>
             <label class="block font-bold text-apple-space dark:text-stone-200 mb-1">ปมขัดแย้งและคอนเซปต์ตัวละคร 3D (Core Conflict &amp; Characters)</label>
-            <textarea id="novelPlotConcept" rows="2" placeholder="เช่น พระเอกขับไล่นางเอกไปเมื่อ 4 ปีก่อน วันนี้นางเอกกลับมาในฐานะหุ้นส่วนคนใหม่ ส่วนพระเอกกลายเป็นฝ่ายตามง้อ..." class="w-full px-3 py-2 bg-white dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-[#2b313b] rounded-xl outline-none focus:border-apple-coral text-xs font-thai"></textarea>
+            <textarea id="novelPlotConcept" rows="2" placeholder="เช่น พระเอกขับไล่นางเอกไปเมื่อ 4 ปีก่อน วันนี้นางเอกกลับมาในฐานะหุ้นส่วนคนใหม่ ส่วนพระเอกกลายเป็นฝ่ายตามง้อ..." class="w-full px-3 py-2 bg-white dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-black/[0.08] rounded-xl outline-none focus:border-apple-coral text-xs font-thai"></textarea>
           </div>
         </div>
 
@@ -1375,7 +1375,7 @@
           
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <!-- Slider 1: Romance / Kiss -->
-            <div class="bg-apple-subtle dark:bg-[#2c2c2e] p-3 rounded-2xl border border-black/[0.06] dark:border-[#2b313b]">
+            <div class="bg-apple-subtle dark:bg-[#2c2c2e] p-3 rounded-2xl border border-black/[0.06] dark:border-black/[0.08]">
               <div class="flex justify-between items-center mb-1">
                 <span class="font-bold text-apple-space dark:text-stone-200 text-[11px]">ฉากเลิฟซีน / จูบ</span>
                 <span id="sliderKissVal" class="text-apple-coral font-bold text-[11px]">60%</span>
@@ -1389,7 +1389,7 @@
             </div>
 
             <!-- Slider 2: NC / Intimacy -->
-            <div class="bg-apple-subtle dark:bg-[#2c2c2e] p-3 rounded-2xl border border-black/[0.06] dark:border-[#2b313b]">
+            <div class="bg-apple-subtle dark:bg-[#2c2c2e] p-3 rounded-2xl border border-black/[0.06] dark:border-black/[0.08]">
               <div class="flex justify-between items-center mb-1">
                 <span class="font-bold text-apple-space dark:text-stone-200 text-[11px]">ระดับความร้อนแรง NC</span>
                 <span id="sliderNcVal" class="text-rose-600 font-bold text-[11px]">40%</span>
@@ -1403,7 +1403,7 @@
             </div>
 
             <!-- Slider 3: Climax Intensity -->
-            <div class="bg-apple-subtle dark:bg-[#2c2c2e] p-3 rounded-2xl border border-black/[0.06] dark:border-[#2b313b]">
+            <div class="bg-apple-subtle dark:bg-[#2c2c2e] p-3 rounded-2xl border border-black/[0.06] dark:border-black/[0.08]">
               <div class="flex justify-between items-center mb-1">
                 <span class="font-bold text-apple-space dark:text-stone-200 text-[11px]">ความเข้มข้นไคลแมกซ์</span>
                 <span id="sliderClimaxVal" class="text-amber-600 font-bold text-[11px]">80%</span>
@@ -1444,7 +1444,7 @@
               100+ ตอน (มหากาพย์)
             </button>
             <div class="flex items-center gap-1.5 ml-auto">
-              <span class="text-[11px] font-bold text-apple-space dark:text-stone-300">ระบุเอง:</span>
+              <span class="text-[11px] font-bold text-apple-space dark:text-stone-700">ระบุเอง:</span>
               <input type="number" id="targetChaptersInput" min="1" max="500" value="20" class="w-16 px-2.5 py-1 bg-white dark:bg-[#2c2c2e] border border-teal-300 dark:border-teal-700 rounded-lg text-xs font-bold text-center outline-none focus:border-apple-coral" />
               <span class="text-[11px] text-teal-800 dark:text-teal-300">ตอน</span>
             </div>
@@ -1452,7 +1452,7 @@
         </div>
 
         <!-- Footer Actions -->
-        <div class="flex items-center justify-between pt-3 border-t border-black/[0.06] dark:border-[#2b313b]">
+        <div class="flex items-center justify-between pt-3 border-t border-black/[0.06] dark:border-black/[0.08]">
           <button type="button" onclick="document.getElementById('createNovelModal').classList.add('hidden')" class="px-4 py-2 font-bold text-apple-titanium hover:text-apple-space dark:hover:text-white">
             ยกเลิก
           </button>
@@ -1520,17 +1520,17 @@
   <!-- MODAL: DELETE NOVEL CONFIRMATION (APPLE DANGER DIALOG)   -->
   <!-- ======================================================== -->
   <div id="deleteNovelModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/50 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-[#1c1c1e] max-w-md w-full rounded-3xl shadow-2xl border border-black/[0.08] dark:border-[#2b313b] overflow-hidden transform transition-all">
+    <div class="bg-white dark:bg-[#1c1c1e] max-w-md w-full rounded-3xl shadow-2xl border border-black/[0.08] dark:border-black/[0.08] overflow-hidden transform transition-all">
       <div class="p-6 text-center space-y-4 font-thai">
         <div class="w-14 h-14 mx-auto rounded-2xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 flex items-center justify-center border border-rose-200 dark:border-rose-800">
           <span class="material-symbols-outlined text-[30px]">delete_forever</span>
         </div>
         <div>
           <h3 class="text-base font-extrabold text-apple-space dark:text-white">ยืนยันการลบนิยาย</h3>
-          <p class="text-xs text-apple-titanium dark:text-stone-400 mt-1.5 leading-relaxed">
+          <p class="text-xs text-apple-titanium dark:text-[#737373] mt-1.5 leading-relaxed">
             คุณแน่ใจหรือไม่ว่าต้องการลบนิยายเรื่องนี้?
           </p>
-          <div class="mt-2.5 p-3 rounded-2xl bg-stone-50 dark:bg-white/[0.04] border border-stone-200/80 dark:border-[#2b313b] text-xs font-bold text-apple-space dark:text-white max-w-xs mx-auto truncate" id="deleteNovelTitleDisplay">
+          <div class="mt-2.5 p-3 rounded-2xl bg-stone-50 dark:bg-white/[0.04] border border-stone-200/80 dark:border-black/[0.08] text-xs font-bold text-apple-space dark:text-white max-w-xs mx-auto truncate" id="deleteNovelTitleDisplay">
             ...
           </div>
         </div>
@@ -1539,7 +1539,7 @@
           <span>การกระทำนี้จะลบข้อมูลตอนทั้งหมด คลังตัวละคร และประวัติการซิงค์ของเรื่องนี้อย่างถาวร <strong>ไม่สามารถกู้คืนได้</strong></span>
         </div>
         <div class="grid grid-cols-2 gap-3 pt-2">
-          <button type="button" onclick="closeDeleteNovelModal()" class="py-2.5 px-4 rounded-full bg-stone-100 hover:bg-stone-200 dark:bg-white/10 dark:hover:bg-white/15 text-stone-700 dark:text-stone-300 font-bold text-xs transition-all">
+          <button type="button" onclick="closeDeleteNovelModal()" class="py-2.5 px-4 rounded-full bg-stone-100 hover:bg-stone-200 dark:bg-white/10 dark:hover:bg-white/15 text-stone-700 dark:text-stone-700 font-bold text-xs transition-all">
             ยกเลิก
           </button>
           <button type="button" id="btnExecuteDeleteNovel" onclick="executeDeleteNovel()" class="py-2.5 px-4 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-1.5">
@@ -1621,7 +1621,7 @@
             <h3 class="text-base font-extrabold text-stone-900" id="publishModalTitle">ซิงค์ส่งขึ้น ReadAWrite &amp; วางแผนตั้งเวลาอัตโนมัติทั้งเรื่อง</h3>
           </div>
         </div>
-        <button onclick="closePublishModal()" class="w-8 h-8 rounded-full flex items-center justify-center text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-all">
+        <button onclick="closePublishModal()" class="w-8 h-8 rounded-full flex items-center justify-center text-[#737373] hover:text-stone-700 hover:bg-stone-100 transition-all">
           <span class="material-symbols-outlined text-[20px]">close</span>
         </button>
       </div>
@@ -2421,8 +2421,8 @@
   <!-- MODAL: BATCH CHAPTER GENERATION (แต่งนิยายยาว 3-5 ตอน)     -->
   <!-- ======================================================== -->
   <div id="batchModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-[#1c1c1e] rounded-3xl max-w-lg w-full shadow-2xl border border-black/[0.08] dark:border-[#2b313b] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-      <div class="p-5 border-b border-black/[0.06] dark:border-[#2b313b] flex items-center justify-between bg-apple-subtle dark:bg-[#2c2c2e]">
+    <div class="bg-white dark:bg-[#1c1c1e] rounded-3xl max-w-lg w-full shadow-2xl border border-black/[0.08] dark:border-black/[0.08] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      <div class="p-5 border-b border-black/[0.06] dark:border-black/[0.08] flex items-center justify-between bg-apple-subtle dark:bg-[#2c2c2e]">
         <div class="flex items-center gap-2">
           <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 text-white flex items-center justify-center shadow-xs">
             <span class="material-symbols-outlined text-[18px]">bolt</span>
@@ -2442,7 +2442,7 @@
         <div class="bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-950/30 dark:to-stone-900 p-3 rounded-2xl border border-orange-200/80 dark:border-orange-900/40 flex items-center justify-between text-[11px]">
           <div>
             <span class="font-bold text-apple-coral block" id="batchNovelTitle">เรื่อง: ...</span>
-            <span class="text-stone-500 dark:text-stone-400" id="batchNovelChaptersInfo">กำลังตรวจสอบจำนวนตอน...</span>
+            <span class="text-stone-500 dark:text-[#737373]" id="batchNovelChaptersInfo">กำลังตรวจสอบจำนวนตอน...</span>
           </div>
           <span class="px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-900/60 text-teal-800 dark:text-teal-200 font-bold text-[10px]">
             ⚡ Sliding Memory
@@ -2468,11 +2468,11 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-bold text-apple-space dark:text-stone-200 mb-1">เริ่มแต่งจากบทที่</label>
-            <input id="batchStartChapter" type="number" min="1" value="1" oninput="updateBatchTargetPreview()" class="w-full px-3 py-2 bg-apple-subtle dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-[#2b313b] rounded-xl font-bold text-center outline-none focus:border-apple-coral" />
+            <input id="batchStartChapter" type="number" min="1" value="1" oninput="updateBatchTargetPreview()" class="w-full px-3 py-2 bg-apple-subtle dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-black/[0.08] rounded-xl font-bold text-center outline-none focus:border-apple-coral" />
           </div>
           <div>
             <label class="block font-bold text-apple-space dark:text-stone-200 mb-1">รูปแบบ / จำนวนตอน</label>
-            <select id="batchCountSelect" onchange="updateBatchTargetPreview()" class="w-full px-3 py-2 bg-apple-subtle dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-[#2b313b] rounded-xl font-bold outline-none focus:border-apple-coral">
+            <select id="batchCountSelect" onchange="updateBatchTargetPreview()" class="w-full px-3 py-2 bg-apple-subtle dark:bg-[#2c2c2e] border border-black/[0.08] dark:border-black/[0.08] rounded-xl font-bold outline-none focus:border-apple-coral">
               <option value="3" selected>⚡ 3 ตอนรวด (แนะนำทดสอบ)</option>
               <option value="5">🔥 5 ตอนรวด</option>
               <option value="10">🚀 10 ตอนรวด</option>
@@ -2498,9 +2498,9 @@
             <span id="batchDelayDisplay" class="font-bold text-[11px] text-amber-800 dark:text-amber-200 bg-amber-100 dark:bg-amber-900/60 px-2 py-0.5 rounded-full">หน่วง 5 วินาที / ตอน</span>
           </div>
           <div class="grid grid-cols-3 gap-2 text-center">
-            <button type="button" onclick="setBatchDelay(3)" id="btnDelay3" class="delay-btn py-1.5 px-2 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-xs font-semibold hover:border-amber-400 text-apple-space dark:text-stone-300 transition-all">⚡ 3 วิ (เร็ว)</button>
+            <button type="button" onclick="setBatchDelay(3)" id="btnDelay3" class="delay-btn py-1.5 px-2 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-xs font-semibold hover:border-amber-400 text-apple-space dark:text-stone-700 transition-all">⚡ 3 วิ (เร็ว)</button>
             <button type="button" onclick="setBatchDelay(5)" id="btnDelay5" class="delay-btn py-1.5 px-2 rounded-xl border-2 border-amber-500 bg-amber-100/80 dark:bg-amber-900/60 text-amber-900 dark:text-amber-200 text-xs font-bold shadow-xs transition-all">🛡️ 5 วิ (แนะนำ ปลอดภัย)</button>
-            <button type="button" onclick="setBatchDelay(8)" id="btnDelay8" class="delay-btn py-1.5 px-2 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-xs font-semibold hover:border-amber-400 text-apple-space dark:text-stone-300 transition-all">🔒 8 วิ (เซฟสุด ไม่ติด Limit)</button>
+            <button type="button" onclick="setBatchDelay(8)" id="btnDelay8" class="delay-btn py-1.5 px-2 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-xs font-semibold hover:border-amber-400 text-apple-space dark:text-stone-700 transition-all">🔒 8 วิ (เซฟสุด ไม่ติด Limit)</button>
           </div>
           <input type="hidden" id="batchDelaySeconds" value="5" />
           <p class="text-[10.5px] text-amber-800/80 dark:text-amber-400/80 leading-normal">
@@ -2517,7 +2517,7 @@
         </div>
 
         <!-- Progress Area -->
-        <div id="batchProgressContainer" class="hidden p-4 rounded-2xl bg-stone-50 dark:bg-[#2c2c2e] border border-black/[0.06] dark:border-[#2b313b] space-y-2">
+        <div id="batchProgressContainer" class="hidden p-4 rounded-2xl bg-stone-50 dark:bg-[#2c2c2e] border border-black/[0.06] dark:border-black/[0.08] space-y-2">
           <div class="flex justify-between items-center text-xs font-bold text-apple-space dark:text-stone-200">
             <span id="batchProgressStatus" class="flex items-center gap-1.5 text-apple-coral">
               <span class="w-2 h-2 rounded-full bg-apple-coral animate-ping"></span>
@@ -2568,8 +2568,8 @@
   <!-- MODAL: CONTEXT MEMORY & SLIDING WINDOW INSPECTOR         -->
   <!-- ======================================================== -->
   <div id="contextMemoryModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-[#1c1c1e] rounded-3xl max-w-2xl w-full shadow-2xl border border-black/[0.08] dark:border-[#2b313b] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-      <div class="p-5 border-b border-black/[0.06] dark:border-[#2b313b] flex items-center justify-between bg-apple-subtle dark:bg-[#2c2c2e]">
+    <div class="bg-white dark:bg-[#1c1c1e] rounded-3xl max-w-2xl w-full shadow-2xl border border-black/[0.08] dark:border-black/[0.08] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      <div class="p-5 border-b border-black/[0.06] dark:border-black/[0.08] flex items-center justify-between bg-apple-subtle dark:bg-[#2c2c2e]">
         <div class="flex items-center gap-2">
           <div class="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">psychology</span>
@@ -2613,7 +2613,7 @@
             <span>2. บริบทจากตอนก่อนหน้า (Sliding Context Window: Last 3 Chapters)</span>
             <span id="cmSlidingCount" class="text-[10px] text-teal-700 dark:text-teal-400 font-bold">3 ตอนล่าสุด</span>
           </div>
-          <div id="cmSlidingContainer" class="p-3 bg-apple-subtle dark:bg-[#2c2c2e] rounded-xl border border-black/[0.04] space-y-2 text-[11px] text-stone-700 dark:text-stone-300">
+          <div id="cmSlidingContainer" class="p-3 bg-apple-subtle dark:bg-[#2c2c2e] rounded-xl border border-black/[0.04] space-y-2 text-[11px] text-stone-700 dark:text-stone-700">
             <!-- Rendered by JS -->
           </div>
         </div>
@@ -2639,8 +2639,8 @@
   <!-- MODAL: NARRATIVE TENSION ARC & BEAT VISUALIZER           -->
   <!-- ======================================================== -->
   <div id="tensionArcModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-[#1c1c1e] rounded-3xl max-w-3xl w-full shadow-2xl border border-black/[0.08] dark:border-[#2b313b] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-      <div class="p-5 border-b border-black/[0.06] dark:border-[#2b313b] flex items-center justify-between bg-apple-subtle dark:bg-[#2c2c2e]">
+    <div class="bg-white dark:bg-[#1c1c1e] rounded-3xl max-w-3xl w-full shadow-2xl border border-black/[0.08] dark:border-black/[0.08] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      <div class="p-5 border-b border-black/[0.06] dark:border-black/[0.08] flex items-center justify-between bg-apple-subtle dark:bg-[#2c2c2e]">
         <div class="flex items-center gap-2">
           <div class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">insights</span>
@@ -2657,7 +2657,7 @@
 
       <div class="p-6 space-y-5 text-xs font-thai max-h-[75vh] overflow-y-auto custom-scrollbar">
         <!-- Interactive Curve Visualization -->
-        <div class="bg-apple-subtle dark:bg-[#2c2c2e] p-5 rounded-2xl border border-black/[0.06] dark:border-[#2b313b]">
+        <div class="bg-apple-subtle dark:bg-[#2c2c2e] p-5 rounded-2xl border border-black/[0.06] dark:border-black/[0.08]">
           <div class="flex justify-between items-center mb-3">
             <span class="font-bold text-apple-space dark:text-white text-xs">กราฟเส้นโค้งอารมณ์ดราม่าและจังหวะเรื่อง (3-Act Narrative Arc)</span>
             <span class="text-[10px] text-amber-700 bg-amber-50 dark:bg-amber-950/50 px-2.5 py-0.5 rounded-full font-bold">Climax Index: 85%</span>
@@ -2777,7 +2777,7 @@
 
       // Guest Navigation Links (Unified 4-Pill Ecosystem Standard)
       nav.innerHTML = `
-        <a href="https://thaid.online" class="whitespace-nowrap px-3 py-1 rounded-lg text-[#86868b] hover:text-[#1d1d1f] dark:text-stone-400 dark:hover:text-white transition-colors flex items-center gap-1.5">
+        <a href="https://thaid.online" class="whitespace-nowrap px-3 py-1 rounded-lg text-[#86868b] hover:text-[#1d1d1f] dark:text-[#737373] dark:hover:text-white transition-colors flex items-center gap-1.5">
           <span class="material-symbols-outlined text-[14px]">hub</span>
           <span>ThaiD Hub</span>
         </a>
@@ -2785,11 +2785,11 @@
           <span class="material-symbols-outlined text-[14px]">edit_note</span>
           <span>นิยาย AI</span>
         </a>
-        <a href="https://social.thaid.online" class="whitespace-nowrap px-3 py-1 rounded-lg text-[#86868b] hover:text-[#1d1d1f] dark:text-stone-400 dark:hover:text-white transition-colors flex items-center gap-1.5">
+        <a href="https://social.thaid.online" class="whitespace-nowrap px-3 py-1 rounded-lg text-[#86868b] hover:text-[#1d1d1f] dark:text-[#737373] dark:hover:text-white transition-colors flex items-center gap-1.5">
           <span class="material-symbols-outlined text-[14px]">campaign</span>
           <span>โพสต์ Facebook</span>
         </a>
-        <a href="https://sticker.thaid.online" class="whitespace-nowrap px-3 py-1 rounded-lg text-[#86868b] hover:text-[#1d1d1f] dark:text-stone-400 dark:hover:text-white transition-colors flex items-center gap-1.5">
+        <a href="https://sticker.thaid.online" class="whitespace-nowrap px-3 py-1 rounded-lg text-[#86868b] hover:text-[#1d1d1f] dark:text-[#737373] dark:hover:text-white transition-colors flex items-center gap-1.5">
           <span class="material-symbols-outlined text-[14px]">sentiment_satisfied</span>
           <span>สติกเกอร์ไลน์</span>
         </a>
@@ -2797,7 +2797,7 @@
 
       // Guest Actions
       authArea.innerHTML = `
-        <button onclick="openAuthModal('login')" class="whitespace-nowrap text-xs font-bold text-stone-600 hover:text-apple-space dark:text-stone-400 dark:hover:text-white px-3 py-1.5 transition-colors">
+        <button onclick="openAuthModal('login')" class="whitespace-nowrap text-xs font-bold text-stone-600 hover:text-apple-space dark:text-[#737373] dark:hover:text-white px-3 py-1.5 transition-colors">
           เข้าสู่ระบบ
         </button>
         <button onclick="openAuthModal('register')" class="whitespace-nowrap inline-flex items-center gap-1.5 bg-apple-coral hover:bg-apple-coral-hover text-white rounded-xl px-4 py-1.5 text-xs font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98]">
@@ -2846,19 +2846,19 @@
       }
 
       nav.innerHTML = `
-        <button id="navBtn-home" onclick="navigate('home')" class="nav-segment-btn whitespace-nowrap px-3 py-1.5 rounded-lg font-medium text-stone-600 dark:text-stone-400 hover:text-apple-space dark:hover:text-white transition-all flex items-center gap-1.5">
+        <button id="navBtn-home" onclick="navigate('home')" class="nav-segment-btn whitespace-nowrap px-3 py-1.5 rounded-lg font-medium text-stone-600 dark:text-[#737373] hover:text-apple-space dark:hover:text-white transition-all flex items-center gap-1.5">
           <span class="material-symbols-outlined text-[15px]">home</span>
           <span>หน้าแรก</span>
         </button>
-        <button id="navBtn-novels" onclick="navigate('novels')" class="nav-segment-btn whitespace-nowrap px-3 py-1.5 rounded-lg font-medium text-stone-600 dark:text-stone-400 hover:text-apple-space dark:hover:text-white transition-all flex items-center gap-1.5">
+        <button id="navBtn-novels" onclick="navigate('novels')" class="nav-segment-btn whitespace-nowrap px-3 py-1.5 rounded-lg font-medium text-stone-600 dark:text-[#737373] hover:text-apple-space dark:hover:text-white transition-all flex items-center gap-1.5">
           <span class="material-symbols-outlined text-[15px]">auto_stories</span>
           <span>นิยายของฉัน</span>
         </button>
-        <button id="navBtn-studio" onclick="navigate('studio')" class="nav-segment-btn whitespace-nowrap px-3 py-1.5 rounded-lg font-medium text-stone-600 dark:text-stone-400 hover:text-apple-space dark:hover:text-white transition-all flex items-center gap-1.5">
+        <button id="navBtn-studio" onclick="navigate('studio')" class="nav-segment-btn whitespace-nowrap px-3 py-1.5 rounded-lg font-medium text-stone-600 dark:text-[#737373] hover:text-apple-space dark:hover:text-white transition-all flex items-center gap-1.5">
           <span class="material-symbols-outlined text-[15px]">edit_square</span>
           <span>ห้องแต่ง (Studio)</span>
         </button>
-        <button id="navBtn-pricing" onclick="openCheckoutModal('monthly')" class="nav-segment-btn whitespace-nowrap px-3 py-1.5 rounded-lg font-medium text-stone-600 dark:text-stone-400 hover:text-apple-space dark:hover:text-white transition-all flex items-center gap-1.5">
+        <button id="navBtn-pricing" onclick="openCheckoutModal('monthly')" class="nav-segment-btn whitespace-nowrap px-3 py-1.5 rounded-lg font-medium text-stone-600 dark:text-[#737373] hover:text-apple-space dark:hover:text-white transition-all flex items-center gap-1.5">
           <span class="material-symbols-outlined text-[15px]">diamond</span>
           <span>แพ็กเกจ</span>
         </button>
@@ -2869,33 +2869,33 @@
       const isRawConnected = user.raw_session_status === 'connected';
       authArea.innerHTML = `
         <!-- ReadAWrite Cloud Session -->
-        <button onclick="openReadAWriteConnectModal()" id="rawNavConnectBtn" class="whitespace-nowrap flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-medium ${isRawConnected ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800' : 'bg-stone-100/90 dark:bg-white/[0.06] text-stone-600 dark:text-stone-400 border border-stone-200/60 dark:border-[#2b313b]'} hover:opacity-90 transition-all" title="จัดการเซสชัน ReadAWrite">
+        <button onclick="openReadAWriteConnectModal()" id="rawNavConnectBtn" class="whitespace-nowrap flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-medium ${isRawConnected ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800' : 'bg-stone-100/90 dark:bg-white/[0.06] text-stone-600 dark:text-[#737373] border border-stone-200/60 dark:border-black/[0.08]'} hover:opacity-90 transition-all" title="จัดการเซสชัน ReadAWrite">
           <span class="w-2 h-2 rounded-full ${isRawConnected ? 'bg-emerald-500 animate-pulse' : 'bg-stone-400'}"></span>
-          <span class="hidden sm:inline text-stone-400 font-normal">RAW:</span>
+          <span class="hidden sm:inline text-[#737373] font-normal">RAW:</span>
           <span class="max-w-[85px] sm:max-w-[110px] truncate font-semibold">${user.raw_account ? user.raw_account : 'เชื่อมต่อ'}</span>
         </button>
 
         <!-- Gemini BYOK Key Badge -->
-        <button onclick="openApiKeysModal()" id="rawNavKeysBtn" class="whitespace-nowrap flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-100/90 dark:bg-white/[0.06] hover:bg-stone-200/70 dark:hover:bg-white/10 text-stone-700 dark:text-stone-300 border border-stone-200/60 dark:border-[#2b313b] transition-all" title="จัดการ Gemini API Keys (BYOK)">
+        <button onclick="openApiKeysModal()" id="rawNavKeysBtn" class="whitespace-nowrap flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs font-medium bg-stone-100/90 dark:bg-white/[0.06] hover:bg-stone-200/70 dark:hover:bg-white/10 text-stone-700 dark:text-stone-700 border border-stone-200/60 dark:border-black/[0.08] transition-all" title="จัดการ Gemini API Keys (BYOK)">
           <span class="material-symbols-outlined text-[14px] text-amber-500">key</span>
           <span id="navKeyBadgeText" class="font-bold">0 คีย์</span>
         </button>
 
         <!-- Unlimited Plan & Remaining Days Badge -->
-        <button onclick="openCheckoutModal('monthly')" class="hidden sm:flex whitespace-nowrap items-center gap-1.5 bg-stone-100/90 dark:bg-white/[0.06] hover:bg-stone-200/70 dark:hover:bg-white/10 border border-stone-200/60 dark:border-[#2b313b] px-3 py-1 rounded-xl text-xs font-medium text-stone-700 dark:text-stone-300 transition-all cursor-pointer" title="${planTitle} • คลิกเพื่อขยายเวลาหรือดูแพ็กเกจ">
+        <button onclick="openCheckoutModal('monthly')" class="hidden sm:flex whitespace-nowrap items-center gap-1.5 bg-stone-100/90 dark:bg-white/[0.06] hover:bg-stone-200/70 dark:hover:bg-white/10 border border-stone-200/60 dark:border-black/[0.08] px-3 py-1 rounded-xl text-xs font-medium text-stone-700 dark:text-stone-700 transition-all cursor-pointer" title="${planTitle} • คลิกเพื่อขยายเวลาหรือดูแพ็กเกจ">
           <span class="material-symbols-outlined text-[15px] text-amber-500" style="font-variation-settings: 'FILL' 1;">all_inclusive</span>
           <span class="font-bold text-apple-space dark:text-white">${planLabel}</span>
-          <span class="text-stone-300 dark:text-stone-600">•</span>
+          <span class="text-stone-700 dark:text-stone-600">•</span>
           <span class="text-[11px] font-semibold text-apple-coral dark:text-orange-400">${daysLabel}</span>
         </button>
 
         <!-- Author Profile & Logout -->
-        <div class="flex items-center gap-1.5 pl-1.5 border-l border-stone-200 dark:border-[#2b313b]">
+        <div class="flex items-center gap-1.5 pl-1.5 border-l border-stone-200 dark:border-black/[0.08]">
           <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-apple-coral to-orange-400 text-white font-bold flex items-center justify-center text-xs shadow-2xs flex-shrink-0 cursor-pointer" onclick="navigate('novels')" title="นามปากกา: ${user.pen_name || ''}">
             ${user.pen_name ? user.pen_name.charAt(0) : 'U'}
           </div>
           <span class="hidden xl:inline text-xs font-semibold text-apple-space dark:text-white max-w-[85px] truncate">${user.pen_name || ''}</span>
-          <button onclick="handleLogout()" class="p-1 text-stone-400 hover:text-rose-600 rounded-lg hover:bg-stone-100 dark:hover:bg-white/10 transition-colors" title="ออกจากระบบ">
+          <button onclick="handleLogout()" class="p-1 text-[#737373] hover:text-rose-600 rounded-lg hover:bg-stone-100 dark:hover:bg-white/10 transition-colors" title="ออกจากระบบ">
             <span class="material-symbols-outlined text-[18px]">logout</span>
           </button>
         </div>
@@ -2916,12 +2916,12 @@
       const allBtns = document.querySelectorAll('.nav-segment-btn');
       allBtns.forEach(btn => {
         btn.classList.remove('bg-white', 'dark:bg-[#202024]', 'text-apple-coral', 'dark:text-white', 'font-bold', 'shadow-xs', 'shadow-2xs');
-        btn.classList.add('text-stone-600', 'dark:text-stone-400', 'font-medium');
+        btn.classList.add('text-stone-600', 'dark:text-[#737373]', 'font-medium');
       });
 
       const activeBtn = document.getElementById(`navBtn-${viewName}`);
       if (activeBtn) {
-        activeBtn.classList.remove('text-stone-600', 'dark:text-stone-400', 'font-medium');
+        activeBtn.classList.remove('text-stone-600', 'dark:text-[#737373]', 'font-medium');
         activeBtn.classList.add('bg-white', 'dark:bg-[#202024]', 'text-apple-coral', 'font-bold', 'shadow-xs');
       }
     }
@@ -3293,7 +3293,7 @@
       
       if (currentTones.includes(toneName)) {
         currentTones = currentTones.filter(t => t !== toneName);
-        btn.className = "tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-[#2b313b] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-300 font-semibold text-xs transition-all";
+        btn.className = "tone-pill px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-black/[0.08] bg-apple-subtle dark:bg-[#2c2c2e] text-apple-space dark:text-stone-700 font-semibold text-xs transition-all";
       } else {
         currentTones.push(toneName);
         btn.className = "tone-pill px-3 py-1.5 rounded-full border-2 border-apple-coral bg-orange-50 dark:bg-orange-950/40 text-apple-coral font-bold text-xs transition-all";
@@ -4093,14 +4093,14 @@
 
       if (mode === 'agentic') {
         btnAgentic.className = "py-2 px-2.5 rounded-lg bg-white dark:bg-stone-700 text-apple-coral shadow-xs transition-all flex items-center justify-center gap-1 font-bold";
-        btnTurbo.className = "py-2 px-2.5 rounded-lg text-stone-600 dark:text-stone-300 hover:text-stone-900 transition-all flex items-center justify-center gap-1 font-bold";
+        btnTurbo.className = "py-2 px-2.5 rounded-lg text-stone-600 dark:text-stone-700 hover:text-stone-900 transition-all flex items-center justify-center gap-1 font-bold";
         badge.className = "text-[10px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-200";
         badge.innerText = "มนุษย์ 100%";
         desc.innerHTML = `🌟 <strong>Multi-Agent Human Pipeline:</strong> ทำงาน 4 ขั้นตอน: วาง Scene Beats → บรรยาย 5 สัมผัส (Show Don't Tell) → เกลาบทพูด Subtext → De-AI ลบกลิ่นอาย AI`;
         showToast('สลับเป็นโหมด 🌟 Multi-Agent Human Pipeline (4 Agents)', 'info');
       } else {
         btnTurbo.className = "py-2 px-2.5 rounded-lg bg-white dark:bg-stone-700 text-amber-600 shadow-xs transition-all flex items-center justify-center gap-1 font-bold";
-        btnAgentic.className = "py-2 px-2.5 rounded-lg text-stone-600 dark:text-stone-300 hover:text-stone-900 transition-all flex items-center justify-center gap-1 font-bold";
+        btnAgentic.className = "py-2 px-2.5 rounded-lg text-stone-600 dark:text-stone-700 hover:text-stone-900 transition-all flex items-center justify-center gap-1 font-bold";
         badge.className = "text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200";
         badge.innerText = "⚡ Turbo Fast";
         desc.innerHTML = `⚡ <strong>Turbo Single-Shot:</strong> แต่งรวดเร็วรอบเดียวจบ เหมาะสำหรับร่างไอเดียอย่างรวดเร็ว พร้อม De-AI Linter`;
@@ -4372,7 +4372,7 @@
         if (s === sec) {
           btn.className = "delay-btn py-1.5 px-2 rounded-xl border-2 border-amber-500 bg-amber-100/80 dark:bg-amber-900/60 text-amber-900 dark:text-amber-200 text-xs font-bold shadow-xs transition-all";
         } else {
-          btn.className = "delay-btn py-1.5 px-2 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-xs font-semibold hover:border-amber-400 text-apple-space dark:text-stone-300 transition-all";
+          btn.className = "delay-btn py-1.5 px-2 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-xs font-semibold hover:border-amber-400 text-apple-space dark:text-stone-700 transition-all";
         }
       });
     }
@@ -4805,7 +4805,7 @@
       ];
 
       beatsList.innerHTML = acts.map(a => `
-        <div class="p-3.5 rounded-2xl border-l-4 ${a.color} border-black/[0.06] dark:border-[#2b313b] space-y-1">
+        <div class="p-3.5 rounded-2xl border-l-4 ${a.color} border-black/[0.06] dark:border-black/[0.08] space-y-1">
           <div class="flex items-center justify-between">
             <span class="font-bold text-apple-space dark:text-stone-200 text-xs">${a.name}</span>
             <div class="flex items-center gap-1.5">
@@ -5041,7 +5041,7 @@
       if (!state.userApiKeys.length) {
         container.innerHTML = `
           <div class="p-6 text-center bg-apple-subtle rounded-2xl border border-dashed border-black/[0.1] text-apple-titanium">
-            <span class="material-symbols-outlined text-[32px] text-stone-400 mb-1 block">vpn_key_alert</span>
+            <span class="material-symbols-outlined text-[32px] text-[#737373] mb-1 block">vpn_key_alert</span>
             <div class="font-bold text-apple-space text-xs">ยังไม่มี API Key ส่วนตัว</div>
             <div class="text-[11px] mt-0.5">ระบบจะใช้โควตาและคีย์มาตรฐานของแพลตฟอร์ม</div>
             <button type="button" onclick="toggleAddKeyForm(true)" class="mt-3 px-3.5 py-1.5 bg-apple-coral text-white font-bold rounded-full text-[11px]">
@@ -5264,9 +5264,9 @@
                       <h4 class="text-xs font-bold text-apple-space truncate">${s.title}</h4>
                       <div class="flex items-center gap-2 text-[10px] text-teal-800 mt-0.5">
                         <span class="font-bold flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">format_list_bulleted</span> ${s.chapters} ตอน</span>
-                        <span class="text-stone-300">•</span>
+                        <span class="text-stone-700">•</span>
                         <span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">visibility</span> ${s.reads}</span>
-                        <span class="text-stone-300">•</span>
+                        <span class="text-stone-700">•</span>
                         <span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px] text-rose-500">favorite</span> ${s.likes}</span>
                       </div>
                     </div>
@@ -5650,7 +5650,7 @@
 
       if (tbody) {
         if (scheduleMatrix.length === 0) {
-          tbody.innerHTML = `<tr><td colspan="7" class="p-4 text-center text-stone-400">ไม่พบบทที่เลือก หรือยังไม่มีบทที่มีเนื้อหา</td></tr>`;
+          tbody.innerHTML = `<tr><td colspan="7" class="p-4 text-center text-[#737373]">ไม่พบบทที่เลือก หรือยังไม่มีบทที่มีเนื้อหา</td></tr>`;
           return;
         }
 
