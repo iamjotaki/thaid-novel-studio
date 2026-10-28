@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ReadAWrite Pro Studio — Flagship Cupertino Luxury AI Studio</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Sarabun:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-fixed-dim": "#c7c6cb",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed-variant": "#00458f",
+            "primary-fixed": "#ffdbd1",
+            "secondary": "#005ab7",
+            "secondary-container": "#0372e4",
+            "surface-container-low": "#f6f3f5",
+            "tertiary-fixed": "#e3e2e7",
+            "inverse-on-surface": "#f3f0f2",
+            "secondary-fixed": "#d7e2ff",
+            "surface-dim": "#dcd9dc",
+            "surface-variant": "#e4e2e4",
+            "error": "#ba1a1a",
+            "on-background": "#1b1b1d",
+            "surface": "#fcf8fb",
+            "surface-container-highest": "#e4e2e4",
+            "inverse-surface": "#303032",
+            "surface-bright": "#fcf8fb",
+            "outline-variant": "#e1bfb6",
+            "on-primary-fixed-variant": "#862300",
+            "on-primary": "#ffffff",
+            "on-surface-variant": "#59413a",
+            "on-secondary-fixed": "#001b3f",
+            "surface-container-lowest": "#ffffff",
+            "surface-container": "#f0edef",
+            "outline": "#8d7169",
+            "on-primary-fixed": "#3a0a00",
+            "surface-container-high": "#eae7ea",
+            "on-primary-container": "#fffbff",
+            "primary": "#ab2f00",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed-dim": "#abc7ff",
+            "error-container": "#ffdad6",
+            "on-surface": "#1b1b1d",
+            "tertiary": "#5b5c60",
+            "on-tertiary-fixed": "#1a1b1f",
+            "primary-container": "#cd471b",
+            "surface-tint": "#ae3102",
+            "on-secondary-container": "#fefcff",
+            "inverse-primary": "#ffb59f",
+            "on-tertiary-fixed-variant": "#46464b",
+            "primary-fixed-dim": "#ffb59f",
+            "on-error": "#ffffff",
+            "tertiary-container": "#747479",
+            "on-tertiary-container": "#fefcff",
+            "background": "#fcf8fb",
+            "on-secondary": "#ffffff",
+            // Cupertino specific extensions mapped to brand tokens
+            "apple-subtle": "#f5f5f7",
+            "apple-coral": "#e85a2d",
+            "apple-blue": "#0071e3",
+            "apple-space": "#1d1d1f",
+            "apple-titanium": "#86868b"
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "gutter-mobile": "1rem",
+            "margin": "3rem",
+            "margin-mobile": "1.25rem"
+          },
+          fontFamily: {
+            "headline-xl-mobile": ["Plus Jakarta Sans", "Sarabun", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "Sarabun", "sans-serif"],
+            "body-md": ["Sarabun", "Plus Jakarta Sans", "sans-serif"],
+            "body-xl": ["Sarabun", "Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Plus Jakarta Sans", "Sarabun", "sans-serif"],
+            "body-sm": ["Sarabun", "Plus Jakarta Sans", "sans-serif"],
+            "headline-xl": ["Plus Jakarta Sans", "Sarabun", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "Sarabun", "sans-serif"],
+            "headline-lg-mobile": ["Plus Jakarta Sans", "Sarabun", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "Sarabun", "sans-serif"],
+            "label-xs": ["Plus Jakarta Sans", "Sarabun", "sans-serif"],
+            "body-lg": ["Sarabun", "Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "Sarabun", "sans-serif"]
+          },
+          fontSize: {
+            "headline-xl-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.025em", fontWeight: "600" }],
+            "body-md": ["15px", { lineHeight: "24px", fontWeight: "400" }],
+            "body-xl": ["19px", { lineHeight: "32px", letterSpacing: "-0.005em", fontWeight: "400" }],
+            "headline-sm": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "body-sm": ["13px", { lineHeight: "20px", fontWeight: "400" }],
+            "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.03em", fontWeight: "700" }],
+            "label-md": ["14px", { lineHeight: "20px", letterSpacing: "-0.005em", fontWeight: "500" }],
+            "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "label-xs": ["11px", { lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "600" }],
+            "body-lg": ["17px", { lineHeight: "28px", fontWeight: "400" }],
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "500" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .cinema-screen-shadow {
+      box-shadow: 0 30px 100px -20px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    }
+    .bento-card-hover {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .bento-card-hover:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-[#f5f5f7] text-on-surface antialiased font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Shared Component: TopNavBar (Glass Header Cupertino Luxury Style) -->
+<header class="docked full-width top-0 sticky z-50 h-[52px] bg-white/80 backdrop-blur-xl border-b border-black/[0.06] shadow-sm">
+<div class="flex justify-between items-center w-full px-space-lg max-w-7xl mx-auto h-full">
+<!-- Brand & View Badge -->
+<div class="flex items-center gap-space-md">
+<a class="flex items-center gap-2 group" href="#">
+<div class="w-6 h-6 rounded-full bg-apple-coral flex items-center justify-center text-white shadow-sm transition-transform group-hover:scale-105">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-on-surface">ReadAWrite Pro</span>
+</a>
+<!-- Guest View Switcher Pill -->
+<div class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container border border-black/[0.05] text-[11px] font-label-xs text-tertiary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>มุมมองผู้เยี่ยมชม (Guest View)</span>
+</div>
+</div>
+<!-- Navigation Links (Guest-Safe View) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-semibold transition-colors font-label-md text-label-md" href="#hero">หน้าแรก</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="#features">ฟีเจอร์เด่น</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="#pricing">ราคา &amp; สมาชิก</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="#faq">คำถามที่พบบ่อย</a>
+</nav>
+<!-- Right Actions: Sign In & Coral CTA Pill -->
+<div class="flex items-center gap-space-sm sm:gap-space-md">
+<a class="text-tertiary hover:text-on-surface transition-colors font-label-md text-label-md px-2 py-1" href="#">เข้าสู่ระบบ</a>
+<a class="inline-flex items-center gap-1.5 bg-apple-coral hover:bg-[#d64f24] text-white rounded-full px-4 sm:px-5 py-1.5 text-label-md font-label-md font-medium shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98]" href="#pricing">
+<span>ทดลองใช้ฟรี 7 วัน</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<main>
+<!-- Monumental Hero Section (Apple Keynote Style) -->
+<section class="relative pt-16 md:pt-24 pb-20 px-space-md overflow-hidden text-center" id="hero">
+<!-- Ambient Radial Subtle Glow -->
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-tr from-orange-200/30 via-red-100/20 to-blue-200/20 blur-3xl pointer-events-none -z-10 rounded-full"></div>
+<div class="max-w-4xl mx-auto space-y-6">
+<!-- Status Pill Tag -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-black/[0.06] shadow-xs text-label-sm font-label-sm text-tertiary">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-apple-coral opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-apple-coral"></span>
+</span>
+<span class="font-medium text-apple-space">เปิดตัวสถาปัตยกรรมใหม่ Gemini 3.5 Flash Lite</span>
+</div>
+<!-- Monumental Space Gray Headline -->
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold tracking-tight text-apple-space leading-tight max-w-3xl mx-auto">
+          แต่งนิยาย. ทรงพลัง. สละสลวย. ระดับโปร.
+        </h1>
+<!-- Editorial Subtitle -->
+<p class="font-body-lg text-body-lg text-tertiary max-w-2xl mx-auto leading-relaxed">
+          พบกับสตูดิโอแต่งนิยายพลัง Gemini 3.5 Flash Lite เร็วที่สุดในไทย 3,500 คำใน 19 วินาที พร้อมส่งขึ้น ReadAWrite ทันที
+        </p>
+<!-- CTA Row -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-3">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-apple-coral hover:bg-[#d64f24] text-white rounded-full px-8 py-3.5 font-label-md text-label-md font-semibold shadow-md transition-all hover:scale-[1.02] active:scale-[0.98]" href="#pricing">
+<span>เริ่มทดลองใช้ฟรี 7 วัน</span>
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+</a>
+<a class="inline-flex items-center gap-1.5 text-apple-blue hover:text-blue-700 font-label-md text-label-md font-semibold group px-4 py-2" href="#features">
+<span>ดูการทำงานของ AI</span>
+<span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Floating Studio Product Mockup in Apple Cinema Frame -->
+<div class="mt-14 max-w-5xl mx-auto relative px-2 sm:px-6">
+<div class="rounded-3xl bg-white border border-black/[0.08] cinema-screen-shadow p-3 sm:p-5 text-left relative overflow-hidden backdrop-blur-2xl">
+<!-- Cinema Frame Mac Bar -->
+<div class="flex items-center justify-between pb-4 border-b border-black/[0.05] px-2">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e]"></span>
+<span class="w-3 h-3 rounded-full bg-[#ffbd2e] border border-[#dea123]"></span>
+<span class="w-3 h-3 rounded-full bg-[#27c93f] border border-[#1aab29]"></span>
+<span class="ml-3 text-xs font-label-xs font-semibold text-apple-titanium tracking-wider">READAWRITE STUDIO PRO — DESKTOP V4.2</span>
+</div>
+<!-- Realtime Metrics Pills in Top Bar -->
+<div class="flex items-center gap-2">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-apple-subtle border border-black/[0.04] text-[11px] font-label-xs font-medium text-tertiary">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">sync</span>
+<span>พร้อมซิงค์ RAW</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-[11px] font-label-xs font-semibold text-apple-coral">
+<span class="material-symbols-outlined text-[14px]">speed</span>
+<span>19 วินาที</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[11px] font-label-xs font-semibold text-apple-blue">
+<span class="material-symbols-outlined text-[14px]">format_ink_highlighter</span>
+<span>3,500 คำ</span>
+</div>
+</div>
+</div>
+<!-- Studio Main Workspace View -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-5">
+<!-- Sidebar Codex Mini -->
+<div class="hidden md:block md:col-span-3 border-r border-black/[0.05] pr-4 space-y-4">
+<div class="space-y-1">
+<div class="text-[11px] font-label-xs font-bold text-apple-titanium uppercase tracking-wider">โครงเรื่อง &amp; บทนิยาย</div>
+<div class="p-2 rounded-xl bg-orange-50/70 border border-orange-200/60 text-apple-coral font-medium text-xs flex items-center justify-between">
+<span class="truncate">บทที่ 2: สี่ปีแห่งการเริ่มต้นใหม่</span>
+<span class="material-symbols-outlined text-xs">edit</span>
+</div>
+<div class="p-2 rounded-xl hover:bg-apple-subtle text-apple-space font-medium text-xs flex items-center justify-between text-tertiary">
+<span class="truncate">บทที่ 1: หมอกควัน ณ ซอยหลังวัง</span>
+<span class="text-[10px] text-apple-titanium">เผยแพร่แล้ว</span>
+</div>
+<div class="p-2 rounded-xl hover:bg-apple-subtle text-apple-space font-medium text-xs flex items-center justify-between text-tertiary">
+<span class="truncate">บทที่ 3: ข้อตกลงใต้แสงจันทร์</span>
+<span class="text-[10px] text-apple-titanium">ร่างโครง</span>
+</div>
+</div>
+<!-- Context Guard Badge -->
+<div class="p-3 rounded-2xl bg-surface-container-low border border-black/[0.05] space-y-2">
+<div class="flex items-center gap-1.5 text-xs font-semibold text-apple-space">
+<span class="material-symbols-outlined text-sm text-apple-coral">psychology</span>
+<span>ความจำตัวละคร</span>
+</div>
+<p class="text-[11px] leading-relaxed text-tertiary">
+                  ระบบจำกัดบริบท 'พันแสง' และ 'พิมพ์ดาว' ล็อคชื่อและบทบาทแม่นยำ 100%
+                </p>
+</div>
+</div>
+<!-- Central Canvas / Thai Web Novel Prose Area -->
+<div class="col-span-1 md:col-span-9 space-y-4 px-1 sm:px-3">
+<!-- Chapter Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-black/[0.04] pb-3">
+<div>
+<span class="text-xs font-label-sm font-semibold text-apple-coral">นิยายโรแมนติกแฟนตาซี · ดำเนินเรื่องสลับมิติ</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-apple-space mt-0.5">
+                    บทที่ 2: สี่ปีแห่งการเริ่มต้นใหม่ และการกลับมาที่ไม่มีวันเหมือนเดิม
+                  </h3>
+</div>
+<span class="text-xs font-medium text-emerald-600 inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> บันทึกอัตโนมัติ 12 วินาทีที่แล้ว
+                </span>
+</div>
+<!-- Realistic Thai Web Novel Prose with AI Accentuation -->
+<div class="space-y-3 font-body-md text-apple-space/90 text-sm sm:text-base leading-relaxed bg-[#fdfdfd] p-4 sm:p-6 rounded-2xl border border-black/[0.03]">
+<p>
+                  สายลมยามพลบค่ำพัดพากลิ่นไอฝนจางๆ ผ่านช่องหน้าต่างไม้สักโบราณเข้ามาแตะปลายจมูกของพิมพ์ดาว เธอหยุดปลายนิ้วที่กำลังจัดวางถ้วยชาศิลาดล ดวงตาคู่เรียวยังคงจับจ้องไปยังจดหมายตราครั่งสีชาดที่วางสงบนิ่งอยู่บนโต๊ะทำงาน
+                </p>
+<p class="bg-orange-50/50 p-2.5 rounded-xl border-l-2 border-apple-coral">
+<span class="text-xs font-semibold text-apple-coral block mb-1">⚡ ข้อความสร้างโดย Gemini 3.5 Flash Lite (0.4s)</span>
+                  "ถ้าเธอคิดว่าสี่ปีที่ปารีสจะลบล้างสัญญาใจของเราสองคนได้... เธอคงประเมินความทรงจำของฉันต่ำเกินไป พิมพ์ดาว" เสียงทุ้มต่ำอันคุ้นเคยดังขึ้นจากเงามืดตรงชานเรือน ไม่ใช่เสียงในจินตนาการ แต่เป็นเขาจริงๆ—พันแสง ในชุดสูทผ้าลินินสีเข้มกับสายตาคมกริบที่สะกดลมหายใจของเธอไว้ในพริบตา
+                </p>
+<p class="text-tertiary">
+                  พิมพ์ดาวกำชายเสื้อแน่นจนข้อนิ้วขึ้นสีขาว สี่ปีที่เธอพยายามสร้างชีวิตใหม่ ปัดเป่าความทรงจำที่แตกสลาย แต่เพียงแค่เสี้ยววินาทีที่สบตาเขา ทุกปราการที่สร้างไว้กลับพังทลายลงอย่างไม่อาจทัดทาน...
+                </p>
+</div>
+<!-- Floating Quick Format / AI Tooling Ribbon -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-full bg-apple-subtle hover:bg-black/5 text-xs font-medium text-apple-space flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm text-apple-blue">auto_fix_high</span>
+<span>เกลาสำนวนไทย</span>
+</button>
+<button class="px-3 py-1.5 rounded-full bg-apple-subtle hover:bg-black/5 text-xs font-medium text-apple-space flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-sm text-apple-coral">add_notes</span>
+<span>ขยายฉากบรรยาย</span>
+</button>
+</div>
+<div class="text-[12px] font-label-xs text-apple-titanium">
+                  Token Cache: 1,420 / 1,000,000 | Latency 12ms
+                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Apple Bento Grid (Feature Highlights - 4 Tiles with 28px rounded corners) -->
+<section class="py-24 px-space-md max-w-7xl mx-auto" id="features">
+<div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+<span class="text-label-sm font-label-sm font-semibold tracking-wider text-apple-coral uppercase">นวัตกรรมระดับอุตสาหกรรม</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-apple-space">
+          ออกแบบเพื่อนักเขียนนิยายตัวจริง
+        </h2>
+<p class="font-body-lg text-body-lg text-tertiary">
+          เทคโนโลยี AI โมเดลล้ำหน้า ผสานความสละสลวยทางวรรณศิลป์ไทยแบบไม่มีสะดุด
+        </p>
+</div>
+<!-- Bento Grid (4 Tiles) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Tile 1: Processing Speed (Span 7) -->
+<div class="md:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-black/[0.06] bento-card-hover flex flex-col justify-between relative overflow-hidden">
+<div class="space-y-4 max-w-lg z-10">
+<div class="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-apple-coral">
+<span class="material-symbols-outlined text-2xl">speed</span>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100/60 text-apple-coral text-xs font-semibold">
+<span>ความเร็วระดับมิลลิวินาที</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-apple-space">
+              19 วินาที — สปีดการประมวลผลเร็วที่สุดในไทย
+            </h3>
+<p class="font-body-md text-body-md text-tertiary leading-relaxed">
+              ผลิตนิยายความยาว 3,500 คำ ได้อย่างราบรื่น ไม่มีสะดุด ไม่ตัดจบกลางคัน พร้อมการตอบสนองที่ความหน่วงต่ำเพียง 12ms ช่วยให้สมาธิการสร้างสรรค์ของนักเขียนไม่ขาดตอนแม้แต่เสี้ยววินาที
+            </p>
+</div>
+<!-- Speed Gauge Visualization -->
+<div class="mt-8 pt-6 border-t border-black/[0.05] grid grid-cols-3 gap-4">
+<div class="bg-apple-subtle p-4 rounded-2xl">
+<div class="text-xs font-label-xs text-apple-titanium">Processing Time</div>
+<div class="font-headline-sm text-headline-sm font-bold text-apple-space mt-1">19.2s</div>
+<div class="text-[11px] text-emerald-600 font-medium">เร็วขึ้น 4.8x</div>
+</div>
+<div class="bg-apple-subtle p-4 rounded-2xl">
+<div class="text-xs font-label-xs text-apple-titanium">Throughput</div>
+<div class="font-headline-sm text-headline-sm font-bold text-apple-space mt-1">184 w/s</div>
+<div class="text-[11px] text-apple-coral font-medium">คำต่อวินาที</div>
+</div>
+<div class="bg-apple-subtle p-4 rounded-2xl">
+<div class="text-xs font-label-xs text-apple-titanium">API Latency</div>
+<div class="font-headline-sm text-headline-sm font-bold text-apple-space mt-1">12ms</div>
+<div class="text-[11px] text-apple-blue font-medium">Zero Throttling</div>
+</div>
+</div>
+</div>
+<!-- Tile 2: Headless RAW Sync (Span 5) -->
+<div class="md:col-span-5 bg-white rounded-3xl p-8 sm:p-10 border border-black/[0.06] bento-card-hover flex flex-col justify-between relative overflow-hidden">
+<div class="space-y-4 z-10">
+<div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-apple-blue">
+<span class="material-symbols-outlined text-2xl">sync_saved_locally</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-apple-space">
+              ซิงค์ไร้รอยต่อสู่ ReadAWrite
+            </h3>
+<p class="font-body-md text-body-md text-tertiary leading-relaxed">
+              อัปโหลดโครงเรื่อง บทสนทนา และตอนนิยายขึ้น ReadAWrite.com ได้ทันทีผ่านระบบ Headless Automation ปลอดภัย 100% ไม่ต้องคัดลอกวางเองให้เสียเวลา
+            </p>
+</div>
+<!-- Security Badge Container -->
+<div class="mt-8 p-4 rounded-2xl bg-surface-container-low border border-black/[0.05] space-y-3">
+<div class="flex items-center gap-2 text-xs font-semibold text-emerald-700">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span>256-Bit Encrypted Session</span>
+</div>
+<div class="flex items-center justify-between text-xs text-tertiary">
+<span>สถานะเชื่อมต่อ:</span>
+<span class="font-semibold text-apple-space">ReadAWrite Cloud Ready</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5">
+<div class="bg-emerald-500 h-1.5 rounded-full w-full"></div>
+</div>
+</div>
+</div>
+<!-- Tile 3: ProofAI 2.4 (Span 5) -->
+<div class="md:col-span-5 bg-white rounded-3xl p-8 sm:p-10 border border-black/[0.06] bento-card-hover flex flex-col justify-between relative overflow-hidden">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-2xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600">
+<span class="material-symbols-outlined text-2xl">spellcheck</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-apple-space">
+              ProofAI 2.4 วรรณศิลป์ไทย
+            </h3>
+<p class="font-body-md text-body-md text-tertiary leading-relaxed">
+              ตรวจสำนวน คำผิด วรรคตอน และการซ้ำซากของคำด้วยเอนจินเฉพาะทางวิเคราะห์รากศัพท์ภาษาไทย
+            </p>
+<!-- Polish Example Bubble -->
+<div class="p-4 rounded-2xl bg-apple-subtle border border-black/[0.04] space-y-2 text-xs">
+<div class="text-tertiary line-through">"เขาได้รับโอกาสที่ดีในชีวิตเป็นอย่างมาก"</div>
+<div class="text-apple-coral font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+<span>"วาสนาชะตาชีวิตเปิดทางให้เขาอย่างที่ไม่เคยคาดฝัน"</span>
+</div>
+<span class="text-[10px] text-apple-titanium">ข้อเสนอแนะ: ยกระดับอารมณ์นิยายพีเรียด/ดราม่า</span>
+</div>
+</div>
+</div>
+<!-- Tile 4: Infinite Character Context Memory (Span 7) -->
+<div class="md:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-black/[0.06] bento-card-hover flex flex-col justify-between relative overflow-hidden">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600">
+<span class="material-symbols-outlined text-2xl">memory</span>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/70 text-emerald-800 text-xs font-semibold">
+<span>บริบทไม่รู้จบ 1,000,000 โทเค็น</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-apple-space">
+              ความจำปัญญาประดิษฐ์ — คลังบริบทตัวละคร
+            </h3>
+<p class="font-body-md text-body-md text-tertiary leading-relaxed">
+              หมดปัญหา AI สับสนชื่อตัวละคร เปลี่ยนสีตา ลืมปูมหลัง หรือลืมความสัมพันธ์ในอดีต รองรับ Lore, Codex, กฎของเวทมนตร์ และสายสัมพันธ์ตัวละครมากกว่า 100 ตอนได้อย่างแม่นยำถาวร
+            </p>
+<!-- Memory Lore Visual Nodes -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
+<div class="p-3.5 rounded-2xl bg-surface-container-low border border-black/[0.04]">
+<div class="font-semibold text-xs text-apple-space flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-apple-coral"></span> พันแสง (พระเอก)
+                </div>
+<div class="text-[11px] text-tertiary mt-1">อดีตคู่หมั้น · เจ้าของบริษัทเดินเรือสมุทร · ไม่ดื่มกาแฟ</div>
+</div>
+<div class="p-3.5 rounded-2xl bg-surface-container-low border border-black/[0.04]">
+<div class="font-semibold text-xs text-apple-space flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-apple-blue"></span> กฎเมืองเวนิสบูรพา (World Codex)
+                </div>
+<div class="text-[11px] text-tertiary mt-1">ห้ามใช้เวทมนตร์หลังพระอาทิตย์ตกดิน · ศิลาครามสะกดวิญญาณ</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Apple One Style Pricing Comparison Matrix (4 Clean Columns) -->
+<section class="py-24 px-space-md bg-white border-y border-black/[0.06]" id="pricing">
+<div class="max-w-7xl mx-auto space-y-16">
+<!-- Header -->
+<div class="text-center max-w-3xl mx-auto space-y-3">
+<span class="text-label-sm font-label-sm font-semibold tracking-wider text-apple-coral uppercase">ความคุ้มค่าระดับพรีเมียม</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-apple-space">
+            เลือกแพ็กเกจที่ลงตัวกับจินตนาการของคุณ
+          </h2>
+<p class="font-body-lg text-body-lg text-tertiary">
+            ทดลองใช้ฟังก์ชันเต็มฟรี 7 วัน ยกเลิกได้ตลอดเวลา ไม่มีข้อผูกมัด
+          </p>
+</div>
+<!-- 4-Column Matrix -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Column 1: 7-Day Free Trial -->
+<div class="bg-apple-subtle rounded-3xl p-8 border border-black/[0.06] flex flex-col justify-between bento-card-hover">
+<div class="space-y-6">
+<div>
+<span class="text-xs font-semibold text-apple-titanium uppercase tracking-wider">เริ่มต้นทดลอง</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-apple-space mt-1">7-Day Free Trial</h3>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="font-headline-xl text-3xl font-extrabold text-apple-space">฿0</span>
+<span class="text-xs font-medium text-tertiary">/ 7 วันแรก</span>
+</div>
+<p class="text-xs text-tertiary mt-2">สัมผัสประสบการณ์โมเดลเต็มรูปแบบโดยไม่ต้องจ่ายเงินล่วงหน้า</p>
+</div>
+<div class="pt-4 border-t border-black/[0.06] space-y-3 text-xs">
+<div class="flex items-center gap-2 text-apple-space font-medium">
+<span class="material-symbols-outlined text-base text-emerald-600">check_circle</span>
+<span>โควตา 50,000 คำ</span>
+</div>
+<div class="flex items-center gap-2 text-apple-space font-medium">
+<span class="material-symbols-outlined text-base text-emerald-600">check_circle</span>
+<span>โมเดล Gemini 3.5 Flash Lite</span>
+</div>
+<div class="flex items-center gap-2 text-apple-space font-medium">
+<span class="material-symbols-outlined text-base text-emerald-600">check_circle</span>
+<span>ทดลอง ProofAI ภาษาไทย</span>
+</div>
+<div class="flex items-center gap-2 text-tertiary">
+<span class="material-symbols-outlined text-base text-apple-titanium">horizontal_rule</span>
+<span>ซิงค์ RAW (จำกัด 3 ตอน)</span>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4">
+<a class="w-full inline-flex justify-center items-center py-2.5 px-4 rounded-full bg-white hover:bg-gray-100 text-apple-space font-semibold text-xs border border-black/[0.08] shadow-xs transition-all" href="#">
+                เริ่มทดลองทันที
+              </a>
+</div>
+</div>
+<!-- Column 2: Pro Monthly -->
+<div class="bg-apple-subtle rounded-3xl p-8 border border-black/[0.06] flex flex-col justify-between bento-card-hover">
+<div class="space-y-6">
+<div>
+<span class="text-xs font-semibold text-apple-blue uppercase tracking-wider">รายเดือนยอดนิยม</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-apple-space mt-1">Pro Monthly</h3>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="font-headline-xl text-3xl font-extrabold text-apple-space">฿390</span>
+<span class="text-xs font-medium text-tertiary">/ เดือน</span>
+</div>
+<p class="text-xs text-tertiary mt-2">เหมาะสำหรับนักเขียนที่ต้องการสร้างงานต่อเนื่องทุกสัปดาห์</p>
+</div>
+<div class="pt-4 border-t border-black/[0.06] space-y-3 text-xs">
+<div class="flex items-center gap-2 text-apple-space font-medium">
+<span class="material-symbols-outlined text-base text-emerald-600">check_circle</span>
+<span>โควตา 500,000 คำ / เดือน</span>
+</div>
+<div class="flex items-center gap-2 text-apple-space font-medium">
+<span class="material-symbols-outlined text-base text-emerald-600">check_circle</span>
+<span>ซิงค์ ReadAWrite ไม่จำกัด</span>
+</div>
+<div class="flex items-center gap-2 text-apple-space font-medium">
+<span class="material-symbols-outlined text-base text-emerald-600">check_circle</span>
+<span>World Codex Memory 250k</span>
+</div>
+<div class="flex items-center gap-2 text-apple-space font-medium">
+<span class="material-symbols-outlined text-base text-emerald-600">check_circle</span>
+<span>การตรวจสำนวน ProofAI 2.4</span>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4">
+<a class="w-full inline-flex justify-center items-center py-2.5 px-4 rounded-full bg-apple-space hover:bg-black text-white font-semibold text-xs shadow-xs transition-all" href="#">
+                สมัครสมาชิกรักษาการ
+              </a>
+</div>
+</div>
+<!-- Column 3: Pro Annual (Featured / Recommended) -->
+<div class="bg-white rounded-3xl p-8 border-2 border-apple-coral shadow-xl flex flex-col justify-between relative bento-card-hover">
+<!-- Best Value Pill -->
+<div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-apple-coral text-white text-[11px] font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-sm">
+              แนะนำ คุ้มค่าที่สุด (ประหยัด 17%)
+            </div>
+<div class="space-y-6">
+<div>
+<span class="text-xs font-semibold text-apple-coral uppercase tracking-wider">แพ็กเกจประจำปี</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-apple-space mt-1">Pro Annual</h3>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="font-headline-xl text-3xl font-extrabold text-apple-coral">฿3,900</span>
+<span class="text-xs font-medium text-tertiary">/ ปี</span>
+</div>
+<p class="text-xs text-tertiary mt-2">คิดเฉลี่ยเพียง ฿325 ต่อเดือน พร้อมรับสิทธิ์ประมวลผลก่อน</p>
+</div>
+<div class="pt-4 border-t border-black/[0.06] space-y-3 text-xs">
+<div class="flex items-center gap-2 text-apple-space font-semibold">
+<span class="material-symbols-outlined text-base text-apple-coral">check_circle</span>
+<span>โควตา 6,000,000 คำ / ปี</span>
+</div>
+<div class="flex items-center gap-2 text-apple-space font-semibold">
+<span class="material-symbols-outlined text-base text-apple-coral">check_circle</span>
+<span>คิวประมวลผล VIP ลำดับแรก</span>
+</div>
+<div class="flex items-center gap-2 text-apple-space font-medium">
+<span class="material-symbols-outlined text-base text-emerald-600">check_circle</span>
+<span>World Codex 1,000,000 โทเค็น</span>
+</div>
+<div class="flex items-center gap-2 text-apple-space font-medium">
+<span class="material-symbols-outlined text-base text-emerald-600">check_circle</span>
+<span>ส่งออก E-Pub &amp; PDF มาตรฐานจัดพิมพ์</span>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4">
+<a class="w-full inline-flex justify-center items-center py-2.5 px-4 rounded-full bg-apple-coral hover:bg-[#d64f24] text-white font-semibold text-xs shadow-md transition-all" href="#">
+                เริ่มต้นใช้งานรายปี
+              </a>
+</div>
+</div>
+<!-- Column 4: Lifetime VIP -->
+<div class="bg-apple-subtle rounded-3xl p-8 border border-black/[0.06] flex flex-col justify-between bento-card-hover">
+<div class="space-y-6">
+<div>
+<span class="text-xs font-semibold text-purple-700 uppercase tracking-wider">เอกสิทธิ์ตลอดชีพ</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-apple-space mt-1">Lifetime VIP</h3>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="font-headline-xl text-3xl font-extrabold text-apple-space">฿6,900</span>
+<span class="text-xs font-medium text-tertiary">/ ครั้งเดียวจบ</span>
+</div>
+<p class="text-xs text-tertiary mt-2">จ่ายรอบเดียวเป็นเจ้าของตลอดไป ไม่มีค่าบริการแอบแฝง</p>
+</div>
+<div class="pt-4 border-t border-black/[0.06] space-y-3 text-xs">
+<div class="flex items-center gap-2 text-apple-space font-bold">
+<span class="material-symbols-outlined text-base text-purple-700">stars</span>
+<span>โควตาไม่จำกัด (Unlimited)</span>
+</div>
+<div class="flex items-center gap-2 text-apple-space font-medium">
+<span class="material-symbols-outlined text-base text-emerald-600">check_circle</span>
+<span>สิทธิ์อัปเกรดโมเดลรุ่นใหม่ตลอดชีพ</span>
+</div>
+<div class="flex items-center gap-2 text-apple-space font-medium">
+<span class="material-symbols-outlined text-base text-emerald-600">check_circle</span>
+<span>ระบบจัดการลิขสิทธิ์ระดับองค์กร</span>
+</div>
+<div class="flex items-center gap-2 text-apple-space font-medium">
+<span class="material-symbols-outlined text-base text-emerald-600">check_circle</span>
+<span>ช่องทางซัพพอร์ตวิศวกรส่วนตัว 24/7</span>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4">
+<a class="w-full inline-flex justify-center items-center py-2.5 px-4 rounded-full bg-apple-space hover:bg-black text-white font-semibold text-xs shadow-xs transition-all" href="#">
+                รับสิทธิ์ Lifetime ทันที
+              </a>
+</div>
+</div>
+</div>
+<!-- Payment Method Trust Badges -->
+<div class="pt-8 border-t border-black/[0.05] flex flex-wrap items-center justify-center gap-8 text-apple-titanium text-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-apple-space">qr_code_2</span>
+<span>รองรับ Thai PromptPay QR ทุกธนาคาร</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-apple-space">credit_card</span>
+<span>Visa, MasterCard, JCB และ Apple Pay</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-emerald-600">lock</span>
+<span>ระบบชำระเงินปลอดภัยมาตรฐานสากล</span>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-20 px-space-md max-w-4xl mx-auto" id="faq">
+<div class="text-center mb-12 space-y-2">
+<h2 class="font-headline-md text-headline-md font-bold text-apple-space">คำถามที่พบบ่อย (FAQ)</h2>
+<p class="font-body-md text-body-md text-tertiary">ไขข้อข้องใจเกี่ยวกับการใช้งานและการรักษาความลับของนิยาย</p>
+</div>
+<div class="space-y-4">
+<div class="p-6 rounded-2xl bg-white border border-black/[0.05] space-y-2">
+<h4 class="font-semibold text-sm text-apple-space">นิยายที่สร้างด้วย AI จะถือเป็นลิขสิทธิ์ของใคร?</h4>
+<p class="text-xs text-tertiary leading-relaxed">
+            ลิขสิทธิ์ทั้งหมดเป็นของนักเขียน 100% ReadAWrite Pro Studio ไม่มีสิทธิ์ในเนื้อหา โครงเรื่อง หรือผลกำไรใดๆ ที่เกิดจากงานเขียนของคุณ
+          </p>
+</div>
+<div class="p-6 rounded-2xl bg-white border border-black/[0.05] space-y-2">
+<h4 class="font-semibold text-sm text-apple-space">ข้อมูลเนื้อหานิยายจะถูกนำไปเทรน AI ต่อหรือไม่?</h4>
+<p class="text-xs text-tertiary leading-relaxed">
+            ไม่เด็ดขาด เราใช้ระบบ Zero-Retention Architecture ข้อมูลของคุณถูกส่งประมวลผลแบบเข้ารหัสและถูกทำลายออกจากหน่วยความจำทันทีหลังเจนเสร็จ
+          </p>
+</div>
+<div class="p-6 rounded-2xl bg-white border border-black/[0.05] space-y-2">
+<h4 class="font-semibold text-sm text-apple-space">สามารถเชื่อมต่อกับบัญชี ReadAWrite เดิมได้อย่างไร?</h4>
+<p class="text-xs text-tertiary leading-relaxed">
+            คุณสามารถเปิดส่วนขยาย Headless Browser Token ภายในสตูดิโอเพื่อลิงก์เรื่องที่กำลังแต่งอยู่ได้อย่างง่ายดายเพียงคลิกเดียว
+          </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Shared Component: Footer (Landing Footer) -->
+<footer class="docked full-width bottom bg-surface-container-lowest border-t border-surface-variant/30 text-tertiary text-xs">
+<div class="w-full py-space-xl px-space-lg max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-space-lg">
+<div class="space-y-2 text-center md:text-left">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">ReadAWrite Pro</div>
+<p class="font-body-sm text-body-sm text-tertiary">
+          © 2024 ReadAWrite Pro Studio Inc. Precision creative instruments for narrative architects.
+        </p>
+</div>
+<!-- Links adhering to JSON -->
+<div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 font-label-xs text-label-xs">
+<a class="text-tertiary hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-tertiary hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-tertiary hover:text-primary transition-colors" href="#">AI Integrity Statement</a>
+<a class="text-tertiary hover:text-primary transition-colors" href="#">Cupertino Design Guidelines</a>
+<a class="text-tertiary hover:text-primary transition-colors" href="#">API Documentation</a>
+<a class="text-tertiary hover:text-primary transition-colors" href="#">System Telemetry</a>
+</div>
+</div>
+</footer>
+</body></html>
