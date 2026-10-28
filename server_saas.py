@@ -320,6 +320,28 @@ class SaaSHttpHandler(http.server.SimpleHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
 
+        # Static Page Route: /dashboard and /admin
+        if path == "/dashboard" or path == "/dashboard.html":
+            dash_path = os.path.join(WEB_DIR, "dashboard.html")
+            if os.path.exists(dash_path):
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Content-Length", str(os.path.getsize(dash_path)))
+                self.end_headers()
+                with open(dash_path, "rb") as f:
+                    self.wfile.write(f.read())
+                return
+        elif path == "/admin" or path == "/admin.html":
+            admin_path = os.path.join(WEB_DIR, "admin.html")
+            if os.path.exists(admin_path):
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Content-Length", str(os.path.getsize(admin_path)))
+                self.end_headers()
+                with open(admin_path, "rb") as f:
+                    self.wfile.write(f.read())
+                return
+
         # 1. Check current logged-in user session
         if path == "/api/auth/me":
             user = self.get_auth_user()

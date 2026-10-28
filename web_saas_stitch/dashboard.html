@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth bg-stone-50 text-[#171717]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ห้องทำงานนักเขียน (Workspace) | ThaiD Novel Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Prompt', 'Google Sans', 'Noto Sans Thai', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-stone-50 text-[#171717] font-sans pb-24 selection:bg-[#0569ff]/15 selection:text-[#0569ff]">
+
+  <!-- Toast -->
+  <div id="toast" class="hidden fixed bottom-6 right-6 z-[100] bg-[#171717] text-white px-5 py-3 rounded-2xl text-xs font-medium shadow-2xl flex items-center gap-3">
+    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+    <span id="toastMsg">บันทึกข้อมูลเรียบร้อย</span>
+  </div>
+
+  <!-- 1. THAID FLOATING TOP NAVBAR -->
+  <header class="fixed top-0 inset-x-0 z-[60] pt-4 px-4 sm:px-6 pointer-events-none">
+    <div class="max-w-6xl mx-auto flex items-center justify-between pointer-events-auto bg-white/90 backdrop-blur-xl border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.04)] rounded-full px-4 sm:px-5 py-2.5 relative">
+      <a href="https://novel.thaid.online" class="flex items-center gap-2.5 text-[#2b313b] hover:opacity-85 transition-opacity group flex-shrink-0">
+        <div class="w-7 h-7 rounded-lg bg-[#2b313b] flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="font-bold text-lg tracking-tight text-[#2b313b]">ThaiD</span>
+          <span class="text-xs text-stone-300 font-light">/</span>
+          <span class="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-200">Novel Studio</span>
+          <span class="text-xs text-stone-300 font-light hidden sm:inline">/</span>
+          <span class="text-xs text-stone-500 font-medium hidden sm:inline">สตูดิโอนักเขียน (Workspace)</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <a href="https://novel.thaid.online" class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-full border border-black/[0.08] bg-white hover:bg-stone-50 text-xs font-semibold text-stone-700 shadow-2xs">
+          ← สตูดิโอแต่งนิยาย
+        </a>
+        
+        <!-- SaaS Dropdown -->
+        <div class="relative">
+          <button type="button" onclick="toggleSaasDropdown()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-black/[0.08] bg-white hover:bg-stone-50 text-xs font-semibold text-[#2b313b] shadow-2xs cursor-pointer">
+            <span class="text-[#0569ff] font-bold text-xs">✦</span>
+            <span>เลือกบริการ SaaS</span>
+            <svg class="w-3 h-3 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div id="saasMenu" class="hidden absolute right-0 top-full mt-2 w-72 bg-white/95 backdrop-blur-2xl border border-black/[0.08] rounded-2xl shadow-2xl p-2 z-50 text-left">
+            <div class="px-3 py-1.5 text-[10px] font-bold text-stone-400 uppercase tracking-wider border-b border-black/[0.05] mb-1">ThaiD SaaS Network</div>
+            <a href="https://novel.thaid.online" class="block p-2 rounded-xl bg-indigo-50 text-indigo-700 text-xs font-bold">Novel Studio (แต่งนิยาย)</a>
+            <a href="https://social.thaid.online" class="block p-2 rounded-xl hover:bg-stone-50 text-stone-700 text-xs font-medium">Social Auto-Poster (โพสต์ข่าว)</a>
+            <a href="https://sticker.thaid.online" class="block p-2 rounded-xl hover:bg-stone-50 text-stone-700 text-xs font-medium">LINE Sticker (สติกเกอร์ไลน์)</a>
+            <a href="https://clip.thaid.online" class="block p-2 rounded-xl hover:bg-stone-50 text-stone-700 text-xs font-medium">Clip AI (วิดีโอสั้น 9:16)</a>
+            <a href="https://chat.thaid.online" class="block p-2 rounded-xl hover:bg-stone-50 text-stone-700 text-xs font-medium">Smart Chat (บอทแอดมิน LINE OA)</a>
+            <a href="https://mockup.thaid.online" class="block p-2 rounded-xl hover:bg-stone-50 text-stone-700 text-xs font-medium">Mockup Studio (สินค้า 4K)</a>
+            <a href="https://vault.thaid.online" class="block p-2 rounded-xl hover:bg-stone-50 text-stone-700 text-xs font-medium">Private Vault (คลังความปลอดภัย)</a>
+          </div>
+        </div>
+
+        <!-- User Profile Pill -->
+        <div class="flex items-center gap-1.5 p-1 pl-1.5 pr-2.5 rounded-full border border-black/[0.08] bg-white shadow-2xs">
+          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=NovelWriter" class="w-5 h-5 rounded-full bg-indigo-100" alt="Avatar">
+          <span class="text-xs font-semibold text-[#2b313b]">นักเขียน นิยายพันล้าน</span>
+          <span class="text-[9px] font-bold px-1.5 py-0.2 rounded bg-indigo-100 text-indigo-700">PRO</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. MAIN CONTENT -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28">
+    
+    <!-- Hero Banner -->
+    <div class="bg-white rounded-3xl border border-black/[0.08] p-6 sm:p-8 shadow-sm">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div>
+          <div className="flex items-center gap-2 mb-2">
+            <span class="text-[10px] font-bold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-full border border-indigo-200">
+              📚 WRITER PERSONAL WORKSPACE
+            </span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#171717]">
+            ห้องทำงานนักเขียน · My Novels & ReadAWrite
+          </h1>
+          <p class="text-xs sm:text-sm text-stone-500 mt-1 max-w-xl leading-relaxed">
+            จัดการนิยายของคุณ บันทึกความจำตัวละคร ตรวจสอบโควต้าคำ และส่งนิยายขึ้น ReadAWrite อัตโนมัติ
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <a href="https://novel.thaid.online" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-xs transition-all cursor-pointer">
+            <span>+ แต่งนิยายเรื่องใหม่</span>
+          </a>
+          <button onclick="showToast('ซิงค์สถานะ ReadAWrite ล่าสุดเรียบร้อย')" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-2xl border border-black/[0.08] bg-white hover:bg-stone-50 text-xs font-semibold text-stone-700 shadow-xs cursor-pointer">
+            <span>🔄 ซิงค์ ReadAWrite</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Counter Cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 mt-5">
+      <div class="bg-white rounded-2xl border border-black/[0.08] p-4.5 shadow-xs">
+        <div class="text-xs font-bold text-stone-500 mb-1">นิยายทั้งหมด (เรื่อง)</div>
+        <div class="text-2xl font-black text-indigo-600">3 เรื่อง</div>
+        <div class="text-[11px] text-stone-400 mt-0.5">กำลังแต่ง 1 · เผยแพร่ 2</div>
+      </div>
+      <div class="bg-white rounded-2xl border border-black/[0.08] p-4.5 shadow-xs">
+        <div class="text-xs font-bold text-stone-500 mb-1">ตอนที่แต่งแล้ว (ตอน)</div>
+        <div class="text-2xl font-black text-emerald-600">24 ตอน</div>
+        <div class="text-[11px] text-stone-400 mt-0.5">รวม 10 ตอนจบ 2 เล่ม</div>
+      </div>
+      <div class="bg-white rounded-2xl border border-black/[0.08] p-4.5 shadow-xs">
+        <div class="text-xs font-bold text-stone-500 mb-1">จำนวนคำที่ผลิตได้ (คำ)</div>
+        <div class="text-2xl font-black text-purple-600">72,400</div>
+        <div class="text-[11px] text-stone-400 mt-0.5">ภาษาไทยสละสลวย</div>
+      </div>
+      <div class="bg-white rounded-2xl border border-black/[0.08] p-4.5 shadow-xs">
+        <div class="text-xs font-bold text-stone-500 mb-1">โควต้าแต่งนิยายคงเหลือ</div>
+        <div class="text-2xl font-black text-[#0569ff]">8 / 10 ตอน</div>
+        <div class="text-[11px] text-stone-400 mt-0.5">แพ็กเกจ Pro Story</div>
+      </div>
+    </div>
+
+    <!-- Segmented Tabs -->
+    <div class="bg-white rounded-2xl border border-black/[0.08] p-1.5 shadow-xs mt-6 flex items-center gap-1.5 overflow-x-auto">
+      <button onclick="switchTab('stories')" id="tab-stories" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-[#171717] text-white transition-all cursor-pointer">
+        📚 1. คลังนิยายของฉัน (My Stories)
+      </button>
+      <button onclick="switchTab('characters')" id="tab-characters" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-stone-600 hover:bg-stone-50 transition-all cursor-pointer">
+        ✍️ 2. ความจำตัวละคร (Character Vault)
+      </button>
+      <button onclick="switchTab('readawrite')" id="tab-readawrite" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-stone-600 hover:bg-stone-50 transition-all cursor-pointer">
+        🌐 3. บัญชี ReadAWrite (Token Sync)
+      </button>
+      <button onclick="switchTab('quota')" id="tab-quota" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold text-stone-600 hover:bg-stone-50 transition-all cursor-pointer">
+        🎫 4. แพ็กเกจ & โควต้า (Plan)
+      </button>
+    </div>
+
+    <!-- TAB 1: MY STORIES -->
+    <div id="view-stories" class="tab-view mt-5 space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <!-- Story Card 1 -->
+        <div class="bg-white rounded-2xl border border-black/[0.08] p-5 shadow-xs hover:border-black/[0.2] transition-colors flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-200">รักโรแมนติก</span>
+              <span class="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full">✓ ส่ง ReadAWrite แล้ว</span>
+            </div>
+            <h3 class="text-sm font-bold text-[#171717]">สี่ปีแห่งการเริ่มต้นใหม่ และการกลับมาที่ไม่เหมือนเดิม</h3>
+            <p class="text-xs text-stone-500 mt-1 line-clamp-2">เรื่องราวของพิมดาวที่ต้องพบกับความลับในบ้านไม้โบราณริมแม่น้ำเจ้าพระยา</p>
+            
+            <div class="mt-4 pt-3 border-t border-black/[0.05] grid grid-cols-2 gap-2 text-[11px] text-stone-500">
+              <div>ความยาว: <strong class="text-stone-800">10 ตอนจบ</strong></div>
+              <div>คำรวม: <strong class="text-stone-800">35,200 คำ</strong></div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-black/[0.05] flex items-center justify-between">
+            <button onclick="showToast('เปิดอ่านตอนที่ 1-10')" class="text-xs font-bold text-indigo-600 hover:underline">อ่าน & แก้ไขเนื้อหา →</button>
+            <button onclick="showToast('กำลังดาวน์โหลดไฟล์ .docx')" class="text-xs font-semibold text-stone-500 hover:text-stone-900">📥 โหลด DOCX</button>
+          </div>
+        </div>
+
+        <!-- Story Card 2 -->
+        <div class="bg-white rounded-2xl border border-black/[0.08] p-5 shadow-xs hover:border-black/[0.2] transition-colors flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-200">แฟนตาซี / ผจญภัย</span>
+              <span class="text-[10px] text-amber-600 font-semibold bg-amber-50 px-2 py-0.5 rounded-full">⏳ กำลังแต่ง (4/10 ตอน)</span>
+            </div>
+            <h3 class="text-sm font-bold text-[#171717]">จอมมนตราแห่งหุบเขาสายหมอก</h3>
+            <p class="text-xs text-stone-500 mt-1 line-clamp-2">เด็กหนุ่มชาวดอยผู้ค้นพบผนึกเวทมนตร์โบราณที่สาบสูญไปกว่าพันปี</p>
+            
+            <div class="mt-4 pt-3 border-t border-black/[0.05] grid grid-cols-2 gap-2 text-[11px] text-stone-500">
+              <div>ความยาว: <strong class="text-stone-800">4 / 10 ตอน</strong></div>
+              <div>คำรวม: <strong class="text-stone-800">14,800 คำ</strong></div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-black/[0.05] flex items-center justify-between">
+            <a href="https://novel.thaid.online" class="text-xs font-bold text-indigo-600 hover:underline">แต่งต่อใน Studio →</a>
+            <button onclick="showToast('กำลังดาวน์โหลดไฟล์ .txt')" class="text-xs font-semibold text-stone-500 hover:text-stone-900">📥 โหลด TXT</button>
+          </div>
+        </div>
+
+        <!-- Story Card 3 -->
+        <div class="bg-white rounded-2xl border border-black/[0.08] p-5 shadow-xs hover:border-black/[0.2] transition-colors flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-bold text-rose-700 bg-rose-50 px-2 py-0.5 rounded-full border border-rose-200">สืบสวนระทึกขวัญ</span>
+              <span class="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full">✓ ส่ง ReadAWrite แล้ว</span>
+            </div>
+            <h3 class="text-sm font-bold text-[#171717]">รหัสคดีฆาตกรรมคืนเดือนดับ</h3>
+            <p class="text-xs text-stone-500 mt-1 line-clamp-2">นายตำรวจหนุ่มกับการไขปริศนาคฤหาสน์ปิดตายกลางสายฝน</p>
+            
+            <div class="mt-4 pt-3 border-t border-black/[0.05] grid grid-cols-2 gap-2 text-[11px] text-stone-500">
+              <div>ความยาว: <strong class="text-stone-800">10 ตอนจบ</strong></div>
+              <div>คำรวม: <strong class="text-stone-800">22,400 คำ</strong></div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-black/[0.05] flex items-center justify-between">
+            <button onclick="showToast('เปิดอ่านตอนที่ 1-10')" class="text-xs font-bold text-indigo-600 hover:underline">อ่าน & แก้ไขเนื้อหา →</button>
+            <button onclick="showToast('กำลังดาวน์โหลดไฟล์ .docx')" class="text-xs font-semibold text-stone-500 hover:text-stone-900">📥 โหลด DOCX</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 2: CHARACTER VAULT -->
+    <div id="view-characters" class="tab-view hidden mt-5 bg-white rounded-3xl border border-black/[0.08] p-6 shadow-xs">
+      <div class="flex items-center justify-between pb-4 border-b border-black/[0.06]">
+        <div>
+          <h2 class="text-base font-bold text-[#171717]">ความจำตัวละคร (Character Memory Vault)</h2>
+          <p class="text-xs text-stone-500 mt-0.5">บันทึกคาแรคเตอร์ นิสัย และภูมิหลัง เพื่อให้ AI ดึงไปใช้แต่งนิยายเรื่องใหม่ได้แม่นยำ</p>
+        </div>
+        <button onclick="showToast('เปิดหน้าต่างสร้างตัวละครใหม่')" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-xs cursor-pointer">
+          + เพิ่มตัวละครใหม่
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
+        <div class="p-4 rounded-2xl border border-black/[0.06] bg-stone-50/50">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs">พ</span>
+            <div>
+              <div class="text-xs font-bold text-[#171717]">พิมดาว (นางเอก)</div>
+              <div class="text-[10px] text-stone-400">บทบาท: บรรณาธิการสาวผู้เงียบขรึม</div>
+            </div>
+          </div>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            อายุ 27 ปี นิสัยรักสงบ ช่างสังเกต พูดจาสุภาพแต่เด็ดขาด มีแผลใจจากความรักในอดีต มักจะชอบจิบชาคาโมมายล์ยามค่ำคืน
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl border border-black/[0.06] bg-stone-50/50">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">พ</span>
+            <div>
+              <div class="text-xs font-bold text-[#171717]">พันแสง (พระเอก)</div>
+              <div class="text-[10px] text-stone-400">บทบาท: สถาปนิกหนุ่มทายาทเจ้าของสวนผลไม้</div>
+            </div>
+          </div>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            อายุ 29 ปี บุคลิกอบอุ่น ขี้เล่นแต่จริงจังกับงาน รักธรรมชาติ เป็นคนไม่ยอมแพ้ต่ออุปสรรคและพยายามตามจีบพิมดาวอย่างอดทน
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: READAWRITE SYNC -->
+    <div id="view-readawrite" class="tab-view hidden mt-5 bg-white rounded-3xl border border-black/[0.08] p-6 shadow-xs">
+      <h2 class="text-base font-bold text-[#171717] pb-2 border-b border-black/[0.06]">การเชื่อมต่อบัญชี ReadAWrite.com</h2>
+      <div class="mt-4 space-y-4 max-w-lg text-xs">
+        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+            <div>
+              <div class="font-bold text-emerald-900">สถานะ: เชื่อมต่อสำเร็จ (Active)</div>
+              <div class="text-[11px] text-emerald-700">นามปากกา: นักเขียนพันล้าน · บัญชี ID: raw_usr_8829</div>
+            </div>
+          </div>
+          <button onclick="showToast('ทดสอบการเชื่อมต่อ Playwright สำเร็จ 100%')" class="px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-semibold">ทดสอบซิงค์</button>
+        </div>
+
+        <div class="space-y-3">
+          <div>
+            <label class="font-bold text-stone-600 block mb-1">ReadAWrite Session Token (หรือคุกกี้เข้าสู่ระบบ)</label>
+            <input type="password" value="raw_session_jwt_99182374982734" readonly class="w-full px-3.5 py-2.5 rounded-xl border border-black/[0.1] bg-stone-100 font-mono text-stone-500">
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="checkbox" id="autoPublish" checked class="rounded">
+            <label for="autoPublish" class="font-medium text-stone-700">ส่งตอนขึ้น ReadAWrite อัตโนมัติทันทีที่แต่งเสร็จ</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: PLAN & QUOTA -->
+    <div id="view-quota" class="tab-view hidden mt-5 bg-white rounded-3xl border border-black/[0.08] p-6 shadow-xs">
+      <h2 class="text-base font-bold text-[#171717] pb-2 border-b border-black/[0.06]">แพ็กเกจ & โควต้าคำ (Plan & Quota)</h2>
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+        <div class="p-5 rounded-2xl border border-indigo-200 bg-indigo-50/30">
+          <span class="text-[10px] font-bold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded-full">แพ็กเกจปัจจุบัน</span>
+          <h3 class="text-xl font-bold text-indigo-900 mt-2">Pro Story Creator</h3>
+          <p class="text-stone-500 mt-1">แต่งนิยาย 10 ตอนจบได้ 10 เล่ม/เดือน พร้อมฟังก์ชันส่ง ReadAWrite</p>
+          <div class="mt-4 pt-3 border-t border-indigo-100 flex justify-between font-medium">
+            <span>วันหมดอายุแพ็กเกจ:</span>
+            <strong class="text-indigo-950">2026-11-28 (เหลือ 31 วัน)</strong>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="font-bold text-stone-800">ต้องการเพิ่มโควต้าแต่งนิยาย?</h4>
+          <p class="text-stone-500 leading-relaxed">
+            คุณสามารถอัปเกรดเป็นแพ็กเกจ VIP เพื่อแต่งได้ไม่จำกัด หรือซื้อเหรียญโควต้าเพิ่ม สลิปจะได้รับการอนุมัติอัตโนมัติผ่าน PromptPay
+          </p>
+          <button onclick="showToast('เปิดหน้าต่างชำระเงิน PromptPay QR')" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition-all shadow-xs cursor-pointer">
+            อัปเกรดเป็น VIP Unlimited →
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function toggleSaasDropdown() {
+      const menu = document.getElementById('saasMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-view').forEach(v => v.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('bg-[#171717]', 'text-white');
+        b.classList.add('text-stone-600');
+      });
+
+      const activeView = document.getElementById('view-' + tabId);
+      const activeBtn = document.getElementById('tab-' + tabId);
+      if (activeView) activeView.classList.remove('hidden');
+      if (activeBtn) {
+        activeBtn.classList.add('bg-[#171717]', 'text-white');
+        activeBtn.classList.remove('text-stone-600');
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.innerText = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
